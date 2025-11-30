@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.title">Séb | Artiste & Dev</title>
+    <meta name="description" content="Portfolio de Séb Cô : Artiste et dev" data-i18n="meta.description">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+
+    <div class="lang-switcher">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <div class="theme-switcher">
+        <button class="theme-btn" data-theme="red" style="background-color: #ff0000;" aria-label="Thème Rouge"></button>
+        <button class="theme-btn" data-theme="yellow" style="background-color: #ffff00;"
+            aria-label="Thème Jaune"></button>
+        <button class="theme-btn" data-theme="green" style="background-color: #00ff00;"
+            aria-label="Thème Vert"></button>
+        <button class="theme-btn" data-theme="magenta" style="background-color: #ff00ff;"
+            aria-label="Thème Magenta"></button>
+        <button class="theme-btn" data-theme="orange" style="background-color: #ff8000;"
+            aria-label="Thème Orange"></button>
+        <button class="theme-btn" data-theme="cyan" style="background-color: #00ffff;" aria-label="Thème Cyan"></button>
+        <button class="theme-btn" data-theme="white" style="background-color: #ffffff;"
+            aria-label="Thème Blanc"></button>
+    </div>
+
+    <header class="hero">
+        <nav class="main-nav">
+            <div class="logo">&lt;Séb /&gt;</div>
+            <ul class="nav-links">
+                <li><a href="#bio" data-i18n="nav.bio">Bio</a></li>
+                <li><a href="#art" data-i18n="nav.art">Art</a></li>
+                <li><a href="#dev" data-i18n="nav.dev">Dev</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <h1 class="glitch" data-text="SÉB" data-i18n="hero.title">SÉB</h1>
+            <p class="subtitle">
+                <span class="highlight-art" data-i18n="hero.subtitle_art">ARTISTE</span>
+                <span class="separator">x</span>
+                <span class="highlight-dev" data-i18n="hero.subtitle_dev">DÉVELOPPEUR</span>
+            </p>
+            <p class="tagline" data-i18n="hero.tagline">Créateur coloré la nuit, Codeur le jour.</p>
+        </div>
+
+        <div class="scroll-indicator">
+            <span data-i18n="hero.scroll">SCROLL</span>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <main>
+        <section id="bio" class="section bio-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="bio.title">01. QUI SUIS-JE ?</h2>
+                <div class="bio-content">
+                    <div class="bio-text">
+                        <p data-i18n="bio.p1">Salut, je suis <span class="text-highlight">Séb</span>. Avant tout
+                            musicien, artiste visuel et auteur, j'ai aussi exploré le monde politique.</p>
+                        <p data-i18n="bio.p2">Je ne choisis pas entre le rouge et le bleu. Je prends tout le spectre.
+                            Toujours habillé de couleurs chaudes ou fluo, je porte mon énergie sur moi.</p>
+                        <p data-i18n="bio.p3">Le code est pour moi une extension de mon art. Que ce soit en composant un
+                            morceau expérimental, en écrivant un conte ou en architecturant une application web, je
+                            cherche toujours à créer quelque chose d'unique et de vibrant.</p>
+                    </div>
+                    <div class="bio-visual">
+                        <!-- Placeholder for a dynamic visual or photo -->
+                        <div class="avatar-placeholder">
+                            <div class="shape shape-1"></div>
+                            <div class="shape shape-2"></div>
+                            <div class="shape shape-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="art" class="section art-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="art.title">02. L'UNIVERS ARTISTIQUE</h2>
+                <div class="art-gallery">
+                    <div class="art-item music">
+                        <div class="art-content">
+                            <h3 data-i18n="art.music.title">Musique</h3>
+                            <p data-i18n="art.music.desc">Compositions électroniques et expérimentales.</p>
+                            <div class="media-placeholder">SoundCloud / Spotify Embed</div>
+                        </div>
+                    </div>
+                    <div class="art-item video">
+                        <div class="art-content">
+                            <h3 data-i18n="art.video.title">Vidéo</h3>
+                            <p data-i18n="art.video.desc">Montages, glitch art et réalisations visuelles.</p>
+                            <div class="media-placeholder">YouTube / Vimeo Embed</div>
+                        </div>
+                    </div>
+                    <div class="art-item other">
+                        <div class="art-content">
+                            <h3 data-i18n="art.writings.title">Écrits</h3>
+                            <p data-i18n="art.writings.desc">Poésie, contes et réflexions.</p>
+                            <div class="media-placeholder">Extrait ou Lien Blog</div>
+                        </div>
+                    </div>
+                    <div class="art-item other">
+                        <div class="art-content">
+                            <h3 data-i18n="art.installations.title">Installations</h3>
+                            <p data-i18n="art.installations.desc">Projets interactifs mêlant code et réel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="dev" class="section dev-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="dev.title">03. L'UNIVERS DEV</h2>
+                <div class="projects-grid">
+                    <article class="project-card dev-card">
+                        <div class="card-header">
+                            <span class="folder-icon">📁</span>
+                            <div class="links">
+                                <a href="#" target="_blank" aria-label="GitHub">GitHub</a>
+                                <a href="#" target="_blank" aria-label="Demo">Demo</a>
+                            </div>
+                        </div>
+                        <h3 data-i18n="dev.project1.title">Projet Web App</h3>
+                        <p data-i18n="dev.project1.desc">Une application web moderne construite avec les dernières
+                            technos. Performance et esthétique.</p>
+                        <ul class="tech-list">
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>Sass</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card dev-card">
+                        <div class="card-header">
+                            <span class="folder-icon">📁</span>
+                            <div class="links">
+                                <a href="#" target="_blank" aria-label="GitHub">GitHub</a>
+                            </div>
+                        </div>
+                        <h3 data-i18n="dev.project2.title">Outil CLI</h3>
+                        <p data-i18n="dev.project2.desc">Un outil en ligne de commande pour automatiser des tâches
+                            créatives.</p>
+                        <ul class="tech-list">
+                            <li>Rust</li>
+                            <li>CLI</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card dev-card">
+                        <div class="card-header">
+                            <span class="folder-icon">📁</span>
+                            <div class="links">
+                                <a href="#" target="_blank" aria-label="GitHub">GitHub</a>
+                            </div>
+                        </div>
+                        <h3 data-i18n="dev.project3.title">Expérimentation 3D</h3>
+                        <p data-i18n="dev.project3.desc">Webgl et shaders pour des visuels interactifs dans le
+                            navigateur.</p>
+                        <ul class="tech-list">
+                            <li>Three.js</li>
+                            <li>GLSL</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="cta-container">
+                    <a href="https://github.com/" target="_blank" class="btn btn-dev" data-i18n="dev.cta">Voir mon
+                        GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="archives" class="section archives-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="archives.title">03.5. MÉMOIRE & ARCHIVES</h2>
+                <p class="section-intro" data-i18n="archives.intro">Une collection de fragments, de vieux projets et de
+                    souvenirs numériques. Pour la postérité.</p>
+                <div class="archives-grid">
+                    <div class="archive-item">
+                        <span class="archive-date">2020</span>
+                        <h4 data-i18n="archives.item1.title">Projet Alpha</h4>
+                        <p data-i18n="archives.item1.desc">Première tentative de...</p>
+                    </div>
+                    <div class="archive-item">
+                        <span class="archive-date">2018</span>
+                        <h4 data-i18n="archives.item2.title">Concert Sous-sol</h4>
+                        <p data-i18n="archives.item2.desc">Live set expérimental.</p>
+                    </div>
+                    <div class="archive-item">
+                        <span class="archive-date">2015</span>
+                        <h4 data-i18n="archives.item3.title">Old School Site</h4>
+                        <p data-i18n="archives.item3.desc">Mon premier site en HTML pur.</p>
+                    </div>
+                    <!-- Ajouter d'autres archives ici -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="contact.title">04. CONTACT</h2>
+                <p class="contact-text" data-i18n="contact.text">Un projet ? Une collab ? Ou juste envie de parler
+                    couleurs ?</p>
+                <a href="mailto:seb@example.com" class="btn btn-contact" data-i18n="contact.btn">Me dire bonjour</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-i18n="footer.text">Conçu & Codé par Séb. &copy; 2024</p>
+            <div class="socials">
+                <a href="#">GitHub</a>
+                <a href="#">Instagram</a>
+                <a href="#">SoundCloud</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

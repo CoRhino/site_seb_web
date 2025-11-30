@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "title": "Séb | Artiste & Dev",
+        "description": "Portfolio de Séb Cô : Artiste et dev"
+    },
+    "nav": {
+        "bio": "Bio",
+        "art": "Art",
+        "dev": "Dev",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "SÉB",
+        "subtitle_art": "ARTISTE",
+        "subtitle_dev": "DÉVELOPPEUR",
+        "tagline": "Créateur coloré la nuit, Codeur le jour.",
+        "scroll": "SCROLL"
+    },
+    "bio": {
+        "title": "01. QUI SUIS-JE ?",
+        "p1": "Salut, je suis <span class=\"text-highlight\">Séb</span>. Avant tout musicien, artiste visuel et auteur, j'ai aussi exploré le monde politique.",
+        "p2": "Je ne choisis pas entre le rouge et le bleu. Je prends tout le spectre. Toujours habillé de couleurs chaudes ou fluo, je porte mon énergie sur moi.",
+        "p3": "Le code est pour moi une extension de mon art. Que ce soit en composant un morceau expérimental, en écrivant un conte ou en architecturant une application web, je cherche toujours à créer quelque chose d'unique et de vibrant."
+    },
+    "art": {
+        "title": "02. L'UNIVERS ARTISTIQUE",
+        "music": {
+            "title": "Musique",
+            "desc": "Compositions électroniques et expérimentales."
+        },
+        "video": {
+            "title": "Vidéo",
+            "desc": "Montages, glitch art et réalisations visuelles."
+        },
+        "writings": {
+            "title": "Écrits",
+            "desc": "Poésie, contes et réflexions."
+        },
+        "installations": {
+            "title": "Installations",
+            "desc": "Projets interactifs mêlant code et réel."
+        }
+    },
+    "dev": {
+        "title": "03. L'UNIVERS DEV",
+        "project1": {
+            "title": "Projet Web App",
+            "desc": "Une application web moderne construite avec les dernières technos. Performance et esthétique."
+        },
+        "project2": {
+            "title": "Outil CLI",
+            "desc": "Un outil en ligne de commande pour automatiser des tâches créatives."
+        },
+        "project3": {
+            "title": "Expérimentation 3D",
+            "desc": "Webgl et shaders pour des visuels interactifs dans le navigateur."
+        },
+        "cta": "Voir mon GitHub"
+    },
+    "archives": {
+        "title": "03.5. MÉMOIRE & ARCHIVES",
+        "intro": "Une collection de fragments, de vieux projets et de souvenirs numériques. Pour la postérité.",
+        "item1": {
+            "title": "Projet Alpha",
+            "desc": "Première tentative de..."
+        },
+        "item2": {
+            "title": "Concert Sous-sol",
+            "desc": "Live set expérimental."
+        },
+        "item3": {
+            "title": "Old School Site",
+            "desc": "Mon premier site en HTML pur."
+        }
+    },
+    "contact": {
+        "title": "04. CONTACT",
+        "text": "Un projet ? Une collab ? Ou juste envie de parler couleurs ?",
+        "btn": "Me dire bonjour"
+    },
+    "footer": {
+        "text": "Conçu & Codé par Séb. &copy; 2024"
+    }
+}

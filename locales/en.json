@@ -1,0 +1,84 @@
+{
+    "meta": {
+        "title": "Séb | Artist & Dev",
+        "description": "Séb Cô Portfolio: Artist and Dev"
+    },
+    "nav": {
+        "bio": "Bio",
+        "art": "Art",
+        "dev": "Dev",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "SÉB",
+        "subtitle_art": "ARTIST",
+        "subtitle_dev": "DEVELOPER",
+        "tagline": "Colorful creator by night, Coder by day.",
+        "scroll": "SCROLL"
+    },
+    "bio": {
+        "title": "01. WHO AM I?",
+        "p1": "Hi, I'm <span class=\"text-highlight\">Séb</span>. First and foremost a musician, visual artist, and writer, I've also explored the political world.",
+        "p2": "I don't choose between red and blue. I take the whole spectrum. Always dressed in warm or neon colors, I wear my energy.",
+        "p3": "Code is an extension of my art. Whether composing an experimental track, writing a tale, or architecting a web app, I always seek to create something unique and vibrant."
+    },
+    "art": {
+        "title": "02. ARTISTIC UNIVERSE",
+        "music": {
+            "title": "Music",
+            "desc": "Electronic and experimental compositions."
+        },
+        "video": {
+            "title": "Video",
+            "desc": "Editing, glitch art, and visual creations."
+        },
+        "writings": {
+            "title": "Writings",
+            "desc": "Poetry, tales, and reflections."
+        },
+        "installations": {
+            "title": "Installations",
+            "desc": "Interactive projects blending code and reality."
+        }
+    },
+    "dev": {
+        "title": "03. DEV UNIVERSE",
+        "project1": {
+            "title": "Web App Project",
+            "desc": "A modern web application built with the latest tech. Performance and aesthetics."
+        },
+        "project2": {
+            "title": "CLI Tool",
+            "desc": "A command-line tool to automate creative tasks."
+        },
+        "project3": {
+            "title": "3D Experimentation",
+            "desc": "WebGL and shaders for interactive visuals in the browser."
+        },
+        "cta": "View my GitHub"
+    },
+    "archives": {
+        "title": "03.5. MEMORY & ARCHIVES",
+        "intro": "A collection of fragments, old projects, and digital memories. For posterity.",
+        "item1": {
+            "title": "Project Alpha",
+            "desc": "First attempt at..."
+        },
+        "item2": {
+            "title": "Basement Gig",
+            "desc": "Experimental live set."
+        },
+        "item3": {
+            "title": "Old School Site",
+            "desc": "My first pure HTML site."
+        }
+    },
+    "contact": {
+        "title": "04. CONTACT",
+        "text": "A project? A collab? Or just want to talk colors?",
+        "btn": "Say Hello"
+    },
+    "footer": {
+        "text": "Designed & Coded by Séb. &copy; 2024"
+    }
+}

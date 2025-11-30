@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System - Séb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-top: 80px;
+            background-color: var(--bg-color);
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Override for Design Page: Top Right & Bigger */
+        .theme-switcher {
+            bottom: auto !important;
+            top: 20px !important;
+            right: 20px !important;
+            transform: scale(1.2);
+            /* Even bigger for this page */
+        }
+
+        .design-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .color-swatch {
+            height: 100px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .typo-sample {
+            margin-bottom: 2rem;
+        }
+
+        .component-row {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+
+    <!-- Reuse Theme Switcher -->
+    <div class="theme-switcher">
+        <button class="theme-btn" data-theme="red" style="background-color: #ff0000;" aria-label="Thème Rouge"></button>
+        <button class="theme-btn" data-theme="yellow" style="background-color: #ffff00;"
+            aria-label="Thème Jaune"></button>
+        <button class="theme-btn" data-theme="green" style="background-color: #00ff00;"
+            aria-label="Thème Vert"></button>
+        <button class="theme-btn" data-theme="magenta" style="background-color: #ff00ff;"
+            aria-label="Thème Magenta"></button>
+        <button class="theme-btn" data-theme="orange" style="background-color: #ff8000;"
+            aria-label="Thème Orange"></button>
+        <button class="theme-btn" data-theme="cyan" style="background-color: #00ffff;" aria-label="Thème Cyan"></button>
+        <button class="theme-btn" data-theme="white" style="background-color: #ffffff;"
+            aria-label="Thème Blanc"></button>
+    </div>
+
+    <div class="container">
+        <header style="margin-bottom: 4rem;">
+            <h1 class="glitch" data-text="DESIGN">DESIGN</h1>
+            <p class="subtitle">SYSTÈME & COMPOSANTS</p>
+        </header>
+
+        <section class="design-section">
+            <h2 class="section-title">01. COULEURS</h2>
+            <div class="color-grid">
+                <div class="color-swatch" style="background: var(--bg-color); color: var(--text-primary)">--bg-color
+                </div>
+                <div class="color-swatch" style="background: var(--bg-secondary); color: var(--text-primary)">
+                    --bg-secondary</div>
+                <div class="color-swatch" style="background: var(--text-primary); color: var(--bg-color)">--text-primary
+                </div>
+                <div class="color-swatch" style="background: var(--text-secondary); color: var(--bg-color)">
+                    --text-secondary</div>
+                <div class="color-swatch" style="background: var(--accent-red); color: #000">--accent-red</div>
+                <div class="color-swatch" style="background: var(--accent-orange); color: #000">--accent-orange</div>
+                <div class="color-swatch" style="background: var(--accent-yellow); color: #000">--accent-yellow</div>
+                <div class="color-swatch" style="background: var(--accent-green); color: #000">--accent-green</div>
+            </div>
+        </section>
+
+        <section class="design-section">
+            <h2 class="section-title">02. TYPOGRAPHIE</h2>
+            <div class="typo-sample">
+                <h1>Heading 1 - Glitch Title</h1>
+                <h2 class="section-title">Heading 2 - Section Title</h2>
+                <h3>Heading 3 - Card Title</h3>
+                <h4>Heading 4 - Archive Title</h4>
+                <p>Paragraph text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span
+                        class="text-highlight">Highlight text</span> inside a paragraph. Sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.</p>
+                <p class="tagline">Tagline style text.</p>
+                <p style="font-family: var(--font-mono)">Monospace text for code or technical details.</p>
+            </div>
+        </section>
+
+        <section class="design-section">
+            <h2 class="section-title">03. BOUTONS & LIENS</h2>
+            <div class="component-row">
+                <a href="#" class="btn">Bouton Standard</a>
+                <a href="#" class="btn btn-contact">Bouton Contact</a>
+                <a href="#" class="btn" style="border-style: dashed;">Autre Style</a>
+            </div>
+        </section>
+
+        <section class="design-section">
+            <h2 class="section-title">04. CARTES</h2>
+            <div class="projects-grid">
+                <article class="project-card dev-card">
+                    <div class="card-header">
+                        <span class="folder-icon">📁</span>
+                        <div class="links">
+                            <a href="#">Link</a>
+                        </div>
+                    </div>
+                    <h3>Carte Projet Dev</h3>
+                    <p>Description du projet de développement.</p>
+                    <ul class="tech-list">
+                        <li>Tech 1</li>
+                        <li>Tech 2</li>
+                    </ul>
+                </article>
+
+                <div class="art-item music">
+                    <div class="art-content">
+                        <h3>Carte Art (Musique)</h3>
+                        <p>Description art.</p>
+                        <div class="media-placeholder">Media</div>
+                    </div>
+                </div>
+
+                <div class="archive-item">
+                    <span class="archive-date">2024</span>
+                    <h4>Carte Archive</h4>
+                    <p>Souvenir ou vieux projet.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
