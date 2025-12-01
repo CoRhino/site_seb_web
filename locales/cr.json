@@ -1,0 +1,23 @@
+{
+    "ananas": {
+        "meta": {
+            "title": "Ananas Day"
+        },
+        "title": "ANANAS DAY",
+        "subtitle": "Miyâwâtamowin.",
+        "flag": {
+            "title": "KISKINOWÂPIMIN",
+            "desc": "Osâwâw. Askihkwayaw. (Yellow. Green.)"
+        },
+        "concept": {
+            "title": "MÂMINTONEYIHCIGAN",
+            "desc": "A day to celebrate unity."
+        },
+        "values": {
+            "title": "KISTÊYIHTÂKWAN",
+            "1": "Wîcêwâkan",
+            "2": "Wîhkasin",
+            "3": "Kîskâ"
+        }
+    }
+}
