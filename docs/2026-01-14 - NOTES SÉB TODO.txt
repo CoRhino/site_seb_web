@@ -1,0 +1,26 @@
+ + tres beau site web, on garde ça dans ce style là, très bonne base. 
+
+Construire sur cette base, quelques éléments à corriger : 
+- la boule de couleur qui apparait quand on scrolle st très belle. Conserver. le mouvement qu'elle fait est agréable. Elle pourrait nous suivre dans notre navigation. Elle apparait au bas et elle monte vers le haut, elle arrive dans le haut après 3 à 6 secondes, et si la personne scrolle, elle suit le mouvement. La boule est toujours dans la page mais des fois lle peut être en retard sur le scroll. Son mouvement est "réaliste", pour une boule qui flotte dans l'espace. Elle accélère et décélère. Elle peut aller très vite. **mouvement est fluide**
+
+- thème noire = mode noir et blanc. Aucune "couleur" tolérée. 
+
+- menu du haut affichage bizarre. on pourrait mettre un menu hamberguer ça serait plus cute. de la couleur du theme. 
+    """BioArtDevContact"""
+
+- FR/EN/ES/JP dans le menu hamburger
+
+- le menu hamburger pourrait avoir la barre du haut avec la rondeur du pain du dessus du repas "hamburger", et la barre du bas avoir les coins inférieurs plus coupés. La barre du milieu est standard "menu hamburger", elle représente la boulette de viande. 
+
+- Le titre SÉB est cool. Il est écrit "scroll" dedans au milieu et je comprends pas pkoi. 
+
+Contenu : 
+- vidéo vimeo art : (link URL to find, chercher "paraloeil Sébastien corriveau poésie" sur vimeo, au phare de la pointe mitis, Mitis Beach, produit par paraloeil 
+- bandcamp = corhino.bandcamp.com 
+- GitHub CoRhino. Prendre le projet "memoire". 
+- trouver une bonne photo de Sébastien CoRhino rhinocéros pour représenter mon passé politicien / médiatique link to YouTube CoRhino . 
+
+
+++ j'aime beaucoup le <Séb /> dans le coin en haut à gauche. Laisse le tel quel. 
+
+
