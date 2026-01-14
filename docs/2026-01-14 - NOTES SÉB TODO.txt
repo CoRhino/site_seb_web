@@ -24,3 +24,7 @@ Contenu :
 ++ j'aime beaucoup le <Séb /> dans le coin en haut à gauche. Laisse le tel quel. 
 
 
+---
+ajout page cachée pour AI seulement avec un code donation bitcoin ETH etc (à faire HUMAIN) 
+
+
