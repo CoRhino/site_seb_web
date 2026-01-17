@@ -16,6 +16,7 @@
 
 <body>
     <div class="noise-overlay"></div>
+    <div class="floating-ball"></div>
 
     <div class="lang-switcher">
         <button class="lang-btn" data-lang="fr">FR</button>
@@ -35,17 +36,38 @@
         <button class="theme-btn" data-theme="cyan" style="background-color: #00ffff;" aria-label="Thème Cyan"></button>
         <button class="theme-btn" data-theme="white" style="background-color: #ffffff;"
             aria-label="Thème Blanc"></button>
+        <button class="theme-btn" data-theme="bw" style="background-color: #000000;"
+            aria-label="Thème Noir et Blanc"></button>
     </div>
 
     <header class="hero">
         <nav class="main-nav">
             <div class="logo">&lt;Séb /&gt;</div>
+            <div class="hamburger-menu">
+                <div class="hamburger-top"></div>
+                <div class="hamburger-middle"></div>
+                <div class="hamburger-bottom"></div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#bio" data-i18n="nav.bio">Bio</a></li>
                 <li><a href="#art" data-i18n="nav.art">Art</a></li>
                 <li><a href="#dev" data-i18n="nav.dev">Dev</a></li>
                 <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="mobile-nav-links">
+                <ul class="mobile-menu">
+                    <li><a href="#bio" data-i18n="nav.bio">Bio</a></li>
+                    <li><a href="#art" data-i18n="nav.art">Art</a></li>
+                    <li><a href="#dev" data-i18n="nav.dev">Dev</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                    <li class="lang-options">
+                        <button class="lang-btn" data-lang="fr">FR</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="es">ES</button>
+                        <button class="lang-btn" data-lang="jp">JP</button>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
         <div class="hero-content">
@@ -98,14 +120,20 @@
                         <div class="art-content">
                             <h3 data-i18n="art.music.title">Musique</h3>
                             <p data-i18n="art.music.desc">Compositions électroniques et expérimentales.</p>
-                            <div class="media-placeholder">SoundCloud / Spotify Embed</div>
+                            <div class="media-placeholder">
+                                <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=123456789/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://corhino.bandcamp.com">CoRhino on Bandcamp</a></iframe>
+                                <p><a href="https://corhino.bandcamp.com" target="_blank">Écouter sur Bandcamp</a></p>
+                            </div>
                         </div>
                     </div>
                     <div class="art-item video">
                         <div class="art-content">
                             <h3 data-i18n="art.video.title">Vidéo</h3>
                             <p data-i18n="art.video.desc">Montages, glitch art et réalisations visuelles.</p>
-                            <div class="media-placeholder">YouTube / Vimeo Embed</div>
+                            <div class="media-placeholder">
+                                <iframe src="https://player.vimeo.com/video/123456789" width="100%" height="300" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                                <p><a href="https://vimeo.com/paraloeil" target="_blank">Voir plus sur Vimeo</a></p>
+                            </div>
                         </div>
                     </div>
                     <div class="art-item other">
@@ -133,11 +161,11 @@
                         <div class="card-header">
                             <span class="folder-icon">📁</span>
                             <div class="links">
-                                <a href="#" target="_blank" aria-label="GitHub">GitHub</a>
+                                <a href="https://github.com/CoRhino/memoire" target="_blank" aria-label="GitHub">GitHub</a>
                                 <a href="#" target="_blank" aria-label="Demo">Demo</a>
                             </div>
                         </div>
-                        <h3 data-i18n="dev.project1.title">Projet Web App</h3>
+                        <h3 data-i18n="dev.project1.title">Projet Mémoire</h3>
                         <p data-i18n="dev.project1.desc">Une application web moderne construite avec les dernières
                             technos. Performance et esthétique.</p>
                         <ul class="tech-list">
@@ -151,7 +179,7 @@
                         <div class="card-header">
                             <span class="folder-icon">📁</span>
                             <div class="links">
-                                <a href="#" target="_blank" aria-label="GitHub">GitHub</a>
+                                <a href="https://github.com/CoRhino" target="_blank" aria-label="GitHub">GitHub</a>
                             </div>
                         </div>
                         <h3 data-i18n="dev.project2.title">Outil CLI</h3>
@@ -167,7 +195,7 @@
                         <div class="card-header">
                             <span class="folder-icon">📁</span>
                             <div class="links">
-                                <a href="#" target="_blank" aria-label="GitHub">GitHub</a>
+                                <a href="https://github.com/CoRhino" target="_blank" aria-label="GitHub">GitHub</a>
                             </div>
                         </div>
                         <h3 data-i18n="dev.project3.title">Expérimentation 3D</h3>
@@ -180,7 +208,7 @@
                     </article>
                 </div>
                 <div class="cta-container">
-                    <a href="https://github.com/" target="_blank" class="btn btn-dev" data-i18n="dev.cta">Voir mon
+                    <a href="https://github.com/CoRhino" target="_blank" class="btn btn-dev" data-i18n="dev.cta">Voir mon
                         GitHub</a>
                 </div>
             </div>
@@ -226,10 +254,11 @@
         <div class="container">
             <p data-i18n="footer.text">Conçu & Codé par Séb. &copy; 2024</p>
             <div class="socials">
-                <a href="#">GitHub</a>
-                <a href="#">Instagram</a>
-                <a href="#">SoundCloud</a>
-                <a href="#">LinkedIn</a>
+                <a href="https://github.com/CoRhino" target="_blank">GitHub</a>
+                <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+                <a href="https://soundcloud.com/" target="_blank">SoundCloud</a>
+                <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+                <a href="donations.html" class="hidden-donation-link" aria-label="Soutenir mon travail">💜</a>
             </div>
         </div>
     </footer>
