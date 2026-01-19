@@ -90,16 +90,112 @@ body.theme-cyan {
 }
 
 /* White */
-body.theme-white {
-    --bg-color: #ffffff;
-    --bg-secondary: #f0f0f0;
-    --text-primary: #000000;
-    --text-secondary: #555555;
-    --accent-green: #000000;
-    /* Main accent becomes Black/Gray */
-    --accent-red: #ff0000;
-    --accent-orange: #ff8000;
-    --accent-yellow: #ffd700;
+/* Rainbow Theme - Very colorful and dynamic */
+body.theme-rainbow {
+    --bg-color: #0a0a0a;
+    --bg-secondary: #111111;
+    --text-primary: #e0e0e0;
+    --text-secondary: #888888;
+    
+    /* Rainbow colors - ordered from top to bottom of page */
+    --accent-red: #ff0000;      /* Top - Red */
+    --accent-orange: #ff7f00;   /* Orange */
+    --accent-yellow: #ffff00;   /* Yellow */
+    --accent-green: #00ff00;    /* Green */
+    --accent-blue: #0000ff;     /* Blue */
+    --accent-indigo: #4b0082;   /* Indigo */
+    --accent-violet: #9400d3;   /* Violet - Bottom */
+}
+
+/* Rainbow theme specific styling */
+body.theme-rainbow {
+    background: linear-gradient(180deg, 
+        rgba(255,0,0,0.1) 0%,
+        rgba(255,127,0,0.1) 14%,
+        rgba(255,255,0,0.1) 28%,
+        rgba(0,255,0,0.1) 42%,
+        rgba(0,0,255,0.1) 56%,
+        rgba(75,0,130,0.1) 70%,
+        rgba(148,0,211,0.1) 84%,
+        rgba(0,0,0,0.2) 100%);
+}
+
+body.theme-rainbow .section:nth-child(1) {
+    border-top: 1px solid var(--accent-red);
+}
+
+body.theme-rainbow .section:nth-child(2) {
+    border-top: 1px solid var(--accent-orange);
+}
+
+body.theme-rainbow .section:nth-child(3) {
+    border-top: 1px solid var(--accent-yellow);
+}
+
+body.theme-rainbow .section:nth-child(4) {
+    border-top: 1px solid var(--accent-green);
+}
+
+body.theme-rainbow .section:nth-child(5) {
+    border-top: 1px solid var(--accent-blue);
+}
+
+body.theme-rainbow .section:nth-child(6) {
+    border-top: 1px solid var(--accent-indigo);
+}
+
+body.theme-rainbow .section:nth-child(7) {
+    border-top: 1px solid var(--accent-violet);
+}
+
+body.theme-rainbow .floating-ball {
+    background: conic-gradient(from 0deg, 
+        var(--accent-red),
+        var(--accent-orange),
+        var(--accent-yellow),
+        var(--accent-green),
+        var(--accent-blue),
+        var(--accent-indigo),
+        var(--accent-violet),
+        var(--accent-red));
+    animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+body.theme-rainbow .hamburger-top {
+    background: var(--accent-red);
+}
+
+body.theme-rainbow .hamburger-middle {
+    background: var(--accent-yellow);
+}
+
+body.theme-rainbow .hamburger-bottom {
+    background: var(--accent-blue);
+}
+
+body.theme-rainbow .nav-links a:hover {
+    color: var(--accent-violet);
+}
+
+body.theme-rainbow .btn {
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+body.theme-rainbow .btn:hover {
+    background: linear-gradient(90deg, 
+        rgba(255,0,0,0.1),
+        rgba(255,127,0,0.1),
+        rgba(255,255,0,0.1),
+        rgba(0,255,0,0.1),
+        rgba(0,0,255,0.1),
+        rgba(75,0,130,0.1),
+        rgba(148,0,211,0.1));
 }
 
 /* Black and White */
@@ -208,24 +304,26 @@ body.theme-bw .lang-btn:hover {
     width: 100%;
     height: 4px;
     background-color: var(--accent-green);
-    border-radius: 2px;
     transition: all 0.3s ease;
 }
 
-/* Custom hamburger shapes - top bun with rounded top, bottom bun with cut corners */
+/* Custom hamburger shapes - food metaphor */
 .hamburger-top {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
 }
 
+.hamburger-middle {
+    border-radius: 2px;
+}
+
 .hamburger-bottom {
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 90% 100%, 10% 100%, 0% 80%);
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .hamburger-menu.active .hamburger-top {
@@ -257,6 +355,13 @@ body.theme-bw .lang-btn:hover {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.mobile-menu li {
+    margin-bottom: var(--spacing-md);
+    font-size: 2rem;
+    font-weight: bold;
+    list-style: none;
 }
 
 .mobile-menu li {
@@ -296,11 +401,17 @@ body.theme-bw .lang-btn:hover {
 .nav-links {
     display: flex;
     gap: var(--spacing-md);
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .nav-links a {
     font-family: var(--font-mono);
     font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -890,7 +1001,59 @@ footer {
     transform: scale(1.2);
 }
 
-/* Floating Color Ball */
+/* Top Right Hamburger Menu */
+.top-hamburger-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 200;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Hamburger bars with food metaphor */
+.top-hamburger-menu .hamburger-bar {
+    width: 25px;
+    height: 4px;
+    background-color: var(--accent-green);
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Top bun - rounded top like burger top bun */
+.top-hamburger-menu .hamburger-bar:nth-child(1) {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+/* Middle - standard "meat patty" */
+.top-hamburger-menu .hamburger-bar:nth-child(2) {
+    border-radius: 2px;
+}
+
+/* Bottom bun - squared top corners like burger bottom bun */
+.top-hamburger-menu .hamburger-bar:nth-child(3) {
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.top-hamburger-menu.active .hamburger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.top-hamburger-menu.active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.top-hamburger-menu.active .hamburger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Floating Color Ball - Now uses theme colors */
 .floating-ball {
     position: fixed;
     width: 50px;
@@ -903,6 +1066,53 @@ footer {
     opacity: 0.8;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     pointer-events: none;
+}
+
+/* Theme-specific ball colors */
+body.theme-red .floating-ball {
+    background: linear-gradient(45deg, #ff4d4d, #ff8080, #ff0000);
+}
+
+body.theme-yellow .floating-ball {
+    background: linear-gradient(45deg, #ffff66, #ffff99, #ffff00);
+}
+
+body.theme-green .floating-ball {
+    background: linear-gradient(45deg, #66ff66, #99ff99, #00ff00);
+}
+
+body.theme-magenta .floating-ball {
+    background: linear-gradient(45deg, #ff66ff, #ff99ff, #ff00ff);
+}
+
+body.theme-orange .floating-ball {
+    background: linear-gradient(45deg, #ff9933, #ffbb80, #ff6600);
+}
+
+body.theme-cyan .floating-ball {
+    background: linear-gradient(45deg, #66ffff, #99ffff, #00ffff);
+}
+
+body.theme-white .floating-ball {
+    background: linear-gradient(45deg, #cccccc, #e0e0e0, #ffffff);
+}
+
+body.theme-bw .floating-ball {
+    background: #000000;
+    background-size: auto;
+}
+
+body.theme-rainbow .floating-ball {
+    background: conic-gradient(from 0deg, 
+        var(--accent-red),
+        var(--accent-orange),
+        var(--accent-yellow),
+        var(--accent-green),
+        var(--accent-blue),
+        var(--accent-indigo),
+        var(--accent-violet),
+        var(--accent-red));
+    animation: spin 20s linear infinite;
 }
 
 @keyframes gradientShift {
@@ -1008,6 +1218,118 @@ footer {
 
 .theme-btn:hover {
     transform: scale(1.2);
+}
+
+/* Scrolling Mobile Menu */
+.scrolling-mobile-menu {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid var(--bg-secondary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 150;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.scrolling-mobile-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.scrolling-menu-content {
+    padding: 15px;
+}
+
+.scrolling-menu-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--bg-secondary);
+}
+
+.scrolling-hamburger-menu {
+    cursor: pointer;
+}
+
+.scrolling-hamburger-menu .hamburger-bar {
+    width: 20px;
+    height: 3px;
+    background-color: var(--accent-green);
+    margin: 3px 0;
+    transition: all 0.3s ease;
+}
+
+.scrolling-hamburger-menu .hamburger-bar:nth-child(1) {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+}
+
+.scrolling-hamburger-menu .hamburger-bar:nth-child(2) {
+    border-radius: 1px;
+}
+
+.scrolling-hamburger-menu .hamburger-bar:nth-child(3) {
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.menu-title {
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+}
+
+.scrolling-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.scrolling-nav-links li {
+    margin-bottom: 10px;
+}
+
+.scrolling-nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.scrolling-nav-links a:hover {
+    background-color: var(--bg-secondary);
+    color: var(--accent-green);
+}
+
+.scrolling-lang-options {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid var(--bg-secondary);
+}
+
+.scrolling-lang-options .lang-btn {
+    font-size: 0.8rem;
+    padding: 4px 8px;
 }
 
 /* Responsive */

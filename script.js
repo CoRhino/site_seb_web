@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let ballVelocity = { x: 0, y: 0 };
     let targetPosition = { x: 0, y: 100 };
     let lastScrollY = 0;
+    let lastScrollTime = 0;
+    let isScrolling = false;
+    let idleTimer = null;
     let animationId = null;
 
     if (floatingBall) {
@@ -41,29 +44,55 @@ document.addEventListener('DOMContentLoaded', () => {
         floatingBall.style.transform = `translate(${ballPosition.x}vw, ${ballPosition.y}vh) scale(0.5)`;
         floatingBall.style.opacity = '0.8';
 
-        // Animation loop
+        // Animation loop with improved physics
         function animateBall() {
+            const now = performance.now();
+            const deltaTime = now - (animationId || now);
+
             // Calculate distance to target
             const dx = targetPosition.x - ballPosition.x;
             const dy = targetPosition.y - ballPosition.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            // Apply acceleration based on distance (stronger when far away)
-            const acceleration = Math.min(distance * 0.01, 0.5);
-            ballVelocity.x += dx * acceleration;
-            ballVelocity.y += dy * acceleration;
+            // Improved physics with spring-like behavior
+            const springStrength = 0.008;
+            const damping = 0.92;
+            
+            // Spring force (Hooke's law: F = -kx)
+            const springForceX = dx * springStrength;
+            const springForceY = dy * springStrength;
 
-            // Apply friction
-            ballVelocity.x *= 0.9;
-            ballVelocity.y *= 0.9;
+            // Update velocity
+            ballVelocity.x += springForceX;
+            ballVelocity.y += springForceY;
+
+            // Apply damping (friction)
+            ballVelocity.x *= Math.pow(damping, deltaTime * 0.06);
+            ballVelocity.y *= Math.pow(damping, deltaTime * 0.06);
 
             // Update position
             ballPosition.x += ballVelocity.x;
             ballPosition.y += ballVelocity.y;
 
-            // Apply to element
-            const scale = 0.5 + (1 - Math.abs(ballVelocity.y) * 0.1); // Scale based on speed
-            floatingBall.style.transform = `translate(${ballPosition.x}vw, ${ballPosition.y}vh) scale(${scale})`;
+            // Add subtle organic movement when idle
+            if (!isScrolling && distance < 5) {
+                // Gentle breathing motion
+                const breathAmount = Math.sin(now * 0.002) * 0.5;
+                ballPosition.y += breathAmount * 0.1;
+                
+                // Occasional small random movements
+                if (Math.random() > 0.98) {
+                    ballVelocity.x += (Math.random() - 0.5) * 0.2;
+                    ballVelocity.y += (Math.random() - 0.5) * 0.1;
+                }
+            }
+
+            // Apply to element with improved scale and rotation
+            const speed = Math.sqrt(ballVelocity.x * ballVelocity.x + ballVelocity.y * ballVelocity.y);
+            const scale = 0.5 + Math.min(speed * 0.2, 0.5); // Scale based on speed
+            const rotation = Math.atan2(ballVelocity.y, ballVelocity.x) * 5; // Subtle rotation based on direction
+            
+            floatingBall.style.transform = `translate(${ballPosition.x}vw, ${ballPosition.y}vh) scale(${scale}) rotate(${rotation}deg)`;
 
             // Continue animation
             animationId = requestAnimationFrame(animateBall);
@@ -72,28 +101,61 @@ document.addEventListener('DOMContentLoaded', () => {
         // Start animation
         animateBall();
 
-        // Update target position on scroll
+        // Improved scroll handling - simpler and more reliable
         window.addEventListener('scroll', () => {
+            const now = performance.now();
+            isScrolling = true;
+            
+            // Clear any existing idle timer
+            if (idleTimer) {
+                clearTimeout(idleTimer);
+            }
+            
+            // Set new idle timer
+            idleTimer = setTimeout(() => {
+                isScrolling = false;
+            }, 200);
+
             const scrollY = window.scrollY;
             const scrollHeight = document.body.scrollHeight - window.innerHeight;
             const scrollPercentage = scrollY / scrollHeight;
 
-            // Set target position based on scroll
+            // Direct scroll following - no anticipation needed
             targetPosition.y = 100 - (scrollPercentage * 100);
             
-            // Add some randomness to x position for organic feel
-            if (Math.random() > 0.95) {
-                targetPosition.x = (Math.random() - 0.5) * 20; // -10 to 10 vw
-            }
+            // Add gentle organic movement based on scroll position
+            targetPosition.x = Math.sin(scrollPercentage * Math.PI * 2) * 6; // Gentle side-to-side movement
+            
+            // Store current scroll position for velocity calculation
+            lastScrollY = scrollY;
+            lastScrollTime = now;
         });
 
-        // Update target position on mouse move for interactive feel
+        // Improved mouse interaction
         window.addEventListener('mousemove', (e) => {
             const mouseX = e.clientX / window.innerWidth * 100; // Convert to vw
             const mouseY = e.clientY / window.innerHeight * 100; // Convert to vh
             
-            // Ball is attracted to mouse but not too strongly
-            targetPosition.x += (mouseX - targetPosition.x) * 0.01;
+            // Calculate distance from mouse to ball
+            const mouseDx = mouseX - ballPosition.x;
+            const mouseDy = mouseY - ballPosition.y;
+            const mouseDistance = Math.sqrt(mouseDx * mouseDx + mouseDy * mouseDy);
+            
+            // Ball is gently attracted to mouse when close
+            if (mouseDistance < 30) {
+                const attractionStrength = Math.min(0.005, 0.02 / (mouseDistance + 1));
+                targetPosition.x += mouseDx * attractionStrength;
+                targetPosition.y += mouseDy * attractionStrength;
+            }
+        });
+
+        // Add touch support for mobile
+        window.addEventListener('touchmove', (e) => {
+            const touchX = e.touches[0].clientX / window.innerWidth * 100;
+            const touchY = e.touches[0].clientY / window.innerHeight * 100;
+            
+            targetPosition.x += (touchX - targetPosition.x) * 0.02;
+            targetPosition.y += (touchY - targetPosition.y) * 0.02;
         });
     }
 
@@ -108,7 +170,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Hamburger Menu Toggle ---
+    // --- Top Left Hamburger Menu Toggle ---
+    const topHamburgerMenu = document.querySelector('.top-hamburger-menu');
+    const scrollingMobileMenu = document.querySelector('.scrolling-mobile-menu');
+    const scrollingHamburgerMenu = document.querySelector('.scrolling-hamburger-menu');
+
+    if (topHamburgerMenu && scrollingMobileMenu) {
+        topHamburgerMenu.addEventListener('click', () => {
+            topHamburgerMenu.classList.toggle('active');
+            scrollingMobileMenu.classList.toggle('active');
+        });
+
+        // Close scrolling menu when clicking on the hamburger inside it
+        if (scrollingHamburgerMenu) {
+            scrollingHamburgerMenu.addEventListener('click', () => {
+                topHamburgerMenu.classList.remove('active');
+                scrollingMobileMenu.classList.remove('active');
+            });
+        }
+
+        // Close scrolling menu when clicking on a link
+        const scrollingMenuLinks = document.querySelectorAll('.scrolling-nav-links a');
+        scrollingMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                topHamburgerMenu.classList.remove('active');
+                scrollingMobileMenu.classList.remove('active');
+            });
+        });
+    }
+
+    // --- Original Hamburger Menu Toggle (for mobile) ---
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const mobileNavLinks = document.querySelector('.mobile-nav-links');
     const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
@@ -255,6 +346,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 hamburgerMenu.classList.remove('active');
                 mobileNavLinks.classList.remove('active');
                 document.body.style.overflow = '';
+            }
+        });
+    });
+
+    // Add event listeners for scrolling menu language buttons
+    const scrollingLangBtns = document.querySelectorAll('.scrolling-lang-options .lang-btn');
+    scrollingLangBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            loadLanguage(lang);
+            
+            // Close scrolling menu after language change
+            if (topHamburgerMenu && scrollingMobileMenu) {
+                topHamburgerMenu.classList.remove('active');
+                scrollingMobileMenu.classList.remove('active');
             }
         });
     });
