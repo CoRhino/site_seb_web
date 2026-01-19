@@ -1,5 +1,13 @@
 
 
+
+## TODO 17 janvier 2026 - Soir
+- page "bio" pour mettre élémemnts officiels
+-- Top :  4 boutons arrondis au haut : "Musique", "Art", "Textes", "Autr'". Par défaut: tous sélectionnés. 
+-- comportement boutons : todo
+-- List all events (i should have a DB for that) de tous mes événements artistiques 
+
+
 ## TODO 17 janvier 2026
 
 AI vibe-mistral a implémenté les TODO du 14 janvier. ( git commit "git change 2026-01-17.1" )
