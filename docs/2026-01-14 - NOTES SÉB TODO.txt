@@ -1,6 +1,14 @@
 
 
-## TODO (next)
+## todo 21 janvier 
+
+- theme noir et blanc : boule blanche 
+
+
+## todo 20 janvier 
+- pages "bio" : musique / art / textes / tout --> boutons arrondis 
+-- où est le "database" de ça ? 
+
 - Ajouter AGENT.MD (filename : follow best practices) : user expérimenté et programmeur. besoin d'un assistant. follow best practices. PROD STRONG code. GIT commit après chaque itération. 
 - bio.html pourtquoi tu inventes du faux contenu ? Lorem ipsum ou indications "titre" "texte paragraphe" etc.... c'est pas pratique le faux contenu si on l'oublie et pousse en prod on pousse de la merde générée par IA oups. 
 - cool thème arc-en ciel. La boule le couleur ne réagit pas bien dans ce thème. Est-il possible de passer d'infrarouge (à l'extérieur) à violet (au centre) pour l'arc des couleurs de cette boule? couleur placées en cercles. 
