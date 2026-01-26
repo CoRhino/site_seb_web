@@ -1,5 +1,29 @@
 
 
+## notes 26 janvier
+nouveau site web 
+adresse : 	www.ananasday.com 
+- besoin https 
+- est-ce possible de mettre un github action pour pousser le code automatiquement
+- aussi possibilité server MySQL pourrait être utile pour héberger du contenu 
+
+- hébergement sur nearlyfreespeech.com 
+Authoritative Name Servers
+ns.phx3.nearlyfreespeech.net
+ns.phx5.nearlyfreespeech.net
+
+NearlyFreeSpeech.NET Resource Records
+Name	Type	Data
+ananasday.com	SOA	mname=ns.phx1.nearlyfreespeech.net rname=hostmaster@nearlyfreespeech.net
+(serial=1769458139 refresh=600 retry=180 expire=86400 minttl=180)
+ananasday.com	A	208.94.117.27
+ananasday.com	AAAA	2607:ff18:80:4::871f
+ananasday.com	NS	ns.phx3.nearlyfreespeech.net.
+ananasday.com	NS	ns.phx5.nearlyfreespeech.net.
+www.ananasday.com	CNAME	ananasday.nfshost.com.
+
+
+
 ## todo 21 janvier 
 
 - theme noir et blanc : boule blanche 
