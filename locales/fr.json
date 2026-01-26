@@ -1,7 +1,7 @@
 {
     "meta": {
-        "title": "Séb | Artiste & Dev",
-        "description": "Portfolio de Séb Cô : Artiste et dev"
+        "title": "Séb | Musicien, artiste & dev",
+        "description": "Portfolio de Séb Cô : Musicien, artiste, dev"
     },
     "nav": {
         "bio": "Bio",
@@ -13,24 +13,25 @@
         "title": "SÉB",
         "subtitle_art": "ARTISTE",
         "subtitle_dev": "DÉVELOPPEUR",
-        "tagline": "Créateur coloré la nuit, Codeur le jour.",
+        "tagline": "Créateur coloré la nuit, codeur de jour.",
         "scroll": "SCROLL"
     },
     "bio": {
         "title": "01. QUI SUIS-JE ?",
         "p1": "Salut, je suis <span class=\"text-highlight\">Séb</span>. Avant tout musicien, artiste visuel et auteur, j'ai aussi exploré le monde politique.",
-        "p2": "Je ne choisis pas entre le rouge et le bleu. Je prends tout le spectre. Toujours habillé de couleurs chaudes ou fluo, je porte mon énergie sur moi.",
-        "p3": "Le code est pour moi une extension de mon art. Que ce soit en composant un morceau expérimental, en écrivant un conte ou en architecturant une application web, je cherche toujours à créer quelque chose d'unique et de vibrant."
+        "p2": "Je ne choisis pas entre le rouge et le jaune. Je prends tout le spectre, de l'infra jusqu'à l'ultra. Toujours habillé de couleurs flamboyantes, je porte mon énergie sur moi.",
+        "p3": "Que ce soit en composant une chanson, une musique expérimentale, en écrivant un conte ou en architecturant une base de données, je cherche toujours à créer quelque chose d'unique et de vibrant. ",
+        "p4": "Le code est pour moi une extension de mon art."
     },
     "art": {
         "title": "02. L'UNIVERS ARTISTIQUE",
         "music": {
             "title": "Musique",
-            "desc": "Compositions électroniques et expérimentales."
+            "desc": "Compositions"
         },
         "video": {
             "title": "Vidéo",
-            "desc": "Montages, glitch art et réalisations visuelles."
+            "desc": ""
         },
         "writings": {
             "title": "Écrits",
@@ -44,33 +45,29 @@
     "dev": {
         "title": "03. L'UNIVERS DEV",
         "project1": {
-            "title": "Projet Web App",
-            "desc": "Une application web moderne construite avec les dernières technos. Performance et esthétique."
+            "title": "Memoire",
+            "desc": "Projet 'Memoire' pour donner memoire aux agents IA."
         },
         "project2": {
-            "title": "Outil CLI",
-            "desc": "Un outil en ligne de commande pour automatiser des tâches créatives."
+            "title": "Expérience",
+            "desc": "Architecture base de données finances avec BQ/GCP/Python"
         },
-        "project3": {
-            "title": "Expérimentation 3D",
-            "desc": "Webgl et shaders pour des visuels interactifs dans le navigateur."
-        },
-        "cta": "Voir mon GitHub"
+        "cta": "Github : corhino / katze333"
     },
     "archives": {
         "title": "03.5. MÉMOIRE & ARCHIVES",
-        "intro": "Une collection de fragments, de vieux projets et de souvenirs numériques. Pour la postérité.",
+        "intro": "Une collection de fragments, de projets passéses et de souvenirs numériques. Pour la postérité.",
         "item1": {
-            "title": "Projet Alpha",
-            "desc": "Première tentative de..."
+            "title": "avec Le GGRIL",
+            "desc": ""
         },
         "item2": {
-            "title": "Concert Sous-sol",
+            "title": "avec Sabir",
             "desc": "Live set expérimental."
         },
         "item3": {
-            "title": "Old School Site",
-            "desc": "Mon premier site en HTML pur."
+            "title": "...",
+            "desc": ""
         }
     },
     "contact": {
@@ -79,6 +76,6 @@
         "btn": "Me dire bonjour"
     },
     "footer": {
-        "text": "Conçu & Codé par Séb. &copy; 2024"
+        "text": "Conçu & Codé par Séb. &copy; sur le web depuis 1998."
     }
 }

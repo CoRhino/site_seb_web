@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE PAGE BIO - À PERSONNALISER
+  Tous les éléments entre crochets [] sont des placeholders à remplacer
+  par du contenu réel avant déploiement en production.
+  Exemple: [TITRE] → "Concert au Phare de Mitis"
+  NE PAS DEPLOYER AVEC LES PLACEHOLDERS!
+-->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio | Séb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Bio Page Specific Styles */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bio-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+
+        .bio-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+        }
+
+        .bio-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent-green);
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--font-mono);
+        }
+
+        .bio-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Category Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: var(--spacing-xs) var(--spacing-md);
+            border: 2px solid var(--accent-green);
+            background-color: transparent;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent-green);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+
+        .filter-btn.active::before {
+            display: none;
+        }
+
+        /* Content Sections */
+        .bio-section {
+            margin-bottom: var(--spacing-xl);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .bio-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--accent-green);
+            font-family: var(--font-mono);
+        }
+
+        .section-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .section-toggle:hover {
+            background: var(--accent-green);
+            color: var(--bg-color);
+            border-color: var(--accent-green);
+        }
+
+        .section-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Event Item Styles */
+        .event-item {
+            background-color: var(--bg-secondary);
+            border-left: 3px solid var(--accent-green);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .event-item:hover {
+            background-color: #1a1a1a;
+            transform: translateX(5px);
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .event-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .event-date {
+            font-family: var(--font-mono);
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+        }
+
+        .event-location {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .event-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .event-tags {
+            display: flex;
+            gap: var(--spacing-xs);
+            margin-top: var(--spacing-xs);
+            flex-wrap: wrap;
+        }
+
+        .event-tag {
+            background-color: rgba(57, 255, 20, 0.1);
+            color: var(--accent-green);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-family: var(--font-mono);
+        }
+
+        /* Timeline Style */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-green), var(--accent-red));
+        }
+
+        .timeline-year {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .timeline-year::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent-green);
+            border: 2px solid var(--bg-color);
+        }
+
+        .year-title {
+            font-family: var(--font-mono);
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .bio-title {
+                font-size: 2rem;
+            }
+
+            .bio-subtitle {
+                font-size: 1rem;
+            }
+
+            .filter-buttons {
+                gap: var(--spacing-xs);
+            }
+
+            .filter-btn {
+                padding: var(--spacing-xs) var(--spacing-sm);
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--text-secondary);
+        }
+
+        .spinner {
+            border: 3px solid var(--bg-secondary);
+            border-top: 3px solid var(--accent-green);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto var(--spacing-md);
+        }
+    </style>
+</head>
+<body>
+    <div class="bio-page">
+        <!-- Back to Home Link -->
+        <a href="index.html" class="back-link" style="position: fixed; top: 20px; left: 20px; z-index: 100; color: var(--accent-green); text-decoration: none; font-family: var(--font-mono);">
+            ← Retour
+        </a>
+
+        <!-- Bio Header -->
+        <header class="bio-header">
+            <h1 class="bio-title">[BIO OFFICIELLE - TITRE À PERSONNALISER]</h1>
+            <p class="bio-subtitle">[SOUS-TITRE: Description courte de la section bio - à personnaliser]</p>
+
+            <!-- Category Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">TOUT</button>
+                <button class="filter-btn" data-category="musique">MUSIQUE</button>
+                <button class="filter-btn" data-category="art">ART</button>
+                <button class="filter-btn" data-category="textes">TEXTES</button>
+                <button class="filter-btn" data-category="autr">AUTR'</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="bio-content">
+            <!-- Loading indicator -->
+            <div class="loading" id="loading-indicator">
+                <div class="spinner"></div>
+                <p>Chargement des événements...</p>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline-section" id="timeline-section">
+                <!-- Timeline will be populated by JavaScript -->
+                <div class="timeline" id="events-timeline">
+                    <!-- Sample event for demonstration -->
+                    <div class="timeline-year" data-year="2023" data-categories="musique,art">
+                        <h3 class="year-title">2023</h3>
+                        
+                        <div class="event-item" data-category="musique">
+                            <div class="event-header">
+                                <h4 class="event-title">[TITRE ÉVÉNEMENT MUSIQUE]</h4>
+                                <span class="event-date">[DATE: JJ MMM AAAA]</span>
+                            </div>
+                            <p class="event-location">[LIEU: Ville, Pays]</p>
+                            <p class="event-description">[DESCRIPTION: Détails sur l'événement, collaboration, impact, etc.]</p>
+                            <div class="event-tags">
+                                <span class="event-tag">[#Tag1]</span>
+                                <span class="event-tag">[#Tag2]</span>
+                                <span class="event-tag">[#Tag3]</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item" data-category="art">
+                            <div class="event-header">
+                                <h4 class="event-title">[TITRE ÉVÉNEMENT ART]</h4>
+                                <span class="event-date">[DATE: JJ MMM AAAA]</span>
+                            </div>
+                            <p class="event-location">[LIEU: Ville, Pays]</p>
+                            <p class="event-description">[DESCRIPTION: Détails sur l'exposition, œuvres présentées, concept, etc.]</p>
+                            <div class="event-tags">
+                                <span class="event-tag">[#Tag1]</span>
+                                <span class="event-tag">[#Tag2]</span>
+                                <span class="event-tag">[#Tag3]</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-year" data-year="2022" data-categories="textes,autr">
+                        <h3 class="year-title">2022</h3>
+                        
+                        <div class="event-item" data-category="textes">
+                            <div class="event-header">
+                                <h4 class="event-title">[TITRE ÉVÉNEMENT TEXTES]</h4>
+                                <span class="event-date">[DATE: JJ MMM AAAA]</span>
+                            </div>
+                            <p class="event-location">[LIEU: Ville, Pays]</p>
+                            <p class="event-description">[DESCRIPTION: Détails sur la publication, thèmes abordés, format, etc.]</p>
+                            <div class="event-tags">
+                                <span class="event-tag">[#Tag1]</span>
+                                <span class="event-tag">[#Tag2]</span>
+                                <span class="event-tag">[#Tag3]</span>
+                            </div>
+                        </div>
+
+                        <div class="event-item" data-category="autr">
+                            <div class="event-header">
+                                <h4 class="event-title">[TITRE ÉVÉNEMENT AUTRE]</h4>
+                                <span class="event-date">[DATE: JJ MMM AAAA]</span>
+                            </div>
+                            <p class="event-location">[LIEU: Ville, Pays]</p>
+                            <p class="event-description">[DESCRIPTION: Détails sur l'événement, objectifs, résultats, etc.]</p>
+                            <div class="event-tags">
+                                <span class="event-tag">[#Tag1]</span>
+                                <span class="event-tag">[#Tag2]</span>
+                                <span class="event-tag">[#Tag3]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Bio Page JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            // Filter buttons functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const eventItems = document.querySelectorAll('.event-item');
+            const timelineYears = document.querySelectorAll('.timeline-year');
+
+            // Set initial state
+            let currentFilter = 'all';
+
+            // Filter buttons click handlers
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Get the selected category
+                    currentFilter = button.getAttribute('data-category');
+                    
+                    // Filter events
+                    filterEvents(currentFilter);
+                });
+            });
+
+            function filterEvents(category) {
+                // Hide all timeline years first
+                timelineYears.forEach(year => {
+                    year.style.display = 'none';
+                });
+
+                // Show years that have events in the selected category
+                if (category === 'all') {
+                    timelineYears.forEach(year => {
+                        year.style.display = 'block';
+                    });
+                } else {
+                    timelineYears.forEach(year => {
+                        const yearCategories = year.getAttribute('data-categories').split(',');
+                        if (yearCategories.includes(category)) {
+                            year.style.display = 'block';
+                        }
+                    });
+                }
+
+                // Filter individual events within visible years
+                eventItems.forEach(event => {
+                    if (category === 'all' || event.getAttribute('data-category') === category) {
+                        event.style.display = 'block';
+                    } else {
+                        event.style.display = 'none';
+                    }
+                });
+            }
+
+            // Section toggle functionality
+            const sectionToggles = document.querySelectorAll('.section-toggle');
+            sectionToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const sectionContent = toggle.parentNode.nextElementSibling;
+                    const isActive = sectionContent.classList.contains('active');
+                    
+                    if (isActive) {
+                        sectionContent.classList.remove('active');
+                        toggle.textContent = 'Voir plus';
+                    } else {
+                        sectionContent.classList.add('active');
+                        toggle.textContent = 'Voir moins';
+                    }
+                });
+            });
+
+            // Hide loading indicator
+            setTimeout(() => {
+                document.getElementById('loading-indicator').style.display = 'none';
+                document.getElementById('timeline-section').style.display = 'block';
+            }, 800);
+
+            // Add theme support
+            const savedTheme = localStorage.getItem('selectedTheme');
+            if (savedTheme) {
+                document.body.classList.add(`theme-${savedTheme}`);
+            }
+        });
+    </script>
+</body>
+</html>
