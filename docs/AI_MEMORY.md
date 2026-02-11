@@ -8,17 +8,51 @@
 
 ## 📅 Timeline & Histoire du Projet
 
-### [YYYY-MM-DD] — Titre de l'événement récent
-**Contexte**: Pourquoi ce changement ?
+### [2026-01-20] — Implémentation de la base de données d'événements pour la page Bio
+**Contexte**: TODO du 20 janvier - Besoin d'une base de données pour les événements artistiques et boutons de catégorie
 **Actions**:
-- Action 1 prise
-- Action 2 prise
-- Fichiers modifiés: `path/to/file.js`, `path/to/other.py`
+- Créé fichier `data/events.json` avec 8 événements réels (2021-2024)
+- Implémenté fonction `loadEventsFromDatabase()` pour charger les données dynamiquement
+- Remplacé le contenu statique par un chargement dynamique depuis JSON
+- Mis à jour le JavaScript pour gérer le filtrage avec les données chargées
+- Fichiers créés: `data/events.json`
+- Fichiers modifiés: `bio.html`
 
-**Résultat**: Impact observable
+**Résultat**: Page bio fonctionne maintenant avec une vraie base de données, événements organisés par année, filtrage par catégorie fonctionnel
 **Décisions**:
-- ✅ Approuvé: Cette approche fonctionne bien
-- ❌ Rejeté: Alternative X car raison Y
+- ✅ Approuvé: Format JSON pour la base de données (simple, lisible, facile à maintenir)
+- ✅ Approuvé: Chargement asynchrone avec gestion d'erreurs
+- ✅ Approuvé: Tri des années par ordre décroissant (récent en premier)
+- ✅ Approuvé: Structure modulaire pour ajouter facilement de nouveaux événements
+
+### [2026-01-20] — Implémentation du thème Noir et Blanc en mode négatif
+**Contexte**: TODO du 21 janvier - Le thème noir et blanc devait ressembler à un négatif photo (inversion des couleurs)
+**Actions**:
+- Modifié le thème `theme-bw` pour avoir fond noir et texte blanc
+- Changé la boule flottante pour qu'elle soit blanche avec ombre lumineuse
+- Mise à jour des variables CSS pour refléter l'effet négatif
+- Fichiers modifiés: `style.css`
+
+**Résultat**: Thème noir et blanc fonctionne maintenant comme un négatif photo, boule blanche visible sur fond noir
+**Décisions**:
+- ✅ Approuvé: Fond noir (#000000) avec texte blanc (#ffffff) pour effet négatif
+- ✅ Approuvé: Boule blanche avec box-shadow lumineuse pour visibilité
+- ❌ Rejeté: Fond blanc avec texte noir (trop standard, pas l'effet négatif demandé)
+
+### [2026-01-20] — Intégration du système de mémoire AI
+**Contexte**: Besoin de continuité entre les sessions AI et documentation des décisions
+**Actions**:
+- Copié MEMORY_TEMPLATE.md vers docs/AI_MEMORY.md
+- Copié AI_MEMORY_INSTRUCTIONS.md vers .claude/
+- Créé structure docs/memory/ pour mémoires spécifiques
+- Mis à jour AGENT.md avec directives mémoire
+- Fichiers créés: `docs/AI_MEMORY.md`, `.claude/AI_MEMORY_INSTRUCTIONS.md`, `docs/memory/`
+
+**Résultat**: Système de mémoire opérationnel, prêt pour documentation continue
+**Décisions**:
+- ✅ Approuvé: Format changelog avec timeline inversée
+- ✅ Approuvé: Structure modulaire avec mémoires par domaine
+- ✅ Approuvé: Mise à jour mémoire après chaque tâche majeure
 
 ---
 

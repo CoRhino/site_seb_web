@@ -17,6 +17,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <style>
         /* Bio Page Specific Styles */
         body {
@@ -312,6 +313,59 @@
     </style>
 </head>
 <body>
+    <div class="noise-overlay"></div>
+    <div class="floating-ball"></div>
+
+    <div class="theme-switcher">
+        <button class="theme-btn" data-theme="red" style="background-color: #ff0000;" aria-label="Thème Rouge"></button>
+        <button class="theme-btn" data-theme="yellow" style="background-color: #ffff00;" aria-label="Thème Jaune"></button>
+        <button class="theme-btn" data-theme="green" style="background-color: #00ff00;" aria-label="Thème Vert"></button>
+        <button class="theme-btn" data-theme="magenta" style="background-color: #ff00ff;" aria-label="Thème Magenta"></button>
+        <button class="theme-btn" data-theme="orange" style="background-color: #ff8000;" aria-label="Thème Orange"></button>
+        <button class="theme-btn" data-theme="cyan" style="background-color: #00ffff;" aria-label="Thème Cyan"></button>
+        <button class="theme-btn" data-theme="rainbow" style="background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);" aria-label="Thème Arc-en-ciel"></button>
+        <button class="theme-btn" data-theme="bw" style="background-color: #000000;" aria-label="Thème Noir et Blanc"></button>
+    </div>
+
+    <!-- Top Left Hamburger Menu -->
+    <div class="top-hamburger-menu">
+        <div class="hamburger-bar"></div>
+        <div class="hamburger-bar"></div>
+        <div class="hamburger-bar"></div>
+    </div>
+
+    <!-- Scrolling Mobile Menu -->
+    <div class="scrolling-mobile-menu">
+        <div class="scrolling-hamburger-menu">
+            <div class="hamburger-bar"></div>
+            <div class="hamburger-bar"></div>
+            <div class="hamburger-bar"></div>
+        </div>
+        <div class="scrolling-nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="bio.html">Bio</a>
+            <a href="design.html">Design</a>
+            <a href="donations.html">Dons</a>
+        </div>
+    </div>
+
+    <!-- Main Hamburger Menu (for mobile) -->
+    <div class="hamburger-menu">
+        <div class="hamburger-top"></div>
+        <div class="hamburger-middle"></div>
+        <div class="hamburger-bottom"></div>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <div class="mobile-nav-links">
+        <div class="mobile-menu">
+            <a href="index.html">Accueil</a>
+            <a href="bio.html">Bio</a>
+            <a href="design.html">Design</a>
+            <a href="donations.html">Dons</a>
+        </div>
+    </div>
+
     <div class="bio-page">
         <!-- Back to Home Link -->
         <a href="index.html" class="back-link" style="position: fixed; top: 20px; left: 20px; z-index: 100; color: var(--accent-green); text-decoration: none; font-family: var(--font-mono);">
@@ -343,72 +397,9 @@
 
             <!-- Timeline Section -->
             <div class="timeline-section" id="timeline-section">
-                <!-- Timeline will be populated by JavaScript -->
+                <!-- Timeline will be populated by JavaScript from JSON database -->
                 <div class="timeline" id="events-timeline">
-                    <!-- Sample event for demonstration -->
-                    <div class="timeline-year" data-year="2023" data-categories="musique,art">
-                        <h3 class="year-title">2023</h3>
-                        
-                        <div class="event-item" data-category="musique">
-                            <div class="event-header">
-                                <h4 class="event-title">[TITRE ÉVÉNEMENT MUSIQUE]</h4>
-                                <span class="event-date">[DATE: JJ MMM AAAA]</span>
-                            </div>
-                            <p class="event-location">[LIEU: Ville, Pays]</p>
-                            <p class="event-description">[DESCRIPTION: Détails sur l'événement, collaboration, impact, etc.]</p>
-                            <div class="event-tags">
-                                <span class="event-tag">[#Tag1]</span>
-                                <span class="event-tag">[#Tag2]</span>
-                                <span class="event-tag">[#Tag3]</span>
-                            </div>
-                        </div>
-
-                        <div class="event-item" data-category="art">
-                            <div class="event-header">
-                                <h4 class="event-title">[TITRE ÉVÉNEMENT ART]</h4>
-                                <span class="event-date">[DATE: JJ MMM AAAA]</span>
-                            </div>
-                            <p class="event-location">[LIEU: Ville, Pays]</p>
-                            <p class="event-description">[DESCRIPTION: Détails sur l'exposition, œuvres présentées, concept, etc.]</p>
-                            <div class="event-tags">
-                                <span class="event-tag">[#Tag1]</span>
-                                <span class="event-tag">[#Tag2]</span>
-                                <span class="event-tag">[#Tag3]</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-year" data-year="2022" data-categories="textes,autr">
-                        <h3 class="year-title">2022</h3>
-                        
-                        <div class="event-item" data-category="textes">
-                            <div class="event-header">
-                                <h4 class="event-title">[TITRE ÉVÉNEMENT TEXTES]</h4>
-                                <span class="event-date">[DATE: JJ MMM AAAA]</span>
-                            </div>
-                            <p class="event-location">[LIEU: Ville, Pays]</p>
-                            <p class="event-description">[DESCRIPTION: Détails sur la publication, thèmes abordés, format, etc.]</p>
-                            <div class="event-tags">
-                                <span class="event-tag">[#Tag1]</span>
-                                <span class="event-tag">[#Tag2]</span>
-                                <span class="event-tag">[#Tag3]</span>
-                            </div>
-                        </div>
-
-                        <div class="event-item" data-category="autr">
-                            <div class="event-header">
-                                <h4 class="event-title">[TITRE ÉVÉNEMENT AUTRE]</h4>
-                                <span class="event-date">[DATE: JJ MMM AAAA]</span>
-                            </div>
-                            <p class="event-location">[LIEU: Ville, Pays]</p>
-                            <p class="event-description">[DESCRIPTION: Détails sur l'événement, objectifs, résultats, etc.]</p>
-                            <div class="event-tags">
-                                <span class="event-tag">[#Tag1]</span>
-                                <span class="event-tag">[#Tag2]</span>
-                                <span class="event-tag">[#Tag3]</span>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Events will be loaded dynamically from data/events.json -->
                 </div>
             </div>
         </main>
@@ -417,10 +408,13 @@
     <script>
         // Bio Page JavaScript
         document.addEventListener('DOMContentLoaded', () => {
+            // Load events from JSON database
+            loadEventsFromDatabase();
+
             // Filter buttons functionality
             const filterButtons = document.querySelectorAll('.filter-btn');
-            const eventItems = document.querySelectorAll('.event-item');
-            const timelineYears = document.querySelectorAll('.timeline-year');
+            let eventItems = [];
+            let timelineYears = [];
 
             // Set initial state
             let currentFilter = 'all';
@@ -497,6 +491,89 @@
 
             // Add theme support
             const savedTheme = localStorage.getItem('selectedTheme');
+        });
+
+        // Load events from JSON database
+        async function loadEventsFromDatabase() {
+            try {
+                const response = await fetch('data/events.json');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                
+                // Group events by year
+                const eventsByYear = {};
+                data.events.forEach(event => {
+                    if (!eventsByYear[event.year]) {
+                        eventsByYear[event.year] = [];
+                    }
+                    eventsByYear[event.year].push(event);
+                });
+
+                // Create timeline HTML
+                const timeline = document.getElementById('events-timeline');
+                
+                // Sort years in descending order
+                const sortedYears = Object.keys(eventsByYear).sort((a, b) => b - a);
+                
+                sortedYears.forEach(year => {
+                    const yearEvents = eventsByYear[year];
+                    
+                    // Create year container
+                    const yearContainer = document.createElement('div');
+                    yearContainer.className = 'timeline-year';
+                    yearContainer.setAttribute('data-year', year);
+                    
+                    // Get all categories for this year
+                    const categories = [...new Set(yearEvents.map(event => event.category))];
+                    yearContainer.setAttribute('data-categories', categories.join(','));
+                    
+                    // Year title
+                    const yearTitle = document.createElement('h3');
+                    yearTitle.className = 'year-title';
+                    yearTitle.textContent = year;
+                    yearContainer.appendChild(yearTitle);
+                    
+                    // Add events
+                    yearEvents.forEach(event => {
+                        const eventItem = document.createElement('div');
+                        eventItem.className = 'event-item';
+                        eventItem.setAttribute('data-category', event.category);
+                        
+                        const eventHTML = `
+                            <div class="event-header">
+                                <h4 class="event-title">${event.title}</h4>
+                                <span class="event-date">${event.date}</span>
+                            </div>
+                            <p class="event-location">${event.location}</p>
+                            <p class="event-description">${event.description}</p>
+                            <div class="event-tags">
+                                ${event.tags.map(tag => `<span class="event-tag">${tag}</span>`).join('')}
+                            </div>
+                        `;
+                        
+                        eventItem.innerHTML = eventHTML;
+                        yearContainer.appendChild(eventItem);
+                    });
+                    
+                    timeline.appendChild(yearContainer);
+                });
+                
+                // Update global variables for filtering
+                eventItems = document.querySelectorAll('.event-item');
+                timelineYears = document.querySelectorAll('.timeline-year');
+                
+            } catch (error) {
+                console.error('Error loading events:', error);
+                // Fallback: show static content or error message
+                const timeline = document.getElementById('events-timeline');
+                timeline.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">Erreur de chargement des événements. Veuillez rafraîchir la page.</p>';
+            }
+        }
+
+        // Add theme support
+        const savedTheme = localStorage.getItem('selectedTheme');
             if (savedTheme) {
                 document.body.classList.add(`theme-${savedTheme}`);
             }

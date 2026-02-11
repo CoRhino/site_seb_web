@@ -293,5 +293,80 @@ project/
 
 ---
 
-**Last Updated:** 2025-10-10
-**Next Review:** When significant architecture changes occur
+## 🧠 AI Memory System Integration
+
+### Memory-First Development
+
+**Principle:** Always consult and update AI memory before starting any task.
+
+1. **Read Memory First**
+   - Start every session by reading `docs/AI_MEMORY.md`
+   - Check `docs/STATUS.md` for current project state
+   - Review `docs/AI_MEMORY_QUICK_REF.md` for quick context
+
+2. **Update Memory After Every Task**
+   - Document decisions in timeline format
+   - Record rejected ideas with reasons
+   - Update patterns and preferences
+   - Add cross-references between memory files
+
+3. **Memory Structure**
+   ```
+   docs/
+   ├── AI_MEMORY.md              # Main memory (changelog style)
+   ├── AI_MEMORY_QUICK_REF.md     # Quick reference
+   ├── STATUS.md                  # Current project status
+   └── memory/                    # Domain-specific memories
+       ├── frontend.memory.md    # Frontend expertise
+       ├── backend.memory.md     # Backend expertise
+       └── design.memory.md       # Design decisions
+   ```
+
+### Memory Update Process
+
+**After completing any task:**
+1. Open `docs/AI_MEMORY.md`
+2. Add entry to timeline (most recent first)
+3. Document:
+   - What was done
+   - Why it was done this way
+   - Any decisions made
+   - Lessons learned
+4. Update relevant domain memory files
+5. Commit changes with clear message
+
+**Example Timeline Entry:**
+```markdown
+### [2026-01-14] — Implemented Rainbow Theme
+**Contexte**: User requested arc-en-ciel theme with rainbow colors
+**Actions**: 
+- Created new CSS theme with rainbow gradient
+- Updated color palette from gray to rainbow
+- Implemented smooth color transitions
+**Résultat**: Theme works but needs adjustment for ball colors
+**Décisions**: ✅ Keep rainbow theme, ❌ Remove gray from palette
+**Cross-ref**: design.memory.md#color-schemes
+```
+
+### Memory for Different Domains
+
+**Frontend Memory (`docs/memory/frontend.memory.md`):**
+- UI/UX decisions
+- Component architecture
+- Styling patterns
+- Browser compatibility notes
+
+**Backend Memory (`docs/memory/backend.memory.md`):**
+- API design decisions
+- Database schema evolution
+- Performance optimizations
+- Security considerations
+
+**Design Memory (`docs/memory/design.memory.md`):**
+- Color schemes and palettes
+- Typography choices
+- Layout principles
+- Animation guidelines
+
+**Last Updated:** 2026-01-14
+**Next Review:** After completing current TODO list

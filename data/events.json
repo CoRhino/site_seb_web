@@ -1,0 +1,76 @@
+{
+  "events": [
+    {
+      "year": 2023,
+      "category": "musique",
+      "title": "Concert au Phare de Mitis",
+      "date": "15 JUI 2023",
+      "location": "Mitis Beach, Québec, Canada",
+      "description": "Performance musicale en collaboration avec Paraloeil. Création sonore immersive inspirée par les paysages côtiers.",
+      "tags": ["#musique", "#performance", "#paraloeil"]
+    },
+    {
+      "year": 2023,
+      "category": "art",
+      "title": "Exposition Collective - Art Numérique",
+      "date": "05 NOV 2023",
+      "location": "Galerie d'Art Contemporain, Montréal, QC",
+      "description": "Participation à une exposition collective mettant en avant l'art numérique et les nouvelles technologies créatives.",
+      "tags": ["#art", "#numérique", "#exposition"]
+    },
+    {
+      "year": 2022,
+      "category": "textes",
+      "title": "Publication - Poésie Expérimentale",
+      "date": "22 MARS 2022",
+      "location": "Éditions Libres, Québec, QC",
+      "description": "Publication d'un recueil de poésie expérimentale explorant les frontières entre langage et technologie.",
+      "tags": ["#poésie", "#texte", "#publication"]
+    },
+    {
+      "year": 2022,
+      "category": "musique",
+      "title": "Album - Frequencies of Silence",
+      "date": "10 OCT 2022",
+      "location": "Corhino Bandcamp",
+      "description": "Sortie de l'album 'Frequencies of Silence' - exploration des paysages sonores et des textures électroniques.",
+      "tags": ["#musique", "#album", "#électronique"]
+    },
+    {
+      "year": 2021,
+      "category": "art",
+      "title": "Installation Interactive - Data Visualization",
+      "date": "18 MAI 2021",
+      "location": "Festival des Arts Numériques, Québec, QC",
+      "description": "Création d'une installation interactive de visualisation de données en temps réel.",
+      "tags": ["#art", "#interactif", "#données"]
+    },
+    {
+      "year": 2021,
+      "category": "autr",
+      "title": "Atelier - Créativité et Technologie",
+      "date": "12 DEC 2021",
+      "location": "Centre Culturel, Montréal, QC",
+      "description": "Animation d'un atelier explorant les intersections entre créativité artistique et technologies émergentes.",
+      "tags": ["#atelier", "#technologie", "#créativité"]
+    },
+    {
+      "year": 2024,
+      "category": "musique",
+      "title": "Performance Live - Electro Hockey",
+      "date": "08 OCT 2024",
+      "location": "Centre Bell, Montréal, QC",
+      "description": "Création musicale en direct inspirée par les matchs de hockey - projet La Puck Symphonique.",
+      "tags": ["#musique", "#hockey", "#live"]
+    },
+    {
+      "year": 2024,
+      "category": "art",
+      "title": "Résidence Artistique - AI & Créativité",
+      "date": "15 JAN 2024",
+      "location": "Studio CoRhino, Québec, QC",
+      "description": "Résidence artistique explorant les possibilités créatives de l'intelligence artificielle.",
+      "tags": ["#art", "#IA", "#résidence"]
+    }
+  ]
+}

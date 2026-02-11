@@ -149,16 +149,31 @@ body.theme-rainbow .section:nth-child(7) {
 }
 
 body.theme-rainbow .floating-ball {
-    background: conic-gradient(from 0deg, 
-        var(--accent-red),
-        var(--accent-orange),
-        var(--accent-yellow),
-        var(--accent-green),
-        var(--accent-blue),
-        var(--accent-indigo),
-        var(--accent-violet),
-        var(--accent-red));
-    animation: spin 20s linear infinite;
+    background: radial-gradient(circle at center, 
+        var(--accent-violet) 0%,
+        var(--accent-indigo) 15%,
+        var(--accent-blue) 30%,
+        var(--accent-green) 45%,
+        var(--accent-yellow) 60%,
+        var(--accent-orange) 75%,
+        var(--accent-red) 90%,
+        #4b0000 100%); /* Rouge très foncé pour simuler infrarouge */
+    animation: pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(148, 0, 211, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(148, 0, 211, 0.8);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    }
 }
 
 @keyframes spin {
@@ -198,23 +213,23 @@ body.theme-rainbow .btn:hover {
         rgba(148,0,211,0.1));
 }
 
-/* Black and White */
+/* Black and White - Negative mode like photo negative */
 body.theme-bw {
-    --bg-color: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --text-primary: #000000;
-    --text-secondary: #666666;
-    --accent-green: #000000;
-    --accent-red: #000000;
-    --accent-orange: #000000;
-    --accent-yellow: #000000;
+    --bg-color: #000000;
+    --bg-secondary: #111111;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-green: #ffffff;
+    --accent-red: #ffffff;
+    --accent-orange: #ffffff;
+    --accent-yellow: #ffffff;
 }
 
-/* Special styling for BW theme - remove all colors */
+/* Special styling for BW theme - negative effect with white ball */
 body.theme-bw .floating-ball {
-    background: #000000;
+    background: #ffffff;
     background-size: auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 body.theme-bw .hamburger-top,
