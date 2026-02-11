@@ -1,0 +1,23 @@
+{
+    "ananas": {
+        "meta": {
+            "title": "Ananas Day | Global Celebration"
+        },
+        "title": "ANANAS DAY",
+        "subtitle": "The International Observance of the Pineapple.",
+        "flag": {
+            "title": "THE VEXILLOLOGY",
+            "desc": "Yellow representing the bromeliad fruit body, Green symbolizing the coronal foliage. A minimalist representation."
+        },
+        "concept": {
+            "title": "THE CONCEPTUAL FRAMEWORK",
+            "desc": "A dedicated temporal period to celebrate unity through nature's most rebellious fruit structure."
+        },
+        "values": {
+            "title": "CORE AXIOMS",
+            "1": "Hospitality",
+            "2": "Sweetness",
+            "3": "Sharpness"
+        }
+    }
+}

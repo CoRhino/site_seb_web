@@ -1,0 +1,23 @@
+{
+    "ananas": {
+        "meta": {
+            "title": "Día de la Piña | Celebración"
+        },
+        "title": "DÍA DE LA PIÑA",
+        "subtitle": "La celebración internacional de la piña.",
+        "flag": {
+            "title": "LA BANDERA",
+            "desc": "Amarillo por la fruta, Verde por la corona. Simple. Eficaz."
+        },
+        "concept": {
+            "title": "EL CONCEPTO",
+            "desc": "Un día para celebrar la unidad a través de la fruta más punk de la naturaleza."
+        },
+        "values": {
+            "title": "VALORES",
+            "1": "Hospitalidad",
+            "2": "Dulzura",
+            "3": "Picardía"
+        }
+    }
+}

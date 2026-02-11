@@ -1,0 +1,23 @@
+{
+    "ananas": {
+        "meta": {
+            "title": "Ananas Day | Célébration"
+        },
+        "title": "ANANAS DAY",
+        "subtitle": "La fête de l'ananas.",
+        "flag": {
+            "title": "LE DRAPEAU",
+            "desc": "Jaune comme le fruit. Vert comme les feuilles. C'est tout."
+        },
+        "concept": {
+            "title": "C'EST QUOI ?",
+            "desc": "On aime les ananas. On fait la fête. Tout le monde est gentil."
+        },
+        "values": {
+            "title": "VALEURS",
+            "1": "Gentillesse",
+            "2": "Sucre",
+            "3": "Piquant"
+        }
+    }
+}
