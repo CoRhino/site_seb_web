@@ -1,0 +1,52 @@
+{
+  "_comment": "Config du mixer multi-pistes. Ajouter/retirer des pistes ici — zéro changement de code. Max 8 pistes.",
+  "meta": {
+    "song": "AnanasDay",
+    "artist": "Sébastien CoRhino",
+    "releaseDate": "2026-07-01T00:00:00-04:00",
+    "lockedMessage": "Les stems arrivent le 1er juillet avec le single.",
+    "maxTracks": 8
+  },
+  "tracks": [
+    {
+      "id": "drums",
+      "labelFr": "Batterie",
+      "labelEn": "Drums",
+      "emoji": "🥁",
+      "file": "audio/drums.mp3",
+      "defaultVolume": 85
+    },
+    {
+      "id": "bass",
+      "labelFr": "Basse",
+      "labelEn": "Bass",
+      "emoji": "🎸",
+      "file": "audio/bass.mp3",
+      "defaultVolume": 80
+    },
+    {
+      "id": "piano",
+      "labelFr": "Piano",
+      "labelEn": "Piano",
+      "emoji": "🎹",
+      "file": "audio/piano.mp3",
+      "defaultVolume": 75
+    },
+    {
+      "id": "vox",
+      "labelFr": "Voix",
+      "labelEn": "Vocals",
+      "emoji": "🎤",
+      "file": "audio/vox.mp3",
+      "defaultVolume": 90
+    },
+    {
+      "id": "backing",
+      "labelFr": "Chœurs",
+      "labelEn": "Backing Vox",
+      "emoji": "🎼",
+      "file": "audio/backing.mp3",
+      "defaultVolume": 60
+    }
+  ]
+}

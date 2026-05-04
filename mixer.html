@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixer AnanasDay — Sébastien CoRhino</title>
+    <meta name="description" content="Le mixer multi-pistes interactif de Sébastien CoRhino. Mixez le single AnanasDay piste par piste.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="noise-overlay"></div>
+<div class="floating-ball"></div>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-logo">🍍 <span>ananas</span>DAY</a>
+    <ul class="nav-links">
+        <li><a href="corhino.html">Sébastien CoRhino</a></li>
+        <li><a href="ananas.html">Ananas Day</a></li>
+        <li><a href="mixer.html" class="active">🎛 Mixer</a></li>
+    </ul>
+    <div class="nav-right">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="corhino.html">Sébastien CoRhino</a>
+    <a href="ananas.html">Ananas Day</a>
+    <a href="mixer.html">🎛 Mixer</a>
+</div>
+
+<div class="mixer-wrap" style="padding-top:100px;">
+
+    <!-- En-tête -->
+    <div class="fade-in" style="text-align:center;margin-bottom:var(--lg);">
+        <p style="font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:.5rem;">// SIGNE DISTINCTIF</p>
+        <h1 style="font-size:clamp(2rem,5vw,3.5rem);color:var(--accent);margin-bottom:.4rem;">🎛 Mixer AnanasDay</h1>
+        <p style="font-family:var(--font-mono);font-size:.88rem;color:var(--muted);">
+            Sébastien CoRhino — Musicien &amp; Ingénieur de son<br>
+            <span style="font-size:.75rem;opacity:.6;">Mixez le single piste par piste. Votre mix, vos choix.</span>
+        </p>
+    </div>
+
+    <!-- Overlay verrouillé (visible avant le 1er juillet, géré par mixer.js) -->
+    <div class="mixer-lock fade-in" id="mixerLock">
+        <div class="mixer-lock-icon">🍍</div>
+        <h2>Les stems arrivent le 1er juillet</h2>
+        <p>CoRhino est en studio. Les pistes du single AnanasDay seront disponibles ici dès la sortie.</p>
+        <div class="mixer-lock-cd" id="lockCountdown">…</div>
+        <p style="font-family:var(--font-mono);font-size:.78rem;color:var(--muted);margin-top:.5rem;">
+            Batterie · Basse · Piano · Voix · Chœurs (et peut-être plus)
+        </p>
+        <div style="margin-top:var(--md);">
+            <a href="index.html#newsletter" class="btn btn-ghost">🔔 M'avertir à la sortie</a>
+        </div>
+    </div>
+
+    <!-- Console (générée dynamiquement par mixer.js) -->
+    <div class="mixer-console fade-in" id="mixerConsole">
+
+        <!-- Transport -->
+        <div class="mixer-transport">
+            <button class="t-btn" id="btnRewind" aria-label="Retour début" title="Retour (R)">⏮</button>
+            <button class="t-btn play" id="btnPlay"   aria-label="Play / Pause" title="Play/Pause (Espace)">▶</button>
+            <button class="t-btn" id="btnStop"  aria-label="Stop"         title="Stop">⏹</button>
+            <div class="mixer-time" id="mixerTime" aria-live="polite">0:00</div>
+            <button class="t-btn" id="btnLoop"  aria-label="Boucle"       title="Boucle (L)">🔁</button>
+        </div>
+
+        <!-- Pistes — injectées par mixer.js depuis data/tracks.json -->
+        <div class="mixer-tracks" id="mixerTracks" aria-label="Pistes audio">
+            <!-- Contenu dynamique -->
+        </div>
+
+        <!-- Master -->
+        <div class="mixer-master">
+            <label for="masterFader">MASTER</label>
+            <input type="range" class="track-fader" id="masterFader" min="0" max="100" value="100" aria-label="Volume master">
+            <span class="track-vol" id="masterVol">100</span>
+        </div>
+
+    </div>
+
+    <!-- Note ingénieur de son -->
+    <div class="fade-in" style="margin-top:var(--lg);padding:var(--md);background:var(--bg2);border-left:3px solid var(--accent);border-radius:0 var(--r) var(--r) 0;">
+        <p style="font-family:var(--font-mono);font-size:.82rem;color:var(--muted);">
+            <strong style="color:var(--accent);">// NOTE DE L'INGÉNIEUR DE SON</strong><br><br>
+            CoRhino enregistre, mixe et mastérise dans son studio maison à Rimouski. Chaque piste présentée ici est un stem brut de la session — vous entendez exactement ce qui est sorti de la console, piste par piste.<br><br>
+            Les niveaux sont équilibrés pour le mix web. Jouez avec les faders — c'est fait pour ça.
+        </p>
+    </div>
+
+    <div style="text-align:center;margin:var(--lg) 0 var(--xl);">
+        <a href="corhino.html" class="btn btn-ghost">← Retour à CoRhino</a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-logo">🎛 Mixer AnanasDay</div>
+    <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="corhino.html">CoRhino</a>
+        <a href="ananas.html">Ananas Day</a>
+    </nav>
+    <p class="footer-copy">© 2026 Sébastien CoRhino.</p>
+</footer>
+
+<div class="theme-switcher">
+    <button class="theme-btn" data-theme="yellow"  style="background:#F4E800" aria-label="Jaune"></button>
+    <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
+    <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
+    <button class="theme-btn" data-theme="orange"  style="background:#ff8800" aria-label="Orange"></button>
+    <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Cyan"></button>
+    <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Magenta"></button>
+    <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
+    <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="N&amp;B"></button>
+</div>
+
+<script src="script.js"></script>
+<script src="mixer.js"></script>
+</body>
+</html>

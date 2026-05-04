@@ -1,97 +1,200 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="ananas.meta.title">Ananas Day | Célébration</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <title>Ananas Day — Le Mouvement</title>
+    <meta name="description" content="Ananas Day : le premier jour férié international universel. Le 1er juillet, tout le monde est en congé.">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Ananas Day Specific Styles */
-        body {
-            /* Force Yellow Theme defaults if not overridden */
-            --accent-green: #ffff00;
-            --text-primary: #ffffcc;
-        }
-
-        .ananas-hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: radial-gradient(circle at center, #2a2a00 0%, #000 70%);
-        }
-
-        .ananas-flag {
-            width: 300px;
-            height: 200px;
-            background: linear-gradient(to bottom, #ffff00 50%, #00ff00 50%);
-            /* Placeholder Flag */
-            margin: 0 auto 2rem;
-            border: 2px solid #fff;
-            box-shadow: 0 0 20px rgba(255, 255, 0, 0.2);
-        }
-
-        .lang-switcher-ananas {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 2rem;
-            position: static;
-            /* Not fixed for this page */
-        }
-    </style>
 </head>
+<body>
 
-<body class="theme-yellow"> <!-- Default to Yellow -->
-    <div class="noise-overlay"></div>
+<div class="noise-overlay"></div>
+<div class="floating-ball"></div>
 
-    <div class="container">
-        <header class="ananas-hero">
-            <div class="lang-switcher-ananas">
-                <button class="lang-btn" data-lang="fr-simple">FR Simple</button>
-                <button class="lang-btn" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="en-complex">EN Complex</button>
-                <button class="lang-btn" data-lang="es">ES</button>
-                <button class="lang-btn" data-lang="jp">JP</button>
-                <button class="lang-btn" data-lang="cn">CN</button>
-                <button class="lang-btn" data-lang="cr">Cree</button>
-            </div>
+<nav class="site-nav">
+    <a href="index.html" class="nav-logo">🍍 <span>ananas</span>DAY</a>
+    <ul class="nav-links">
+        <li><a href="corhino.html">Sébastien CoRhino</a></li>
+        <li><a href="ananas.html" class="active">Ananas Day</a></li>
+        <li><a href="mixer.html">🎛 Mixer</a></li>
+    </ul>
+    <div class="nav-right">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="jp">JP</button>
+        <button class="lang-btn" data-lang="cr">ᐊᓂᔑᓈᐯ</button>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="corhino.html">Sébastien CoRhino</a>
+    <a href="ananas.html">Ananas Day</a>
+    <a href="mixer.html">🎛 Mixer</a>
+    <div class="nav-mobile-langs">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="jp">JP</button>
+        <button class="lang-btn" data-lang="cr">ᐊᓂᔑᓈᐯ</button>
+    </div>
+</div>
 
-            <h1 class="glitch" data-text="ANANAS DAY" data-i18n="ananas.title">ANANAS DAY</h1>
-            <p class="subtitle" data-i18n="ananas.subtitle">La célébration internationale de l'ananas.</p>
-        </header>
+<!-- HERO ANANAS DAY -->
+<section style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px var(--md) var(--lg);">
 
-        <section class="section">
-            <div class="ananas-flag"></div>
-            <h2 class="section-title" data-i18n="ananas.flag.title">LE DRAPEAU</h2>
-            <p data-i18n="ananas.flag.desc">Jaune pour le fruit, Vert pour la couronne. Simple. Efficace.</p>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title" data-i18n="ananas.concept.title">LE CONCEPT</h2>
-            <p data-i18n="ananas.concept.desc">Une journée pour célébrer l'unité à travers le fruit le plus punk de la
-                nature.</p>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title" data-i18n="ananas.values.title">VALEURS</h2>
-            <ul class="tech-list" style="justify-content: center; font-size: 1.2rem;">
-                <li data-i18n="ananas.values.1">Hospitalité</li>
-                <li data-i18n="ananas.values.2">Douceur</li>
-                <li data-i18n="ananas.values.3">Piquant</li>
-            </ul>
-        </section>
-
-        <footer style="text-align: center; margin-top: 4rem;">
-            <a href="index.html" class="btn">Retour au Portfolio</a>
-        </footer>
+    <!-- Drapeau placeholder — à remplacer par le vrai design du graphiste -->
+    <div class="ananas-flag fade-in" title="Drapeau officiel Ananas Day — design final à venir">
+        <div class="flag-stripe"><span>🍍</span></div>
+        <div class="flag-stripe"><span>🌍</span></div>
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <!-- À RÉÉCRIRE ✏️ -->
+    <h1 style="font-size:clamp(3rem,9vw,7rem);font-weight:900;color:var(--accent);line-height:.9;margin-bottom:.5rem;">ANANAS DAY</h1>
+    <p style="font-family:var(--font-mono);font-size:clamp(.9rem,2.5vw,1.3rem);color:var(--muted);letter-spacing:.2em;margin-bottom:var(--lg);">
+        1er JUILLET · CHAQUE ANNÉE · PARTOUT SUR TERRE
+    </p>
 
+    <div style="max-width:680px;margin:0 auto var(--lg);">
+        <!-- À RÉÉCRIRE ✏️ -->
+        <blockquote class="manifesto-quote fade-in">
+            "Le 1er juillet, tout le monde est en congé.<br>Pas juste au Canada. Partout."
+        </blockquote>
+        <p class="fade-in" style="font-size:1.05rem;line-height:1.85;color:var(--muted);margin-bottom:var(--sm);">
+            L'Ananas Day, c'est une idée simple : et si on inventait un jour férié universel? Pas géré par un gouvernement. Pas rattaché à une religion. Pas attaché à une nation. Un jour que l'humanité se donne à elle-même, parce qu'elle le mérite.
+        </p>
+        <p class="fade-in" style="font-size:1.05rem;line-height:1.85;color:var(--muted);">
+            C'est un concept théorique pour l'instant. Mais les meilleures idées le sont toujours — jusqu'au jour où elles ne le sont plus.
+        </p>
+    </div>
+
+    <div style="display:flex;gap:var(--sm);flex-wrap:wrap;justify-content:center;" class="fade-in">
+        <a href="#pourquoi" class="btn btn-ghost">Pourquoi? ↓</a>
+        <a href="#participer" class="btn">Comment participer? ↓</a>
+    </div>
+</section>
+
+<main>
+
+    <!-- POURQUOI -->
+    <section class="section" id="pourquoi">
+        <div class="container">
+            <div class="fade-in">
+                <span class="section-label">01</span>
+                <h2 class="section-title">Pourquoi l'Ananas Day?</h2>
+            </div>
+            <div class="cards fade-in">
+                <!-- À RÉÉCRIRE ✏️ — 6 raisons draft -->
+                <div class="card">
+                    <div class="card-icon">🌍</div>
+                    <h3>Parce que le monde en a besoin</h3>
+                    <p>Il n'existe aucun jour férié universel partagé par toute l'humanité. Jusqu'ici.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🍍</div>
+                    <h3>Parce que l'ananas est neutre</h3>
+                    <p>Il ne représente aucune nation ni religion. Il est délicieux et personne ne se bat pour lui. Symbole parfait.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🍁</div>
+                    <h3>Parce que le 1er juillet est déjà là</h3>
+                    <p>Fête du Canada — pays "Cool & Universel" qui dit "désolé" par réflexe et ouvre ses bras à tout le monde. Bon départ.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🦏</div>
+                    <h3>Parce que l'absurde sérieux fonctionne</h3>
+                    <p>Le Parti Rhinocéros l'a prouvé. CoRhino aussi. L'absurde sérieux, ça fonctionne.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎵</div>
+                    <h3>Parce qu'il y aura un hymne</h3>
+                    <p>Le single AnanasDay sort le 1er juillet 2026. Un jour férié sans hymne, c'est comme une fête sans gâteau.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">❓</div>
+                    <h3>Parce que pourquoi pas</h3>
+                    <p>Honnêtement? C'est la meilleure raison. Le monde a besoin de plus de "pourquoi pas".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMENT PARTICIPER -->
+    <section class="section" id="participer">
+        <div class="container">
+            <div class="fade-in">
+                <span class="section-label">02</span>
+                <h2 class="section-title">Comment participer?</h2>
+            </div>
+            <div class="cards fade-in">
+                <!-- À RÉÉCRIRE ✏️ -->
+                <div class="card"><div class="card-icon">📅</div><h3>Le 1er juillet, décrochez</h3><p>Prenez congé si vous pouvez. Ou levez votre verre à 17h, heure locale, peu importe où vous êtes.</p></div>
+                <div class="card"><div class="card-icon">🍍</div><h3>Mangez un ananas</h3><p>Le rituel officiel. Simple, délicieux, accessible. Un ananas, une journée.</p></div>
+                <div class="card"><div class="card-icon">🎵</div><h3>Écoutez l'hymne</h3><p>Le single AnanasDay sort le 1er juillet 2026. Mettez-le en boucle.</p></div>
+                <div class="card"><div class="card-icon">📢</div><h3>Parlez-en</h3><p>Expliquez l'Ananas Day à quelqu'un qui ne le connaît pas encore. Comme ça que ça se propage.</p></div>
+                <div class="card"><div class="card-icon">✉️</div><h3>Rejoignez le mouvement</h3><p>Inscrivez-vous à l'infolettre. Soyez avisé du single et des développements du concept.</p></div>
+                <div class="card"><div class="card-icon">🌍</div><h3>Convertissez votre pays</h3><p>Si vous êtes chef de gouvernement et que vous lisez ceci : vous avez le pouvoir. C'est gratuit.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section" id="timeline">
+        <div class="container">
+            <div class="fade-in">
+                <span class="section-label">03</span>
+                <h2 class="section-title">Feuille de route</h2>
+            </div>
+            <div style="max-width:600px;" class="fade-in">
+                <!-- À RÉÉCRIRE ✏️ -->
+                <div class="release"><div class="release-art">🎵</div><div class="release-info"><h3>Single AnanasDay</h3><p>L'hymne officiel. Rap / Hip-hop. Studio maison.</p><span class="release-date">1er juillet 2026</span></div><span class="badge badge-soon">Bientôt</span></div>
+                <div class="release"><div class="release-art">📰</div><div class="release-info"><h3>Campagne de sensibilisation</h3><p>Presse, réseaux, bouche à oreille international.</p><span class="release-date">2026–2027</span></div><span class="badge badge-wip">Planifié</span></div>
+                <div class="release"><div class="release-art">🎪</div><div class="release-info"><h3>Premier événement public</h3><p>Rassemblement, musique live, ananas gratuits.</p><span class="release-date">1er juillet 2029</span></div><span class="badge badge-wip">Phase 2</span></div>
+                <div class="release"><div class="release-art">🌍</div><div class="release-info"><h3>Reconnaissance internationale</h3><p>L'ONU, l'UNESCO, ou au moins un pays sérieux adopte le 1er juillet.</p><span class="release-date">2030</span></div><span class="badge badge-wip">Phase 3</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFOLETTRE -->
+    <section class="newsletter fade-in">
+        <h2>🍍 Rejoindre le mouvement</h2>
+        <!-- À RÉÉCRIRE ✏️ -->
+        <p>Soyez parmi les premiers à recevoir l'hymne et les nouvelles de l'Ananas Day.</p>
+        <!-- TODO: Remplacer par le formulaire Cyberimpact 🇨🇦 -->
+        <div class="newsletter-form">
+            <input type="email" placeholder="votre@courriel.com" aria-label="Votre courriel">
+            <button class="btn" type="button">Je suis partant·e</button>
+        </div>
+        <p class="newsletter-note">Zéro spam. Désabonnement en un clic. Propulsé par Cyberimpact 🇨🇦</p>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-logo">🍍 AnanasDay</div>
+    <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="corhino.html">Sébastien CoRhino</a>
+        <a href="mixer.html">Mixer</a>
+        <a href="mailto:contact@ananasday.com">Contact</a>
+    </nav>
+    <p class="footer-copy">© 2026 Sébastien CoRhino. Le 1er juillet appartient à tout le monde.</p>
+</footer>
+
+<div class="theme-switcher">
+    <button class="theme-btn" data-theme="yellow"  style="background:#F4E800" aria-label="Jaune"></button>
+    <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
+    <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
+    <button class="theme-btn" data-theme="orange"  style="background:#ff8800" aria-label="Orange"></button>
+    <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Cyan"></button>
+    <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Magenta"></button>
+    <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
+    <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="N&amp;B"></button>
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
