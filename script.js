@@ -137,6 +137,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --------------------------------------------------------
+    // COMPTEUR DE VISITEURS old-school
+    // --------------------------------------------------------
+    (async () => {
+        const el = document.getElementById('fc-num');
+        if (!el) return;
+        try {
+            const r = await fetch('/api/counter.php');
+            if (!r.ok) return;
+            const d = await r.json();
+            const n = String(d.n).padStart(6, '0');
+            el.querySelectorAll('span').forEach((s, i) => { s.textContent = n[i]; });
+        } catch (_) { /* local dev sans PHP — silencieux */ }
+    })();
+
+    // --------------------------------------------------------
+    // EMBEDS VIDÉO LITE (charge iframe au clic seulement = zéro cookie avant)
+    // --------------------------------------------------------
+    document.querySelectorAll('.vid-lite').forEach(el => {
+        el.addEventListener('click', () => {
+            const ytId    = el.dataset.yt;
+            const vimeoId = el.dataset.vimeo;
+            if (!ytId && !vimeoId) return;
+            const src = vimeoId
+                ? `https://player.vimeo.com/video/${vimeoId}?autoplay=1&color=F4E800`
+                : `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`;
+            el.innerHTML = `<iframe src="${src}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;"></iframe>`;
+        });
+    });
+
+    // --------------------------------------------------------
     // SMOOTH SCROLL sur ancres
     // --------------------------------------------------------
     document.querySelectorAll('a[href^="#"]').forEach(a => {

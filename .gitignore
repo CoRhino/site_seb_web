@@ -1,0 +1,11 @@
+# Fichiers générés par le serveur — ne pas versionner
+data/counter.txt
+
+# Audio — uploadé directement sur NFS (peut être grand)
+audio/
+
+# Dossiers internes — ne pas déployer sur le serveur public
+# (le deploy.yml a aussi des --exclude, double sécurité)
+docs/
+PLAN/
+.claude/

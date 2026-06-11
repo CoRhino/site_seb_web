@@ -1,76 +1,133 @@
 {
+  "_comment": "Données vérifiées à partir du CV artistique (2023-10) et de la biographie officielle. TODO HUMAIN: compléter 2024-2026, valider dates exactes des entrées marquées 'todo'.",
   "events": [
     {
-      "year": 2023,
+      "year": 2026,
       "category": "musique",
-      "title": "Concert au Phare de Mitis",
-      "date": "15 JUI 2023",
-      "location": "Mitis Beach, Québec, Canada",
-      "description": "Performance musicale en collaboration avec Paraloeil. Création sonore immersive inspirée par les paysages côtiers.",
-      "tags": ["#musique", "#performance", "#paraloeil"]
+      "title": "Single AnanasDay",
+      "date": "1 JUL 2026",
+      "location": "Studio CoRhino, Rimouski — Bandcamp / Web",
+      "description": "Premier single solo — hymne du premier jour férié international. Rap/hip-hop. Enregistré, mixé et mastérisé au studio maison.",
+      "tags": ["#musique", "#single", "#rap", "#hip-hop"]
     },
     {
-      "year": 2023,
+      "year": 2022,
       "category": "art",
-      "title": "Exposition Collective - Art Numérique",
-      "date": "05 NOV 2023",
-      "location": "Galerie d'Art Contemporain, Montréal, QC",
-      "description": "Participation à une exposition collective mettant en avant l'art numérique et les nouvelles technologies créatives.",
-      "tags": ["#art", "#numérique", "#exposition"]
-    },
-    {
-      "year": 2022,
-      "category": "textes",
-      "title": "Publication - Poésie Expérimentale",
-      "date": "22 MARS 2022",
-      "location": "Éditions Libres, Québec, QC",
-      "description": "Publication d'un recueil de poésie expérimentale explorant les frontières entre langage et technologie.",
-      "tags": ["#poésie", "#texte", "#publication"]
-    },
-    {
-      "year": 2022,
-      "category": "musique",
-      "title": "Album - Frequencies of Silence",
-      "date": "10 OCT 2022",
-      "location": "Corhino Bandcamp",
-      "description": "Sortie de l'album 'Frequencies of Silence' - exploration des paysages sonores et des textures électroniques.",
-      "tags": ["#musique", "#album", "#électronique"]
+      "title": "Exposition — Galerie Jean-Louis Desrosiers",
+      "date": "2022",
+      "location": "Mont-Joli, Québec",
+      "description": "Exposition de peintures et sculptures. Style art naïf figuratif : animaux (rhinocéros, oiseaux, marmotte, castor, écureuil, poissons).",
+      "tags": ["#art", "#peinture", "#exposition", "#sculpture"]
     },
     {
       "year": 2021,
-      "category": "art",
-      "title": "Installation Interactive - Data Visualization",
-      "date": "18 MAI 2021",
-      "location": "Festival des Arts Numériques, Québec, QC",
-      "description": "Création d'une installation interactive de visualisation de données en temps réel.",
-      "tags": ["#art", "#interactif", "#données"]
+      "category": "musique",
+      "title": "Séb x Louis x Jo — Phare de Pointe-Métis",
+      "date": "2021",
+      "location": "Pointe-Métis (Mitis Beach), Québec — Prod. Paraloeil",
+      "description": "Création originale : composition, clarinette basse, poésie. Vidéo réalisée par Paraloeil au phare de la Pointe-Mitis. → vimeo.com/697084294",
+      "tags": ["#musique", "#poésie", "#paraloeil", "#clarinette", "#live"]
+    },
+    {
+      "year": 2021,
+      "category": "musique",
+      "title": "Explosion — Compositeur et chef d'orchestre",
+      "date": "2021",
+      "location": "Québec",
+      "description": "Composition et direction d'un orchestre d'improvisateurs.",
+      "tags": ["#musique", "#orchestral", "#composition", "#improvisation"]
     },
     {
       "year": 2021,
       "category": "autr",
-      "title": "Atelier - Créativité et Technologie",
-      "date": "12 DEC 2021",
-      "location": "Centre Culturel, Montréal, QC",
-      "description": "Animation d'un atelier explorant les intersections entre créativité artistique et technologies émergentes.",
-      "tags": ["#atelier", "#technologie", "#créativité"]
+      "title": "Jury — Conseil des Arts du Canada",
+      "date": "2021",
+      "location": "Canada (à distance)",
+      "description": "Membre du jury au Conseil des Arts du Canada.",
+      "tags": ["#autr", "#jury", "#arts"],
+      "todo": "HUMAIN: confirmer année exacte"
     },
     {
-      "year": 2024,
+      "year": 2019,
+      "category": "textes",
+      "title": "Recueil : Petits Poèmes",
+      "date": "2019",
+      "location": "Rimouski, Québec",
+      "description": "Publication d'un recueil de poésie.",
+      "tags": ["#texte", "#poésie", "#publication"]
+    },
+    {
+      "year": 2019,
       "category": "musique",
-      "title": "Performance Live - Electro Hockey",
-      "date": "08 OCT 2024",
-      "location": "Centre Bell, Montréal, QC",
-      "description": "Création musicale en direct inspirée par les matchs de hockey - projet La Puck Symphonique.",
-      "tags": ["#musique", "#hockey", "#live"]
+      "title": "Duclos / Colonie Anglaise",
+      "date": "2019",
+      "location": "Québec",
+      "description": "Auteur-compositeur-interprète.",
+      "tags": ["#musique", "#aci", "#chanson"]
     },
     {
-      "year": 2024,
+      "year": 2014,
+      "category": "musique",
+      "title": "GGRIL — Grand Groupe de Recherche et d'Improvisation Libérée",
+      "date": "2014 — aujourd'hui",
+      "location": "Rimouski, QC — Tournées (Canada, Serbie…)",
+      "description": "Membre et clarinettiste basse du GGRIL. Composition. Tournées internationales, dont la Serbie (photo au site).",
+      "tags": ["#musique", "#orchestre", "#improvisation", "#GGRIL", "#clarinette"]
+    },
+    {
+      "year": 2013,
+      "category": "textes",
+      "title": "1er lauréat — SLAM de contes, Festicourt Sherbrooke",
+      "date": "2013",
+      "location": "Sherbrooke, Québec",
+      "description": "Premier lauréat du SLAM de contes lors du Festicourt de Sherbrooke. La même année, s'installe dans le Bas-St-Laurent.",
+      "tags": ["#texte", "#slam", "#prix", "#poésie"]
+    },
+    {
+      "year": 2011,
+      "category": "musique",
+      "title": "Baccalauréat en musique — Université de Sherbrooke",
+      "date": "2011",
+      "location": "Sherbrooke, Québec",
+      "description": "Bac. en musique, spécialisation composition, enregistrement et mixage. Base de l'ingénierie de son en studio.",
+      "tags": ["#musique", "#formation", "#composition", "#enregistrement"]
+    },
+    {
+      "year": 2011,
+      "category": "musique",
+      "title": "David Goudreault — Slam et poésie",
+      "date": "2011–2013",
+      "location": "Québec",
+      "description": "Collaboration musicale avec le slammeur et écrivain David Goudreault. Basse, composition, arrangements.",
+      "tags": ["#musique", "#slam", "#poésie", "#collab"],
+      "todo": "HUMAIN: confirmer dates exactes"
+    },
+    {
+      "year": 2010,
+      "category": "musique",
+      "title": "Sabir — Hip-hop conscient",
+      "date": "2010–2013",
+      "location": "Québec",
+      "description": "Membre du groupe Sabir (hip-hop conscient). Basse, guitare, composition. Les racines hip-hop de CoRhino.",
+      "tags": ["#musique", "#hip-hop", "#sabir", "#basse"]
+    },
+    {
+      "year": 2008,
       "category": "art",
-      "title": "Résidence Artistique - AI & Créativité",
-      "date": "15 JAN 2024",
-      "location": "Studio CoRhino, Québec, QC",
-      "description": "Résidence artistique explorant les possibilités créatives de l'intelligence artificielle.",
-      "tags": ["#art", "#IA", "#résidence"]
+      "title": "Peinture en direct avec Armand Vaillancourt",
+      "date": "2008",
+      "location": "Lion d'Or, Montréal",
+      "description": "Peinture en direct au Lion d'Or, en collaboration avec le sculpteur Armand Vaillancourt.",
+      "tags": ["#art", "#peinture", "#collaboration", "#live"]
+    },
+    {
+      "year": 2007,
+      "category": "art",
+      "title": "Début de la peinture",
+      "date": "2007",
+      "location": "Québec (pendant le bac. en musique)",
+      "description": "Commence la peinture pour financer une campagne électorale du Parti Rhinocéros. Peint des rhinocéros — 10 toiles vendues. Plus de 50 œuvres figuratives depuis. Style art naïf : oiseaux, marmottes, castors, écureuils, poissons.",
+      "tags": ["#art", "#peinture", "#rhino", "#début"]
     }
   ]
 }

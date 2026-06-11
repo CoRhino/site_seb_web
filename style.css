@@ -657,3 +657,148 @@ footer {
     .track { grid-template-columns: 1fr; }
     .track-id { display: none; } /* label masqué, emoji reste dans name */
 }
+
+/* ============================================================
+   COMPTEUR OLD-SCHOOL
+   ============================================================ */
+.footer-counter {
+    margin: 1.2rem auto;
+    text-align: center;
+}
+.fc-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    color: var(--muted);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+}
+.fc-display {
+    display: inline-flex;
+    gap: 2px;
+}
+.fc-display span {
+    display: inline-block;
+    min-width: 1.35em;
+    padding: .1em .2em;
+    font-family: 'Courier New', 'Space Mono', monospace;
+    font-size: 1.15rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--accent);
+    background: var(--bg2);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    border-radius: 2px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,.6),
+                0 0 6px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+/* ============================================================
+   FOOTER — WEBMASTER & BADGE
+   ============================================================ */
+.footer-webmaster {
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    color: var(--muted);
+    text-align: center;
+    margin: .5rem 0;
+    letter-spacing: .05em;
+}
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    margin: .6rem 0;
+}
+.badge88 {
+    display: inline-block;
+    line-height: 0;
+    border: none;
+    transition: opacity var(--t), transform var(--t);
+}
+.badge88:hover { opacity: .8; transform: scale(1.05); }
+
+/* ============================================================
+   VIDÉOS — EMBED LITE (iframe au clic, zéro cookie avant)
+   ============================================================ */
+.vid-lite {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    background: var(--bg2);
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: var(--r);
+    border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.vid-lite img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity var(--t);
+}
+.vid-lite:hover img { opacity: .8; }
+.vid-play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.72);
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    width: 64px; height: 64px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: background var(--t), transform var(--t), color var(--t);
+    pointer-events: none; /* le click est capté par le parent */
+}
+.vid-lite:hover .vid-play {
+    background: var(--accent);
+    color: var(--bg);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+.vid-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    background: var(--bg2);
+}
+.vid-placeholder-icon { font-size: 3rem; line-height: 1; }
+.vid-placeholder-label {
+    font-family: var(--font-mono);
+    font-size: .8rem;
+    color: var(--muted);
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* ============================================================
+   PAGE VIDÉOS — sections
+   ============================================================ */
+.video-grid {
+    display: grid;
+    gap: var(--lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+.video-item {}
+.video-meta {
+    margin-top: var(--sm);
+    padding-left: .5rem;
+    border-left: 3px solid var(--accent);
+}
+.video-meta h3 { font-family: var(--font-mono); color: var(--accent); font-size: 1rem; margin-bottom: .25rem; }
+.video-meta p  { color: var(--muted); font-size: .88rem; }
+.video-todo {
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    color: var(--danger);
+    margin-top: .2rem;
+}
