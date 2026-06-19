@@ -1,0 +1,164 @@
+/* ============================================================
+   MÉTÉO DU BIC — meteo.css
+   Styles des 4 skins du widget
+   Utilise les variables CSS de style.css pour les thèmes.
+   Charger après style.css.
+   ============================================================ */
+
+/* ---- Base ---- */
+.mw {
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    color: var(--text, #ffffcc);
+    background: var(--bg2, #2a2a00);
+    border-radius: var(--r, 4px);
+    display: inline-block;
+    box-sizing: border-box;
+}
+.mw-loading,
+.mw-err {
+    padding: .5rem 1rem;
+    font-size: .75rem;
+    color: var(--muted, #aaaa44);
+}
+.mw-blink { animation: mw-blink .9s step-end infinite; }
+@keyframes mw-blink { 50% { opacity: 0; } }
+
+/* ============================================================
+   SKIN : CARD (défaut)
+   Usage : data-meteo-skin="card"
+   ============================================================ */
+.mw-card {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    padding: .75rem 1.1rem;
+    border: 1px solid color-mix(in srgb, var(--accent, #F4E800) 28%, transparent);
+    min-width: 230px;
+}
+.mw-card .mw-sym {
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--accent, #F4E800);
+    min-width: 2.4rem;
+    text-align: center;
+}
+.mw-card .mw-k {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--accent, #F4E800);
+    letter-spacing: .02em;
+}
+.mw-card .mw-cond {
+    font-size: .73rem;
+    color: var(--muted, #aaaa44);
+    margin-top: .12rem;
+}
+.mw-card .mw-place {
+    font-size: .67rem;
+    color: var(--muted, #aaaa44);
+    margin-top: .15rem;
+}
+
+/* ============================================================
+   SKIN : MONO (terminal)
+   Usage : data-meteo-skin="mono"
+   ============================================================ */
+.mw-mono {
+    padding: .65rem 1rem;
+    border: 1px dashed color-mix(in srgb, var(--accent, #F4E800) 32%, transparent);
+    font-size: .82rem;
+    line-height: 1.55;
+    min-width: 230px;
+}
+.mw-mono .mw-hd {
+    font-size: .65rem;
+    color: var(--muted, #aaaa44);
+    letter-spacing: .1em;
+    margin-bottom: .3rem;
+}
+.mw-mono .mw-main { margin-bottom: .15rem; }
+.mw-mono .mw-sym {
+    color: var(--accent, #F4E800);
+    font-size: 1.05rem;
+    margin-right: .3rem;
+}
+.mw-mono .mw-k {
+    color: var(--accent, #F4E800);
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+.mw-mono .mw-row { font-size: .78rem; }
+
+/* ============================================================
+   SKIN : RETRO (encadré 1998)
+   Usage : data-meteo-skin="retro"
+   ============================================================ */
+.mw-retro {
+    padding: .65rem 1rem .4rem;
+    border: 2px solid var(--accent, #F4E800);
+    box-shadow: 3px 3px 0 var(--accent, #F4E800);
+    text-align: center;
+    min-width: 175px;
+    background: var(--bg, #1a1a00);
+}
+.mw-retro .mw-retro-title {
+    font-size: .6rem;
+    letter-spacing: .22em;
+    color: var(--accent, #F4E800);
+    border-bottom: 1px solid color-mix(in srgb, var(--accent, #F4E800) 40%, transparent);
+    padding-bottom: .3rem;
+    margin-bottom: .45rem;
+}
+.mw-retro .mw-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .45rem;
+    margin-bottom: .2rem;
+}
+.mw-retro .mw-sym {
+    font-size: 1.5rem;
+    color: var(--accent, #F4E800);
+    line-height: 1;
+}
+.mw-retro .mw-k {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--accent, #F4E800);
+}
+.mw-retro .mw-cond {
+    font-size: .63rem;
+    letter-spacing: .18em;
+    color: var(--muted, #aaaa44);
+    margin-bottom: .15rem;
+}
+.mw-retro .mw-retro-foot {
+    font-size: .52rem;
+    letter-spacing: .06em;
+    color: var(--bg, #1a1a00);
+    background: color-mix(in srgb, var(--accent, #F4E800) 60%, transparent);
+    margin: .5rem -.7rem -.15rem;
+    padding: .15rem .4rem;
+}
+
+/* ============================================================
+   SKIN : PILL (horizontal, inline)
+   Usage : data-meteo-skin="pill"
+   ============================================================ */
+.mw-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .28rem .75rem;
+    border: 1px solid color-mix(in srgb, var(--accent, #F4E800) 28%, transparent);
+    border-radius: 100px;
+    font-size: .8rem;
+    white-space: nowrap;
+}
+.mw-pill .mw-sym { color: var(--accent, #F4E800); line-height: 1; }
+.mw-pill .mw-k   { color: var(--accent, #F4E800); font-weight: bold; }
+.mw-pill .mw-sep { color: var(--muted, #aaaa44); }
+.mw-pill .mw-cond { color: var(--text, #ffffcc); }
+
+/* ---- Utilitaires ---- */
+.mw-muted { color: var(--muted, #aaaa44); font-size: .73rem; }
