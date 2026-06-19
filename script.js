@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // NEWSLETTER — placeholder (brancher Cyberimpact ici)
     // --------------------------------------------------------
     document.querySelectorAll('.newsletter-form').forEach(form => {
-        const btn   = form.querySelector('button[type="submit"], button:not([type])');
+        const btn   = form.querySelector('button');
         const input = form.querySelector('input[type="email"]');
         if (!btn || !input) return;
 

@@ -42,14 +42,45 @@ body.theme-orange  { --bg:#1a0a00; --bg2:#2a1100; --text:#ffddcc; --muted:#aa663
 body.theme-cyan    { --bg:#001a1a; --bg2:#002a2a; --text:#ccffff; --muted:#44aaaa; --accent:#00ffff; --accent2:#66ffff; --accent3:#008080; }
 body.theme-bw      { --bg:#000;    --bg2:#111;    --text:#fff;    --muted:#888;    --accent:#fff;    --accent2:#ccc;    --accent3:#fff;    }
 
+/* THÈME ARC-EN-CIEL — drapeau spectral vertical IR (rouge, haut) → UV (violet, bas).
+   Fond sombre (comme tous les thèmes), lavé d'un spectre fixé au viewport :
+   le haut de l'écran reste rouge, le bas reste violet, même en scrollant. */
 body.theme-rainbow {
-    --bg:#0a0a0a; --bg2:#111; --text:#e0e0e0; --muted:#888;
-    --accent:#ffff00; --accent2:#00ff00; --accent3:#ff7f00;
-    background: linear-gradient(180deg,
-        rgba(255,0,0,.08) 0%, rgba(255,127,0,.08) 14%,
-        rgba(255,255,0,.08) 28%, rgba(0,255,0,.08) 42%,
-        rgba(0,0,255,.08) 56%, rgba(75,0,130,.08) 70%,
-        rgba(148,0,211,.08) 100%);
+    --bg:#08080c; --bg2:#15131c; --text:#f2f2f2; --muted:#b9b1cc;
+    --accent:#ffffff; --accent2:#ffd24a; --accent3:#ff6ec7;
+    --danger:#ff3b5c;
+    background:
+        linear-gradient(180deg,
+            rgba(255,40,40,.22)  0%,    /* IR · rouge   */
+            rgba(255,140,0,.18)  14%,   /*      orange   */
+            rgba(255,225,0,.16)  28%,   /*      jaune    */
+            rgba(40,210,90,.16)  42%,   /*      vert     */
+            rgba(0,210,210,.16)  57%,   /*      cyan     */
+            rgba(60,110,255,.18) 71%,   /*      bleu     */
+            rgba(120,60,230,.20) 85%,   /*      indigo   */
+            rgba(180,40,230,.25) 100%   /* UV · violet   */
+        ),
+        #08080c;
+    background-attachment: fixed;
+}
+
+/* Boule flottante = spectre radial : UV (violet, centre) → IR (rouge, bord) */
+body.theme-rainbow .floating-ball {
+    background: radial-gradient(circle at 50% 50%,
+        #c45bff 0%, #7a3cff 16%, #3c6bff 33%,
+        #2ecf5b 50%, #ffe600 68%, #ff8a00 84%, #ff3b3b 100%);
+    box-shadow: 0 0 26px rgba(255,255,255,.22);
+    opacity: .85;
+}
+
+/* Titres de section en dégradé arc-en-ciel (seulement en thème rainbow) */
+body.theme-rainbow .section-title,
+body.theme-rainbow .page-hero-title {
+    background: linear-gradient(90deg,#ff5252,#ff9e00,#ffe600,#5bff7a,#00e5e5,#5b8cff,#c45bff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 /* ============================================================
