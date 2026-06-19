@@ -1,0 +1,3 @@
+# TODO 
+# FILE FOR SECURITY SCAN WORKFLOW 
+# Example : scan api keys secrets password or other before it's PR to make sure we delete them we cannot merge 
