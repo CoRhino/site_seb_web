@@ -27,6 +27,7 @@ jobs:
             --exclude '.gitattributes' \
             --exclude '.claude/' \
             --exclude 'docs/' \
+            --exclude 'DOCS/' \
             --exclude 'PLAN/' \
             --exclude 'archives/' \
             --exclude 'AGENT.md' \
