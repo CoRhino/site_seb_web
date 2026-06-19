@@ -1,2 +1,2 @@
-# site_seb_web
-Site Séb pour Web.
+# Ananas Day
+Site Séb de l'artiste Sébastien CoRhino
