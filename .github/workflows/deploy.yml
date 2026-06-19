@@ -22,12 +22,16 @@ jobs:
         run: |
           rsync -avz --delete \
             --exclude '.git' \
+            --exclude '.github/' \
+            --exclude '.gitignore' \
+            --exclude '.gitattributes' \
+            --exclude '.claude/' \
             --exclude 'docs/' \
             --exclude 'PLAN/' \
-            --exclude '.claude/' \
+            --exclude 'archives/' \
             --exclude 'AGENT.md' \
             --exclude 'README.md' \
-            --exclude 'What_Claude_thinks_of_me.md' \
+            --exclude 'meteo-test.html' \
             --exclude 'audio/' \
             --exclude 'data/counter.txt' \
             ./ ${{ secrets.NFS_USER }}@${{ secrets.NFS_HOST }}:/home/public/
