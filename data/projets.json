@@ -1,0 +1,70 @@
+{
+  "_comment": "Campagnes affichées sur donations.html (thermomètres-ananas). Modifier 'recolte' à la main quand l'argent rentre. Montants dans meta.currency. AUCUNE logique de paiement ici.",
+  "meta": {
+    "currency": "€",
+    "currencyCode": "EUR",
+    "note": "Montants de depart = fonds propres CoRhino pour amorcer les compteurs."
+  },
+  "projets": [
+    {
+      "id": "tournee-de",
+      "emoji": "🇩🇪",
+      "labelFr": "Tournée en Allemagne",
+      "labelEn": "Tour in Germany",
+      "descFr": "Amener le show sur scène outre-Rhin. Van, essence, salles, schnitzel.",
+      "descEn": "Bring the show to German stages. Van, gas, venues, schnitzel.",
+      "goal": 10000,
+      "recolte": 5.50
+    },
+    {
+      "id": "album-de",
+      "emoji": "💿",
+      "labelFr": "Album en allemand",
+      "labelEn": "German-language album",
+      "descFr": "Good Guy Kanada chante en allemand. Studio, mix, master, pochette.",
+      "descEn": "Good Guy Kanada sings in German. Studio, mix, master, artwork.",
+      "goal": 40000,
+      "recolte": 0
+    },
+    {
+      "id": "reprises-amis",
+      "emoji": "🎶",
+      "labelFr": "Album de reprises — chansons d'amis",
+      "labelEn": "Covers album — friends' songs",
+      "descFr": "Reprendre les chansons françaises d'amis musiciens. Droits, arrangements, studio.",
+      "descEn": "Covering French songs by musician friends. Rights, arrangements, studio.",
+      "goal": 70000,
+      "recolte": 25
+    },
+    {
+      "id": "yt-chef",
+      "emoji": "🍳",
+      "labelFr": "YouTube : Chef CoRhino",
+      "labelEn": "YouTube: Chef CoRhino",
+      "descFr": "Cuisine, fruits, humour. Caméra, lumière, un monteur.",
+      "descEn": "Cooking, fruit, humour. Camera, lights, an editor.",
+      "goal": 3000,
+      "recolte": 13.37
+    },
+    {
+      "id": "tshirts",
+      "emoji": "👕",
+      "labelFr": "T-shirts CoRhino",
+      "labelEn": "CoRhino T-shirts",
+      "descFr": "Rhinocéros, ananas, couleurs criardes. Premier tirage.",
+      "descEn": "Rhinos, pineapples, loud colours. First print run.",
+      "goal": 1500,
+      "recolte": 0
+    },
+    {
+      "id": "autobio",
+      "emoji": "📖",
+      "labelFr": "Autobiographie",
+      "labelEn": "Autobiography",
+      "descFr": "Politique, musique, rhinocéros. Écriture, révision, édition.",
+      "descEn": "Politics, music, rhinos. Writing, editing, publishing.",
+      "goal": 8000,
+      "recolte": 19.98
+    }
+  ]
+}

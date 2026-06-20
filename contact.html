@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Sébastien CoRhino</title>
+    <meta name="description" content="Rejoindre Sébastien CoRhino sur ses réseaux : Bandcamp, YouTube, Instagram et plus.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--md);
+            max-width: 680px; margin: var(--lg) 0;
+        }
+        .contact-card {
+            display: flex; flex-direction: column; gap: .5rem;
+            padding: var(--md);
+            background: var(--bg2);
+            border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+            border-radius: var(--r);
+            transition: border-color var(--t), transform var(--t);
+        }
+        .contact-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .contact-card .cc-icon { font-size: 1.6rem; }
+        .contact-card .cc-name { font-family: var(--font-mono); color: var(--accent); font-weight: 700; }
+        .contact-card .cc-handle { font-family: var(--font-mono); font-size: .8rem; color: var(--muted); }
+        .contact-more { margin-top: var(--lg); }
+        .contact-more h2 { color: var(--accent); font-size: 1.1rem; margin-bottom: var(--sm); }
+        .contact-more ul { display: flex; gap: var(--md); flex-wrap: wrap; }
+        .contact-more li { font-family: var(--font-mono); font-size: .85rem; color: var(--muted); }
+        .contact-more .soon { opacity: .55; }
+        .no-mail { font-family: var(--font-mono); font-size: .78rem; color: var(--muted); opacity: .7; margin-top: var(--md); }
+    </style>
+</head>
+<body>
+<script>/* Applique le thème sauvegardé AVANT le rendu = zéro flash entre les pages. */
+(function(){var ok=['yellow','red','green','magenta','rainbow','bw','cyan'];var t=localStorage.getItem('cr-theme');if(ok.indexOf(t)<0){t='yellow';localStorage.setItem('cr-theme',t);}document.body.classList.add('theme-'+t);})();</script>
+
+<div class="noise-overlay"></div>
+<div class="floating-ball"></div>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-logo">🍍 <span>ananas</span>DAY</a>
+    <ul class="nav-links">
+        <li><a href="corhino.html">Sébastien CoRhino</a></li>
+        <li><a href="ananas.html">Ananas Day</a></li>
+        <li><a href="videos.html">Vidéos</a></li>
+        <li><a href="mixer.html">🎛 Mixer</a></li>
+    </ul>
+    <div class="nav-right">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="corhino.html">Sébastien CoRhino</a>
+    <a href="ananas.html">Ananas Day</a>
+    <a href="videos.html">Vidéos</a>
+    <a href="mixer.html">🎛 Mixer</a>
+    <div class="nav-mobile-langs">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+</div>
+
+<main>
+    <header class="page-hero container" style="padding-bottom:0;">
+        <p class="page-hero-kicker">Réseaux · Rejoindre · Suivre</p>
+        <h1 class="page-hero-title">Me <span>rejoindre</span></h1>
+        <p class="page-hero-sub" style="color:var(--muted);">
+            La meilleure place pour suivre CoRhino : la musique, les vidéos, les nouvelles.
+        </p>
+    </header>
+
+    <div class="container" style="padding-bottom:var(--xl);">
+
+        <!-- Les 3 meilleurs : Bandcamp · YouTube · Instagram -->
+        <div class="contact-grid fade-in">
+            <a class="contact-card" href="https://corhino.bandcamp.com" target="_blank" rel="noopener">
+                <span class="cc-icon">🎵</span>
+                <span class="cc-name">Bandcamp</span>
+                <span class="cc-handle">corhino.bandcamp.com</span>
+            </a>
+            <a class="contact-card" href="https://www.youtube.com/@CoRhino" target="_blank" rel="noopener">
+                <span class="cc-icon">▶</span>
+                <span class="cc-name">YouTube</span>
+                <span class="cc-handle">@CoRhino</span>
+            </a>
+            <a class="contact-card" href="https://www.instagram.com/corhino/" target="_blank" rel="noopener">
+                <span class="cc-icon">📷</span>
+                <span class="cc-name">Instagram</span>
+                <span class="cc-handle">@CoRhino</span>
+            </a>
+        </div>
+
+        <!-- Les autres réseaux. TODO HUMAIN : fournir les handles/URLs réels (voir DOCS/TODO_HUMAIN.md). -->
+        <div class="contact-more fade-in">
+            <h2>Ailleurs aussi</h2>
+            <ul>
+                <li class="soon">LinkedIn <em>(bientôt)</em></li>
+                <li class="soon">Facebook <em>(bientôt)</em></li>
+                <li class="soon">TikTok <em>(bientôt)</em></li>
+                <li class="soon">Tinder <em>(bientôt)</em></li>
+            </ul>
+        </div>
+
+        <p class="no-mail">// Pas d'adresse courriel publiée ici — passez par les réseaux ci-dessus.</p>
+        <span class="ni-mark">Build with NI™</span>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-logo">Sébastien CoRhino</div>
+    <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="corhino.html">CoRhino</a>
+        <a href="ananas.html">Ananas Day</a>
+        <a href="videos.html">Vidéos</a>
+        <a href="mixer.html">Mixer</a>
+        <a href="donations.html">♥ Soutien</a>
+    </nav>
+    <nav class="footer-social" aria-label="Réseaux sociaux">
+        <a href="https://corhino.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+        <a href="https://www.youtube.com/@CoRhino" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/corhino/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+    <p class="footer-copy">© 2026 Sébastien CoRhino. Tous droits réservés.</p>
+    <p class="footer-webmaster">webmaster depuis 1998 &middot; HTML &amp; CSS fait à la main &middot; zéro framework</p>
+</footer>
+
+<!-- THEME SWITCHER · jaune = défaut (signature CoRhino) + grille 3×2 -->
+<div class="theme-switcher" aria-label="Changer de thème de couleur">
+    <button class="theme-btn theme-btn--main" data-theme="yellow" style="background:#F4E800" aria-label="Jaune Speedyellow (défaut)"></button>
+    <div class="theme-grid">
+        <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
+        <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
+        <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Mauve"></button>
+        <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
+        <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="Négatif"></button>
+        <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Turquoise"></button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
