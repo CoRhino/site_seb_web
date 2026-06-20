@@ -26,6 +26,7 @@
 
 - [ ] **Promesse électorale** : retrouver la **version FR** et ajouter un 2e embed (en plus de la version EN : https://www.youtube.com/watch?v=Tynlr9QXsuA).
 - [ ] **Photo GGRIL Serbie** : fournir une **version haute résolution** (actuelle : https://quoivivrerimouski.ca/sites/default/files/styles/fiche_d/public/2023-04/ggriljpg-full.jpg).
+- [ ] **Vidéo « Le GGRIL » (chef d'orchestre)** : trouver le lien YouTube (chercher « GGRIL Gus Garside Victoriaville » — Séb dirige l'ensemble). À coller dans `data/videos.json` → entrée `ggril-chef`, champ `ytid`.
 
 ## Easter-egg IA (chaîne llm.txt)
 

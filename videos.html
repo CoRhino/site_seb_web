@@ -55,61 +55,12 @@
     </header>
 
     <div class="container" style="padding-top:var(--lg);padding-bottom:var(--xl);">
-        <div class="video-grid">
-
-            <!-- 1. PROMESSE ÉLECTORALE -->
-            <div class="video-item fade-in">
-                <div class="vid-lite" data-yt="Tynlr9QXsuA"
-                     role="button" tabindex="0"
-                     aria-label="Lire : Ma meilleure promesse électorale (Parti Rhinocéros)">
-                    <img src="https://img.youtube.com/vi/Tynlr9QXsuA/maxresdefault.jpg"
-                         alt="Ma meilleure promesse électorale — Parti Rhinocéros du Canada"
-                         loading="lazy">
-                    <div class="vid-play" aria-hidden="true">▶</div>
-                </div>
-                <div class="video-meta">
-                    <h3>Ma meilleure promesse électorale</h3>
-                    <p>Parti Rhinocéros du Canada · Vidéo EN</p>
-                    <p class="video-todo">TODO HUMAIN : retrouver la version française et ajouter un 2e embed ci-dessous</p>
-                </div>
-            </div>
-
-            <!-- 2. POÉSIE / PARALOEIL -->
-            <div class="video-item fade-in">
-                <div class="vid-lite" data-vimeo="697084294"
-                     role="button" tabindex="0"
-                     aria-label="Lire : Séb x Louis x Jo — Paraloeil, Pointe-Métis">
-                    <div class="vid-placeholder">
-                        <div class="vid-placeholder-icon">&#127911;</div>
-                        <p class="vid-placeholder-label">
-                            Séb x Louis x Jo<br>
-                            <span style="font-size:.7rem;opacity:.7;">Cliquer pour charger la vidéo Vimeo</span>
-                        </p>
-                    </div>
-                    <div class="vid-play" aria-hidden="true">▶</div>
-                </div>
-                <div class="video-meta">
-                    <h3>Séb x Louis x Jo — Phare de Pointe-Métis</h3>
-                    <p>Poésie · Clarinette basse · Composition · Prod. Paraloeil · 2021</p>
-                </div>
-            </div>
-
-            <!-- 3. PHOTO GGRIL SERBIE -->
-            <div class="video-item fade-in">
-                <div style="position:relative;overflow:hidden;border-radius:var(--r);border:1px solid color-mix(in srgb, var(--accent) 15%, transparent);">
-                    <img src="https://quoivivrerimouski.ca/sites/default/files/styles/fiche_d/public/2023-04/ggriljpg-full.jpg"
-                         alt="Sébastien CoRhino jouant de la clarinette basse avec le GGRIL — tournée en Serbie"
-                         loading="lazy"
-                         style="width:100%;display:block;max-height:450px;object-fit:cover;">
-                </div>
-                <div class="video-meta">
-                    <h3>GGRIL — Tournée en Serbie</h3>
-                    <p>Grand Groupe de Recherche et d'Improvisation Libérée · Clarinette basse · Photo © GGRIL</p>
-                    <p class="video-todo">TODO HUMAIN : remplacer par version haute résolution si disponible</p>
-                </div>
-            </div>
-
+        <!-- Bandeau déroulant : vignettes (titre / image / crédits). Clic = lecture en grand dessous.
+             Par défaut, une vidéo au hasard. Données dans data/videos.json, rendu par videos.js. -->
+        <div class="vbanner" id="vbanner" role="list" aria-label="Choisir une vidéo">
+            <p class="vempty">Chargement des vidéos…</p>
         </div>
+        <div class="vstage" id="vstage" aria-live="polite"></div>
         <!-- NI = Natural Intelligence (l'humain, pas l'IA). Signature discrète. -->
         <p style="text-align:center;margin-top:var(--lg);"><span class="ni-mark">Build with NI™</span></p>
     </div>
@@ -168,5 +119,6 @@
 </div>
 
 <script src="script.js"></script>
+<script src="videos.js"></script>
 </body>
 </html>

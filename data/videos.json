@@ -1,0 +1,35 @@
+[
+  {
+    "id": "phare",
+    "title": "Au Phare de Pointe-Métis",
+    "credits": "Poésie & clarinette basse · Séb x Louis x Jo · Prod. Paraloeil",
+    "type": "vimeo",
+    "vimeoid": "697084294",
+    "thumb": ""
+  },
+  {
+    "id": "promesse",
+    "title": "Ma meilleure promesse électorale",
+    "credits": "Parti Rhinocéros · Raccourcir l'hiver canadien",
+    "type": "youtube",
+    "ytid": "Tynlr9QXsuA",
+    "thumb": "https://img.youtube.com/vi/Tynlr9QXsuA/mqdefault.jpg"
+  },
+  {
+    "id": "ggril-chef",
+    "title": "Le GGRIL",
+    "credits": "Chef d'orchestre · pièce de Gus Garside · Victoriaville",
+    "type": "youtube",
+    "ytid": "",
+    "thumb": "",
+    "todo": "HUMAIN: trouver le lien YouTube (chercher « GGRIL Gus Garside Victoriaville » — Séb dirige l'ensemble)."
+  },
+  {
+    "id": "ggril-serbie",
+    "title": "GGRIL — Tournée en Serbie",
+    "credits": "Clarinette basse · Photo © GGRIL",
+    "type": "image",
+    "src": "https://quoivivrerimouski.ca/sites/default/files/styles/fiche_d/public/2023-04/ggriljpg-full.jpg",
+    "thumb": "https://quoivivrerimouski.ca/sites/default/files/styles/fiche_d/public/2023-04/ggriljpg-full.jpg"
+  }
+]

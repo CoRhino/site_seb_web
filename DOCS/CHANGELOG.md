@@ -17,3 +17,8 @@
 - **Notes IA** retirées du DOM rendu (`.robot-note`, liens cachés) → commentaires source.
 - Marques discrètes **« Build with NI™ »** (NI = Natural Intelligence, défini en commentaire) sur ananas/vidéos/mixer/contact.
 - **Kelvin** (`meteo.js`) : arrondi entier, plus de décimales.
+
+## 2026-06-20 — Revue vocale (suite) — `feat/revue-vocale-19juin`
+
+- **Page vidéos** : bandeau déroulant horizontal de vignettes (3 étages : titre / image / crédits), clic = lecture en grand dessous, défaut = une vidéo au hasard. Données `data/videos.json`, rendu `videos.js`. Ancienne grille statique + `TODO` visibles retirés (déplacés dans `TODO_HUMAIN.md`).
+- Renommage alter-ego allemand **« Good Guy Kanada » → « Guter Typ Kanada »** (corhino + `data/projets.json`).

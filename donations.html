@@ -190,22 +190,11 @@
                 -->
             </div>
 
-            <!-- CRYPTO -->
+            <!-- CRYPTO — rendu depuis la config WALLETS (voir script en bas). -->
             <div class="don-card fade-in">
                 <h3>🔑 Cryptomonnaies</h3>
-                <p>Pour les amateurs de blockchain. Transactions décentralisées et irréversibles.</p>
-                <span class="don-soon">À venir</span>
-                <!-- TODO HUMAIN : créer les adresses et les coller ici (décommenter)
-                <div style="margin-top:1rem;">
-                    <h4 style="font-size:.85rem;color:var(--text);margin-bottom:.3rem;">🟠 Bitcoin (BTC)</h4>
-                    <div class="don-addr" id="btc">bc1q…</div>
-                    <button class="btn btn-ghost" onclick="copyAddr('btc')">Copier l'adresse</button>
-
-                    <h4 style="font-size:.85rem;color:var(--text);margin:1rem 0 .3rem;">🔵 Ethereum (ETH)</h4>
-                    <div class="don-addr" id="eth">0x…</div>
-                    <button class="btn btn-ghost" onclick="copyAddr('eth')">Copier l'adresse</button>
-                </div>
-                -->
+                <p>Pour les amateurs de blockchain. Copie l'adresse ou ouvre directement ton portefeuille.</p>
+                <div id="crypto-wallets"></div>
             </div>
 
             <!-- BANDCAMP / ACHAT -->
@@ -291,17 +280,46 @@
 
 <script src="script.js"></script>
 <script>
-/* Copie d'adresse crypto (prêt pour quand les adresses seront décommentées) */
-function copyAddr(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    navigator.clipboard.writeText(el.textContent.trim()).then(() => {
-        const b = event.target;
-        const t = b.textContent;
-        b.textContent = '✓ Copié!';
-        setTimeout(() => { b.textContent = t; }, 2000);
+/* Dons en cryptomonnaie.
+   TODO HUMAIN : coller les vraies adresses ci-dessous. Tant qu'une 'address' est vide,
+   la pièce s'affiche « à venir ». Une fois remplie : copie + lien d'ouverture du portefeuille.
+   N'INVENTE PAS d'adresse — une fausse adresse = des dons perdus. */
+(function crypto() {
+    const box = document.getElementById('crypto-wallets');
+    if (!box) return;
+
+    const WALLETS = [
+        { coin: 'Bitcoin',  ticker: 'BTC', emoji: '🟠', scheme: 'bitcoin',  address: '' },
+        { coin: 'Ethereum', ticker: 'ETH', emoji: '🔵', scheme: 'ethereum', address: '' },
+        { coin: 'Solana',   ticker: 'SOL', emoji: '🟣', scheme: 'solana',   address: '' }
+    ];
+
+    const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+
+    box.innerHTML = WALLETS.map(w => {
+        const head = `<h4 style="font-size:.85rem;color:var(--text);margin:.9rem 0 .3rem;">${w.emoji} ${esc(w.coin)} (${esc(w.ticker)})</h4>`;
+        if (!w.address) return head + '<span class="don-soon">À venir</span>';
+        return head +
+            `<div class="don-addr" data-addr>${esc(w.address)}</div>` +
+            `<div style="display:flex;gap:.4rem;flex-wrap:wrap;">` +
+            `<button class="btn btn-ghost" type="button" data-copy>Copier</button>` +
+            `<a class="btn btn-ghost" href="${esc(w.scheme)}:${encodeURIComponent(w.address)}">Ouvrir portefeuille →</a>` +
+            `</div>`;
+    }).join('');
+
+    // Copie (délégation) : copie l'adresse au-dessus du bouton cliqué.
+    box.addEventListener('click', e => {
+        const b = e.target.closest('[data-copy]');
+        if (!b) return;
+        const addr = b.parentElement.previousElementSibling;
+        if (!addr) return;
+        navigator.clipboard.writeText(addr.textContent.trim()).then(() => {
+            const t = b.textContent;
+            b.textContent = '✓ Copié!';
+            setTimeout(() => { b.textContent = t; }, 2000);
+        });
     });
-}
+})();
 
 /* Campagnes : rendu des cartes + thermomètres-ananas depuis data/projets.json.
    Mis à jour à la main. NB : fetch ne marche pas en file:// — vide en local, OK en http. */
