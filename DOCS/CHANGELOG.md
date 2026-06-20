@@ -22,3 +22,7 @@
 
 - **Page vidéos** : bandeau déroulant horizontal de vignettes (3 étages : titre / image / crédits), clic = lecture en grand dessous, défaut = une vidéo au hasard. Données `data/videos.json`, rendu `videos.js`. Ancienne grille statique + `TODO` visibles retirés (déplacés dans `TODO_HUMAIN.md`).
 - Renommage alter-ego allemand **« Good Guy Kanada » → « Guter Typ Kanada »** (corhino + `data/projets.json`).
+- **`lancement.html`** : page de lancement temporaire (single + compte à rebours + compteur), texte placeholder = lorem ipsum allemand (à réécrire).
+- **Page 404** : boîte à rythmes **808 fonctionnelle** (`tr808.js`) — séquenceur 16 pas éditable, 6 voix synthétisées en Web Audio, play/stop/tempo, motif démo. Gag « 404 + 404 = 808 ». Note IA visible retirée, switcher migré.
+- **Chaîne `llm.txt → llm2.txt → llm3.txt`** : easter-egg pour IA curieuses → pitch crypto / `donation_ai.html` (rien de rendu aux humains).
+- **`AGENT.md`** mis à jour : 7 thèmes, nouvelles pages, contact sans courriel, notes IA hors DOM, dossier `DOCS/`.
