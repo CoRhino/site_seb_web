@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<script>/* Applique le thème sauvegardé AVANT le rendu = zéro flash entre les pages. */
+(function(){var ok=['yellow','red','green','magenta','rainbow','bw','cyan'];var t=localStorage.getItem('cr-theme');if(ok.indexOf(t)<0){t='yellow';localStorage.setItem('cr-theme',t);}document.body.classList.add('theme-'+t);})();</script>
 
 <div class="noise-overlay"></div>
 <div class="floating-ball"></div>
@@ -99,6 +101,8 @@
     <div style="text-align:center;margin:var(--lg) 0 var(--xl);">
         <a href="corhino.html" class="btn btn-ghost">← Retour à CoRhino</a>
     </div>
+    <!-- NI = Natural Intelligence (l'humain, pas l'IA). Signature discrète. -->
+    <div style="text-align:left;opacity:.8;"><span class="ni-mark">Build with NI™</span></div>
 </div>
 
 <footer>
@@ -108,6 +112,13 @@
         <a href="corhino.html">CoRhino</a>
         <a href="ananas.html">Ananas Day</a>
         <a href="videos.html">Vidéos</a>
+        <a href="donations.html">♥ Soutien</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="footer-social" aria-label="Réseaux sociaux">
+        <a href="https://corhino.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+        <a href="https://www.youtube.com/@CoRhino" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/corhino/" target="_blank" rel="noopener">Instagram</a>
     </nav>
     <p class="footer-copy">© 2026 Sébastien CoRhino.</p>
     <div class="footer-counter">
@@ -131,15 +142,17 @@
     </div>
 </footer>
 
-<div class="theme-switcher">
-    <button class="theme-btn" data-theme="yellow"  style="background:#F4E800" aria-label="Jaune"></button>
-    <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
-    <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
-    <button class="theme-btn" data-theme="orange"  style="background:#ff8800" aria-label="Orange"></button>
-    <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Cyan"></button>
-    <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Magenta"></button>
-    <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
-    <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="N&amp;B"></button>
+<!-- THEME SWITCHER · jaune = défaut (signature CoRhino) + grille 3×2 -->
+<div class="theme-switcher" aria-label="Changer de thème de couleur">
+    <button class="theme-btn theme-btn--main" data-theme="yellow" style="background:#F4E800" aria-label="Jaune Speedyellow (défaut)"></button>
+    <div class="theme-grid">
+        <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
+        <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
+        <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Mauve"></button>
+        <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
+        <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="Négatif"></button>
+        <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Turquoise"></button>
+    </div>
 </div>
 
 <script src="script.js"></script>

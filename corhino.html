@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<script>/* Applique le thème sauvegardé AVANT le rendu = zéro flash entre les pages. */
+(function(){var ok=['yellow','red','green','magenta','rainbow','bw','cyan'];var t=localStorage.getItem('cr-theme');if(ok.indexOf(t)<0){t='yellow';localStorage.setItem('cr-theme',t);}document.body.classList.add('theme-'+t);})();</script>
 
 <div class="noise-overlay"></div>
 <div class="floating-ball"></div>
@@ -43,10 +45,10 @@
 
 <!-- PAGE HERO -->
 <header class="page-hero container">
-    <p class="page-hero-kicker">Artiste · Clarinettiste basse · Rappeur · Ingénieur de son</p>
+    <p class="page-hero-kicker">Musique · Mots · Idées · Inventions</p>
     <!-- À RÉÉCRIRE ✏️ -->
     <h1 class="page-hero-title">Sébastien<br><span>CoRhino</span></h1>
-    <p class="page-hero-sub">Aka Côrriveau, Séb Cô, Good Guy Kanada.<br>L'artiste total — à la Zappa, en mieux habillé.</p>
+    <p class="page-hero-sub">Aka Côrriveau, Séb Cô, Guter Typ Kanada.<br>L'artiste total — à la Zappa, en mieux habillé.</p>
 </header>
 
 <main>
@@ -61,8 +63,14 @@
             <div class="bio-grid fade-in">
                 <div class="bio-text">
                     <!-- À RÉÉCRIRE ✏️ — contenu draft -->
-                    <p>Sébastien CoRhino, c'est 20 ans de musique — piano, voix, rap, hip-hop — qui arrivent enfin à la surface. Après une carrière politique aussi sérieuse que déjantée (chef du Parti Rhinocéros du Canada pendant 10 ans, candidat 3× au poste de premier ministre), il lance maintenant ce pour quoi il était fait depuis le début : sa carrière artistique publique.</p>
-                    <p>Basé à Rimouski depuis 2013, il compose, enregistre et produit dans son studio maison. Bac. en musique de l'Université de Sherbrooke (composition, enregistrement, mixage) — il contrôle tout le processus, de la première note au master final. La musique, c'est pas un hobby. C'est le plan A depuis toujours.</p>
+                    <p>Sébastien CoRhino, c'est 20 ans de musique — compo, voix, clarinette basse, hip-hop — qui arrivent enfin à la surface. 
+                        Après une carrière politique aussi sérieuse que déjantée (chef du Parti Rhinocéros du Canada 
+                        pendant 10 ans, candidat trois fois au poste de premier ministre), il lance maintenant ce pour 
+                        quoi il était fait depuis le début : sa carrière artistique publique.</p>
+                    <p>Basé à Rimouski depuis 2013, il compose, enregistre et produit dans son studio maison. 
+                        Bac. en musique de l'Université de Sherbrooke (composition, enregistrement, mixage) — il 
+                        contrôle tout le processus, de la première note au master final. 
+                        La musique, c'est pas un hobby. C'est le plan A depuis toujours.</p>
                     <p>Le style CoRhino ne rentre pas dans une case. Rap, hip-hop, humour absurde sérieux, couleurs flamboyantes, rhinocéros comme symbole, ananas comme étendard. Un artiste total, au sens wagnérien.</p>
                 </div>
                 <aside class="bio-sidebar">
@@ -70,14 +78,14 @@
                     <dl class="facts">
                         <div class="fact"><dt>NOM</dt><dd>Sébastien Côrriveau</dd></div>
                         <div class="fact"><dt>SCÈNE</dt><dd>Sébastien CoRhino</dd></div>
-                        <div class="fact"><dt>AUSSI</dt><dd>Séb Cô · Good Guy Kanada (DE)</dd></div>
+                        <div class="fact"><dt>AUSSI</dt><dd>Séb Cô · Guter Typ Kanada (DE)</dd></div>
                         <div class="fact"><dt>BASE</dt><dd>Rimouski, Québec</dd></div>
                         <div class="fact"><dt>INSTRU</dt><dd>Clarinette basse · Contrebasse · Basse · Chant</dd></div>
-                        <div class="fact"><dt>STYLE</dt><dd>Chanson · Rap · Hip-hop · Jazz improvisé</dd></div>
-                        <div class="fact"><dt>STUDIO</dt><dd>Maison — composition, enregistrement, ingé son</dd></div>
-                        <div class="fact"><dt>POLITIQUE</dt><dd>Chef Parti Rhino (10 ans) · 3× candidat PM</dd></div>
+                        <div class="fact"><dt>STYLE</dt><dd>Chanson · Rap · Hip-hop · Free jazz</dd></div>
+                        <div class="fact"><dt>STUDIO</dt><dd>compo, enregistrement, mix</dd></div>
+                        <div class="fact"><dt>POLITIQUE</dt><dd>ex-Chef Rhino · 3× candidat PM</dd></div>
                         <div class="fact"><dt>COULEURS</dt><dd>Jaune · Rouge · Vert</dd></div>
-                        <div class="fact"><dt>SYMBOLES</dt><dd>🦏 Rhinocéros · 🍍 Ananas</dd></div>
+                        <div class="fact"><dt>SYMBOLES</dt><dd>🍍 Ananas  · 🦏 Rhinocéros</dd></div>
                     </dl>
                 </aside>
             </div>
@@ -145,79 +153,23 @@
                 </div>
             </div>
 
-            <!-- Feature mixer -->
-            <div class="fade-in" style="margin-top:var(--lg);padding:var(--md);background:var(--bg2);border-radius:var(--r);border-left:3px solid var(--accent);">
-                <p style="font-family:var(--font-mono);font-size:.85rem;color:var(--muted);margin-bottom:var(--sm);">
-                    <strong style="color:var(--accent);">// SIGNE DISTINCTIF</strong><br>
-                    CoRhino est musicien ET ingénieur de son. Ce site est aussi sa platine.
-                </p>
+            <!-- Bouton mixer seul (carré « signe distinctif » + texte retirés — revue 2026-06-19) -->
+            <div class="fade-in" style="margin-top:var(--lg);">
                 <a href="mixer.html" class="btn btn-ghost">🎛 Ouvrir le Mixer multi-pistes →</a>
             </div>
         </div>
     </section>
 
-    <!-- PROJETS -->
-    <section class="section" id="projets">
-        <div class="container">
-            <div class="fade-in">
-                <span class="section-label">04</span>
-                <h2 class="section-title">Projets</h2>
-            </div>
-            <div class="cards fade-in">
-                <div class="card">
-                    <div class="card-icon">🎵</div>
-                    <!-- À RÉÉCRIRE ✏️ -->
-                    <h3>Single AnanasDay</h3>
-                    <p>L'hymne du premier jour férié international. Sort le 1er juillet en même temps que le concept.</p>
-                    <span class="card-tag">1er juillet 2026</span>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🍳</div>
-                    <!-- À RÉÉCRIRE ✏️ -->
-                    <h3>YouTube : Chef CoRhino</h3>
-                    <p>Cuisine · fruits · humour. Format court, ton CoRhino. Concept visuel prêt, besoin d'un monteur.</p>
-                    <span class="card-tag">En développement</span>
-                </div>
-                <div class="card">
-                    <div class="card-icon">👕</div>
-                    <!-- À RÉÉCRIRE ✏️ -->
-                    <h3>T-shirts CoRhino</h3>
-                    <p>Print-on-demand. Rhinocéros, ananas, couleurs flamboyantes. Design en cours avec graphiste.</p>
-                    <span class="card-tag">2026</span>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📖</div>
-                    <!-- À RÉÉCRIRE ✏️ -->
-                    <h3>Autobiographie</h3>
-                    <p>Manuscrit commencé. Politique, musique, rhinocéros. Maison d'édition visée en 2027.</p>
-                    <span class="card-tag">Manuscrit fin 2026</span>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📺</div>
-                    <!-- À RÉÉCRIRE ✏️ -->
-                    <h3>Émission TV / Radio</h3>
-                    <p>Phase 2 — quand l'audience sera là. On bâtit la machine à contenu d'abord.</p>
-                    <span class="card-tag">Phase 2 (2027+)</span>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🇩🇪</div>
-                    <!-- À RÉÉCRIRE ✏️ -->
-                    <h3>Good Guy Kanada</h3>
-                    <p>L'alter-ego allemand. Für Deutschland — wenn Deutschland bereit ist.</p>
-                    <span class="card-tag">Phase 3 (2028+)</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Projets déplacés vers donations.html (campagnes de financement + thermomètres-ananas). -->
 
     <!-- CONTACT -->
     <section class="section" id="contact">
         <div class="container fade-in" style="text-align:center;max-width:520px;margin:0 auto;">
-            <span class="section-label">05</span>
+            <span class="section-label">04</span>
             <h2 class="section-title" style="justify-content:center;">Contact</h2>
             <!-- À RÉÉCRIRE ✏️ -->
             <p style="color:var(--muted);margin-bottom:var(--md);">Collaboration, presse, booking conférence, ou juste envie de parler rhinocéros et ananas?</p>
-            <a href="mailto:contact@ananasday.com" class="btn">Écrire à CoRhino →</a>
+            <a href="contact.html" class="btn">Me rejoindre →</a>
         </div>
     </section>
 
@@ -231,7 +183,12 @@
         <a href="videos.html">Vidéos</a>
         <a href="mixer.html">Mixer</a>
         <a href="donations.html">♥ Soutien</a>
-        <a href="mailto:contact@ananasday.com">Contact</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="footer-social" aria-label="Réseaux sociaux">
+        <a href="https://corhino.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+        <a href="https://www.youtube.com/@CoRhino" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/corhino/" target="_blank" rel="noopener">Instagram</a>
     </nav>
     <p class="footer-copy">© 2026 Sébastien CoRhino. Tous droits réservés.</p>
     <div class="footer-counter">
@@ -255,15 +212,17 @@
     </div>
 </footer>
 
-<div class="theme-switcher">
-    <button class="theme-btn" data-theme="yellow"  style="background:#F4E800" aria-label="Jaune"></button>
-    <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
-    <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
-    <button class="theme-btn" data-theme="orange"  style="background:#ff8800" aria-label="Orange"></button>
-    <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Cyan"></button>
-    <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Magenta"></button>
-    <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
-    <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="N&amp;B"></button>
+<!-- THEME SWITCHER · jaune = défaut (signature CoRhino) + grille 3×2 -->
+<div class="theme-switcher" aria-label="Changer de thème de couleur">
+    <button class="theme-btn theme-btn--main" data-theme="yellow" style="background:#F4E800" aria-label="Jaune Speedyellow (défaut)"></button>
+    <div class="theme-grid">
+        <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
+        <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
+        <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Mauve"></button>
+        <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
+        <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="Négatif"></button>
+        <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Turquoise"></button>
+    </div>
 </div>
 
 <script src="script.js"></script>

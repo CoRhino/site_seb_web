@@ -10,16 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // THÈME
     // --------------------------------------------------------
     const body = document.body;
-    const savedTheme = localStorage.getItem('cr-theme') || 'yellow';
+    const THEMES = ['yellow', 'red', 'green', 'magenta', 'rainbow', 'bw', 'cyan'];
+    let savedTheme = localStorage.getItem('cr-theme');
+    if (!THEMES.includes(savedTheme)) savedTheme = 'yellow';   // migre l'ancien 'orange' → jaune
+    // Le script inline en <body> a déjà posé la classe (anti-flash). Idempotent ici.
     body.classList.add(`theme-${savedTheme}`);
 
-    document.querySelectorAll('.theme-btn').forEach(btn => {
+    const themeBtns = document.querySelectorAll('.theme-btn');
+    const markActive = (theme) =>
+        themeBtns.forEach(b => b.classList.toggle('active', b.dataset.theme === theme));
+    markActive(savedTheme);
+
+    themeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const theme = btn.dataset.theme;
-            // Retirer tous les thèmes
             body.className = body.className.replace(/theme-\S+/g, '').trim();
             body.classList.add(`theme-${theme}`);
             localStorage.setItem('cr-theme', theme);
+            markActive(theme);
         });
     });
 

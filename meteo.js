@@ -34,9 +34,9 @@ function wmo(code) {
     return                  { sym: '⚡',   fr: 'Orage',      en: 'Thunderstorm' };
 }
 
-/* ---- Kelvin ---- */
+/* ---- Kelvin (entier, arrondi au plus près — pas de décimales pour l'humain) ---- */
 function toK(c) {
-    return (parseFloat(c) + 273.15).toFixed(2);
+    return Math.round(parseFloat(c) + 273.15);
 }
 
 /* ---- Fetch ---- */

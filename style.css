@@ -38,9 +38,15 @@ body.theme-yellow  { --bg:#1a1a00; --bg2:#2a2a00; --text:#ffffcc; --muted:#aaaa4
 body.theme-red     { --bg:#1a0000; --bg2:#2a0000; --text:#ffcccc; --muted:#aa4444; --accent:#ff0000; --accent2:#ff4d4d; --accent3:#990000; }
 body.theme-green   { --bg:#001a00; --bg2:#002a00; --text:#ccffcc; --muted:#44aa44; --accent:#00ff00; --accent2:#66ff66; --accent3:#008000; }
 body.theme-magenta { --bg:#1a001a; --bg2:#2a002a; --text:#ffccff; --muted:#aa44aa; --accent:#ff00ff; --accent2:#ff66ff; --accent3:#800080; }
-body.theme-orange  { --bg:#1a0a00; --bg2:#2a1100; --text:#ffddcc; --muted:#aa6633; --accent:#ff6600; --accent2:#ff9933; --accent3:#cc5200; }
+/* thème orange retiré (revue vocale 2026-06-19) */
 body.theme-cyan    { --bg:#001a1a; --bg2:#002a2a; --text:#ccffff; --muted:#44aaaa; --accent:#00ffff; --accent2:#66ffff; --accent3:#008080; }
 body.theme-bw      { --bg:#000;    --bg2:#111;    --text:#fff;    --muted:#888;    --accent:#fff;    --accent2:#ccc;    --accent3:#fff;    }
+
+/* THÈME NOIR = NÉGATIF PHOTO — on « développe le négatif » : inversion complète
+   + désaturation totale (aucune couleur). Appliqué sur <html> pour ne pas casser
+   les position:fixed (un filtre crée un bloc contenant). Les photos deviennent
+   leurs propres négatifs — voulu. */
+html:has(body.theme-bw) { filter: invert(1) grayscale(1); }
 
 /* THÈME ARC-EN-CIEL — drapeau spectral vertical IR (rouge, haut) → UV (violet, bas).
    Fond sombre (comme tous les thèmes), lavé d'un spectre fixé au viewport :
@@ -214,25 +220,45 @@ img { max-width: 100%; }
    ============================================================ */
 .theme-switcher {
     position: fixed; bottom: 20px; right: 20px; z-index: 1000;
-    display: flex; gap: 8px; flex-wrap: wrap; max-width: 180px;
+    display: flex; align-items: center; gap: 10px;
     background: color-mix(in srgb, var(--bg) 90%, transparent);
-    padding: 8px 10px; border-radius: 20px;
+    padding: 8px 10px; border-radius: 22px;
     border: 1px solid var(--bg2);
     backdrop-filter: blur(10px);
 }
+/* Grille 3×2 des thèmes secondaires, à droite du gros bouton jaune.
+   Ordre : [rouge · vert · mauve] / [arc-en-ciel · négatif · turquoise]. */
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5px;
+}
 .theme-btn {
-    width: 18px; height: 18px; border-radius: 50%;
+    width: 15px; height: 15px; border-radius: 50%;
     border: 1px solid rgba(255,255,255,.25);
     cursor: pointer; padding: 0;
-    transition: transform 0.2s ease;
+    transition: transform .2s ease, box-shadow .2s ease;
 }
-.theme-btn:hover { transform: scale(1.35); }
+.theme-btn:hover { transform: scale(1.3); }
+.theme-btn.active { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--text); }
+/* Gros bouton jaune = thème par défaut + signature CoRhino */
+.theme-btn--main {
+    width: 32px; height: 32px;
+    box-shadow: 0 0 10px color-mix(in srgb, #F4E800 45%, transparent);
+}
+.theme-btn--main:hover { transform: scale(1.08); }
+.theme-btn--main.active {
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px #F4E800,
+                0 0 12px color-mix(in srgb, #F4E800 55%, transparent);
+}
 
 /* ============================================================
    UTILITAIRES
    ============================================================ */
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
-.robot-note { opacity: .01; font-size: 0.1px; position: absolute; pointer-events: none; }
+/* .robot-note retire : les notes pour IA ne sont plus rendues dans le DOM
+   (deplacees en commentaires HTML + llm.txt, invisibles aux humains). */
 
 /* Fade in au scroll */
 .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
@@ -341,6 +367,23 @@ footer {
 .footer-links a { font-family: var(--font-mono); font-size: .8rem; color: var(--muted); }
 .footer-links a:hover { color: var(--accent); }
 .footer-copy { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); opacity: .5; }
+
+/* Liens sociaux — les 3 « meilleurs » (Bandcamp · YouTube · Instagram), sur chaque page */
+.footer-social {
+    display: flex; gap: var(--md); justify-content: center; flex-wrap: wrap;
+    margin-bottom: var(--sm);
+}
+.footer-social a { font-family: var(--font-mono); font-size: .8rem; color: var(--accent); letter-spacing: .04em; }
+.footer-social a:hover { color: var(--accent2); }
+
+/* Signature discrète « Build with NI™ ». NI = Natural Intelligence (défini en
+   commentaire HTML près de chaque marque). Volontairement petite et peu visible. */
+.ni-mark {
+    font-family: var(--font-mono); font-size: .55rem;
+    color: var(--muted); opacity: .22; letter-spacing: .08em;
+    user-select: none;
+}
+.ni-mark:hover { opacity: .5; }
 
 /* ============================================================
    INDEX — Landing page
@@ -709,6 +752,8 @@ footer {
     display: inline-flex;
     gap: 2px;
 }
+/* Compteur global old-school : noir & blanc, AUCUNE couleur (style cadran mécanique
+   fin années 90), peu importe le thème. */
 .fc-display span {
     display: inline-block;
     min-width: 1.35em;
@@ -717,13 +762,21 @@ footer {
     font-size: 1.15rem;
     font-weight: bold;
     text-align: center;
-    color: var(--accent);
-    background: var(--bg2);
-    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    color: #f4f4f4;
+    background: #0b0b0b;
+    border: 1px solid #444;
     border-radius: 2px;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,.6),
-                0 0 6px color-mix(in srgb, var(--accent) 20%, transparent);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,.85),
+                inset 0 -1px 2px rgba(255,255,255,.10);
 }
+/* Chiffres « croches » : chaque rouleau est légèrement déréglé, toujours de la même
+   façon (décalage fixe par position) — pour le charme du vieux cadran usé. */
+.fc-display span:nth-child(1) { transform: translateY(-1px) rotate(-2deg); }
+.fc-display span:nth-child(2) { transform: translateY(1px)  rotate(1.5deg); }
+.fc-display span:nth-child(3) { transform: translateY(-2px) rotate(.5deg); }
+.fc-display span:nth-child(4) { transform: translateY(1px)  rotate(-1deg); }
+.fc-display span:nth-child(5) { transform: translateY(-1px) rotate(2deg); }
+.fc-display span:nth-child(6) { transform: translateY(2px)  rotate(-1.5deg); }
 
 /* ============================================================
    FOOTER — WEBMASTER & BADGE
@@ -832,4 +885,124 @@ footer {
     font-size: .7rem;
     color: var(--danger);
     margin-top: .2rem;
+}
+
+/* ============================================================
+   VIDÉOS — BANDEAU déroulant (vignettes TITRE/IMAGE/CRÉDITS) + scène
+   ============================================================ */
+.vbanner {
+    display: flex;
+    gap: var(--sm);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--xs) 2px var(--sm);
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--accent) 45%, transparent) transparent;
+}
+.vbanner::-webkit-scrollbar { height: 8px; }
+.vbanner::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 8px;
+}
+.vbanner::-webkit-scrollbar-track { background: transparent; }
+.vempty { font-family: var(--font-mono); font-size: .85rem; color: var(--muted); padding: var(--sm); }
+
+.vthumb {
+    flex: 0 0 180px;
+    width: 180px;
+    scroll-snap-align: start;
+    cursor: pointer;
+    display: flex; flex-direction: column;
+    text-align: left;
+    background: var(--bg2);
+    border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+    border-radius: var(--r);
+    overflow: hidden;
+    padding: 0;
+    transition: border-color var(--t), transform var(--t);
+}
+.vthumb:hover { transform: translateY(-3px); border-color: var(--accent); }
+.vthumb.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.vthumb-title {
+    font-family: var(--font-mono); font-weight: 700;
+    font-size: .72rem; color: var(--accent);
+    padding: .45rem .55rem .3rem; line-height: 1.2;
+}
+.vthumb-img { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+.vthumb-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vthumb-ph { display: flex; align-items: center; justify-content: center; height: 100%; color: var(--muted); font-size: 1.6rem; }
+.vthumb-credits { font-size: .66rem; color: var(--muted); padding: .3rem .55rem .5rem; line-height: 1.3; }
+
+.vstage { margin-top: var(--md); }
+.vstage-frame {
+    position: relative; width: 100%; aspect-ratio: 16 / 9;
+    background: var(--bg2);
+    border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+    border-radius: var(--r); overflow: hidden;
+}
+.vstage-frame img, .vstage-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+.vstage-soon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); color: var(--muted); font-size: 1rem; }
+.vstage-play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 72px; height: 72px; border-radius: 50%;
+    border: 2px solid var(--accent); background: rgba(0,0,0,.6); color: var(--accent);
+    font-size: 1.6rem; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background var(--t), transform var(--t), color var(--t);
+}
+.vstage-play:hover { background: var(--accent); color: #000; transform: translate(-50%, -50%) scale(1.08); }
+.vstage-meta { margin-top: var(--sm); }
+.vstage-meta h2 { font-family: var(--font-mono); color: var(--accent); font-size: 1.1rem; margin-bottom: .15rem; }
+.vstage-meta p { color: var(--muted); font-size: .85rem; }
+
+@media (max-width: 480px) {
+    .vthumb { flex-basis: 150px; width: 150px; }
+}
+
+/* ============================================================
+   TR-808 (page 404) — 404+404=808. Esthétique machine à rythmes / vieux web.
+   ============================================================ */
+.tr808 {
+    max-width: 620px; margin: var(--md) auto 0;
+    background: #0c0c0c;
+    border: 2px solid #b8521a;
+    border-radius: 6px; padding: .8rem;
+    box-shadow: inset 0 0 0 1px #2a2a2a, 0 6px 20px rgba(0,0,0,.5);
+    font-family: 'Courier New', var(--font-mono), monospace;
+}
+.tr-head { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: .7rem; }
+.tr-play {
+    background: #d8d2c4; color: #111; border: 2px solid #888;
+    font-weight: bold; font-family: inherit; font-size: .8rem;
+    padding: .35rem .8rem; border-radius: 3px; cursor: pointer;
+    box-shadow: inset 0 -2px 0 rgba(0,0,0,.25);
+}
+.tr-play.on { background: #ff5a2c; color: #fff; border-color: #ff5a2c; }
+.tr-tempo { display: flex; align-items: center; gap: .35rem; color: #e2c089; font-size: .72rem; letter-spacing: .05em; }
+.tr-tempo input[type="range"] { width: 90px; accent-color: #ff5a2c; }
+.tr-clear {
+    background: #1a1a1a; color: #c9a227; border: 1px solid #555;
+    font-family: inherit; font-size: .68rem; padding: .3rem .55rem; border-radius: 3px; cursor: pointer;
+}
+.tr-clear:first-of-type { margin-left: auto; }
+.tr-clear:hover { border-color: #ff5a2c; color: #ff5a2c; }
+.tr-grid { display: flex; flex-direction: column; gap: 4px; }
+.tr-row { display: grid; grid-template-columns: 34px repeat(16, 1fr); gap: 3px; align-items: center; }
+.tr-name { color: #e2c089; font-size: .66rem; font-weight: bold; letter-spacing: .04em; }
+.tr-cell {
+    aspect-ratio: 1 / 1; min-height: 16px;
+    background: #222; border: 1px solid #3a3a3a; border-radius: 2px;
+    cursor: pointer; padding: 0;
+    transition: background .05s, box-shadow .05s;
+}
+.tr-cell.tr-beat { background: #2c2c2c; border-color: #4a4a4a; }
+.tr-cell.on { background: #ff5a2c; border-color: #ff7a4c; box-shadow: 0 0 6px rgba(255,90,44,.6); }
+.tr-cell.on.tr-beat { background: #ffd23f; border-color: #ffe27a; box-shadow: 0 0 6px rgba(255,210,63,.6); }
+.tr-cell.playhead { outline: 2px solid #fff; outline-offset: -1px; }
+.tr-foot { margin-top: .6rem; color: #7a6a4a; font-size: .6rem; letter-spacing: .04em; }
+@media (max-width: 480px) {
+    .tr-cell { min-height: 12px; }
+    .tr-row { grid-template-columns: 26px repeat(16, 1fr); gap: 2px; }
 }
