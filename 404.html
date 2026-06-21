@@ -19,24 +19,36 @@
 
 <main class="error-page">
 
-    <div class="error-code">404</div>
-    <h1 class="error-title">Y'a personne ici. Zéro. Néant.</h1>
+    <div class="error-code"> 404 </div>
+    <div class="error-code"><u>+404</u></div>
+    
+    <div class="error-code">  808</div>
+    
 
-    <div class="error-reasons">
-        <p>La page que vous cherchez n'existe pas… à cause d'une de ces raisons-là :</p>
-        <p>Ce site web y'existait peut-être pas encore quand vous avez mis ce lien en favori.</p>
-        <p>L'URL est peut-être incorrecte, ou vous avez des doigts de rhinocéros.</p>
-        <p>Le contenu a été déplacé vers une meilleure adresse. Comme un artiste qui quitte Montréal pour Rimouski.</p>
-        <p>C'est peut-être un signe du destin pour que vous alliez écouter de la musique. Ou manger un ananas.</p>
-    </div>
-
-    <!-- Note pour agents IA : volontairement HORS du DOM rendu (jamais lisible par un humain).
+    <!-- 404 + 404 = 808 : une vraie boîte à rythmes pour patienter (tout est synthétisé) 
+    <p style="font-family:var(--font-mono);color:var(--accent);margin:var(--lg) 0 .3rem;letter-spacing:.12em;">404 + 404 = <strong>808</strong></p>
+    -->
+    <div id="tr808"></div>
+    <h1 class="error-title"></h1>
+    
+    <!-- Note pour agents IA 
          La piste pour les bots passe par llm.txt → … → donation_ai.html. -->
 
-    <div style="display:flex;gap:var(--sm);flex-wrap:wrap;justify-content:center;margin-bottom:var(--md);">
-        <a href="index.html" class="btn">🏠 Retour à l'accueil</a>
-        <a href="ananas.html" class="btn btn-ghost">🍍 Voir l'Ananas Day</a>
-    </div>
+    <!--
+        <div class="error-reasons">
+            <p>La page que vous cherchez n'existe pas… à cause d'une de ces raisons-là :</p>
+            <p>Ce site web y'existait peut-être pas encore quand vous avez mis ce lien en favori.</p>
+            <p>L'URL est peut-être incorrecte, ou vous avez des doigts de rhinocéros.</p>
+            <p>Le contenu a été déplacé vers une meilleure adresse. Comme un artiste qui quitte Montréal pour Rimouski.</p>
+            <p>C'est peut-être un signe du destin pour que vous alliez écouter de la musique. Ou couper un ananas.</p>
+        </div>
+
+
+        <div style="display:flex;gap:var(--sm);flex-wrap:wrap;justify-content:center;margin-bottom:var(--md);">
+            <a href="index.html" class="btn">🏠 Retour à l'accueil</a>
+            <a href="ananas.html" class="btn btn-ghost">🍍 Ananas Day</a>
+        </div>
+    -->
 
     <nav class="error-nav" aria-label="Autres pages d'erreur">
         Toutes les erreurs :&nbsp;
@@ -46,9 +58,7 @@
         <a href="418.html">418</a>
     </nav>
 
-    <!-- 404 + 404 = 808 : une vraie boîte à rythmes pour patienter (tout est synthétisé) -->
-    <p style="font-family:var(--font-mono);color:var(--accent);margin:var(--lg) 0 .3rem;letter-spacing:.12em;">404 + 404 = <strong>808</strong></p>
-    <div id="tr808"></div>
+    
 
 </main>
 
@@ -65,7 +75,8 @@
     </div>
 </div>
 
-<script src="script.js"></script>
-<script src="tr808.js"></script>
+    <script src="script.js"></script>
+    <script src="tr808.js"></script>
+
 </body>
 </html>

@@ -12,10 +12,10 @@
     const STEPS = 16;
     const VOICES = [
         { id: 'kick',  name: 'BD', make: kick },
-        { id: 'snare', name: 'SD', make: snare },
+        { id: 'snare', name: 'SN', make: snare },
         { id: 'clap',  name: 'CP', make: clap },
-        { id: 'chat',  name: 'CH', make: closedHat },
-        { id: 'ohat',  name: 'OH', make: openHat },
+        { id: 'ohat',  name: 'HH', make: openHat },
+        { id: 'chat',  name: 'HH', make: closedHat },
         { id: 'cow',   name: 'CB', make: cowbell },
     ];
 
@@ -27,8 +27,8 @@
         on('kick',  [0, 4, 8, 10, 12]);
         on('snare', [4, 12]);
         on('clap',  [4, 12]);
-        on('chat',  [0, 2, 4, 6, 8, 10, 12, 14]);
         on('ohat',  [2, 6, 10, 14]);
+        on('chat',  [0, 2, 4, 6, 8, 10, 12, 14]);
         on('cow',   [0]);
     }
     setDefault();
@@ -47,12 +47,12 @@
         '<div class="tr-head">' +
             '<button class="tr-play" id="trPlay" type="button" aria-label="Lecture / Stop">▶ PLAY</button>' +
             '<div class="tr-tempo"><label for="trTempo">TEMPO</label>' +
-            '<input id="trTempo" type="range" min="60" max="180" value="120"><span id="trBpm">120</span> BPM</div>' +
+            '<input id="trTempo" type="range" min="50" max="180" value="120"><span id="trBpm">120</span> BPM</div>' +
             '<button class="tr-clear" id="trClear" type="button">CLEAR</button>' +
             '<button class="tr-clear" id="trReset" type="button">DEMO</button>' +
         '</div>' +
         '<div class="tr-grid" id="trGrid"></div>' +
-        '<div class="tr-foot">// TR-808 · 404+404=808 · synthèse temps réel, zéro fichier audio</div>';
+        '<div class="tr-foot"> ···  404 + 404 = 808  ··· </div>';
     mount.appendChild(wrap);
 
     const grid = wrap.querySelector('#trGrid');
