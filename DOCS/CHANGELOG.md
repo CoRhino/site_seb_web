@@ -3,6 +3,16 @@
 > Format : `AAAA-MM-JJ — description concise — branche`. Modifications faites par l'agent, en bullets.
 > Le plus récent en haut.
 
+## 2026-06-21 — Revue vocale (suite 2) — `feat/donations`
+
+- **Micro** (accueil) : remplacé par une silhouette SM58/ruban (tête ronde + corps) — l'ancien SVG ressemblait à un micro de bureau « audio in ».
+- **Vidéos** (`data/videos.json`) : « Le GGRIL » remplacé par https://www.youtube.com/watch?v=kmoFRGPlHGg ; thumbnail « Au Phare de Pointe-Métis » récupérée via l'oEmbed officiel Vimeo (plus de vignette vide).
+- **`contact.html`** : handles réels — LinkedIn (`/in/sebcorriveau`), Facebook (`fb.me/CoRhino`), TikTok (`@CoRhino`), Tinder (`@corhino`, texte seul). Retrait des « bientôt ».
+- **404 / 808** (`tr808.js`) : remplacement du bouton DEMO par **3 presets tirés au hasard** au chargement (boom bap 85 BPM, jungle/bouyon 160 BPM, house/techno 120 BPM), sélectionnables manuellement.
+- **Nudge Bandcamp** : toast discret (localStorage, sans cookie) après 3/8/15 visites, lien vers Bandcamp, auto-fermeture 12s.
+- **Plan gamification « niveaux »** proposé dans `DOCS/PLAN/` — **non codé**, en attente de validation humaine (ton, affichage, public/privé).
+- **`DOCS/TODO_HUMAIN.md`** nettoyé : items résolus barrés ; clarifié que `contact@ananasday.com` n'a jamais existé (confirmé par Séb) ; diagnostic du compteur qui ne s'incrémente pas sur `ananasday.com` (déploiement CI pas encore déclenché — rien n'est encore sur `main`).
+
 ## 2026-06-19 — Revue vocale (lot en cours) — `feat/revue-vocale-19juin`
 
 - Mise en place `/DOCS` : déplacement de `/PLAN` → `/DOCS/PLAN`, ajout `CHANGELOG.md` + `TODO_HUMAIN.md`.

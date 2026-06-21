@@ -18,27 +18,36 @@
         { id: 'chat',  name: 'HH', make: closedHat },
         { id: 'cow',   name: 'CB', make: cowbell },
     ];
+    const ALL_STEPS = Array.from({ length: STEPS }, (_, i) => i);
 
-    // --- motif (voiceId -> 16 booléens) ---
+    // --- presets (motif + tempo) : un tiré au hasard à chaque visite ---
+    const PRESETS = [
+        { label: 'BOOM BAP · 85', tempo: 85,
+          pattern: { kick: [0, 3, 8, 11], snare: [4, 12], clap: [4, 12], chat: [0, 2, 4, 6, 8, 10, 12, 14], ohat: [], cow: [] } },
+        { label: 'JUNGLE/BOUYON · 160', tempo: 160,
+          pattern: { kick: [0, 7, 10], snare: [4, 10, 14], clap: [4, 10, 14], chat: ALL_STEPS, ohat: [2, 9], cow: [] } },
+        { label: 'HOUSE/TECHNO · 120', tempo: 120,
+          pattern: { kick: [0, 4, 8, 12], snare: [4, 12], clap: [4, 12], chat: [0, 2, 4, 6, 8, 10, 12, 14], ohat: [2, 6, 10, 14], cow: [0] } },
+    ];
+
+    // --- motif (voiceId -> 16 booléens) + état transport ---
     const pattern = {};
     VOICES.forEach(v => pattern[v.id] = new Array(STEPS).fill(false));
-    function setDefault() {
-        const on = (id, idxs) => idxs.forEach(i => pattern[id][i] = true);
-        on('kick',  [0, 4, 8, 10, 12]);
-        on('snare', [4, 12]);
-        on('clap',  [4, 12]);
-        on('ohat',  [2, 6, 10, 14]);
-        on('chat',  [0, 2, 4, 6, 8, 10, 12, 14]);
-        on('cow',   [0]);
-    }
-    setDefault();
-
-    // --- état transport ---
     let ac = null, playing = false, tempo = 120;
     let current = 0, nextNoteTime = 0, timer = null;
     const queue = [];          // {step, time} pour le playhead
     const LOOKAHEAD = 25;      // ms
     const SCHEDULE_AHEAD = 0.1;// s
+
+    let presetIndex = -1;
+    function applyPreset(i) {
+        presetIndex = i;
+        VOICES.forEach(v => pattern[v.id].fill(false));
+        const p = PRESETS[i];
+        Object.keys(p.pattern).forEach(id => p.pattern[id].forEach(s => pattern[id][s] = true));
+        tempo = p.tempo;
+    }
+    applyPreset(Math.floor(Math.random() * PRESETS.length));
 
     // ====================== UI ======================
     const wrap = document.createElement('div');
@@ -47,13 +56,30 @@
         '<div class="tr-head">' +
             '<button class="tr-play" id="trPlay" type="button" aria-label="Lecture / Stop">▶ PLAY</button>' +
             '<div class="tr-tempo"><label for="trTempo">TEMPO</label>' +
-            '<input id="trTempo" type="range" min="50" max="180" value="120"><span id="trBpm">120</span> BPM</div>' +
+            '<input id="trTempo" type="range" min="50" max="180" value="' + tempo + '"><span id="trBpm">' + tempo + '</span> BPM</div>' +
+            '<div class="tr-presets" id="trPresets"></div>' +
             '<button class="tr-clear" id="trClear" type="button">CLEAR</button>' +
-            '<button class="tr-clear" id="trReset" type="button">DEMO</button>' +
         '</div>' +
         '<div class="tr-grid" id="trGrid"></div>' +
         '<div class="tr-foot"> ···  404 + 404 = 808  ··· </div>';
     mount.appendChild(wrap);
+
+    const presetsBox = wrap.querySelector('#trPresets');
+    const presetBtns = PRESETS.map((p, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'tr-preset' + (i === presetIndex ? ' active' : '');
+        b.textContent = p.label;
+        b.addEventListener('click', () => {
+            applyPreset(i);
+            wrap.querySelector('#trTempo').value = tempo;
+            wrap.querySelector('#trBpm').textContent = tempo;
+            presetBtns.forEach((pb, pi) => pb.classList.toggle('active', pi === i));
+            refreshCells();
+        });
+        presetsBox.appendChild(b);
+        return b;
+    });
 
     const grid = wrap.querySelector('#trGrid');
     const cells = {}; // voiceId -> [button]
@@ -91,11 +117,6 @@
     });
     wrap.querySelector('#trClear').addEventListener('click', () => {
         VOICES.forEach(v => pattern[v.id].fill(false));
-        refreshCells();
-    });
-    wrap.querySelector('#trReset').addEventListener('click', () => {
-        VOICES.forEach(v => pattern[v.id].fill(false));
-        setDefault();
         refreshCells();
     });
     function refreshCells() {

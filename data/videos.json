@@ -5,7 +5,7 @@
     "credits": "Poésie & clarinette basse · Séb x Louis x Jo · Prod. Paraloeil",
     "type": "vimeo",
     "vimeoid": "697084294",
-    "thumb": ""
+    "thumb": "https://i.vimeocdn.com/video/1409865752-196a2afd314e53dc4932ae852e6ba2dec8f674dd4842f3059374abf2eb9b29c1-d_295x166"
   },
   {
     "id": "promesse",
@@ -20,9 +20,8 @@
     "title": "Le GGRIL",
     "credits": "Chef d'orchestre · pièce de Gus Garside · Victoriaville",
     "type": "youtube",
-    "ytid": "",
-    "thumb": "",
-    "todo": "HUMAIN: trouver le lien YouTube (chercher « GGRIL Gus Garside Victoriaville » — Séb dirige l'ensemble)."
+    "ytid": "kmoFRGPlHGg",
+    "thumb": "https://img.youtube.com/vi/kmoFRGPlHGg/mqdefault.jpg"
   },
   {
     "id": "ggril-serbie",

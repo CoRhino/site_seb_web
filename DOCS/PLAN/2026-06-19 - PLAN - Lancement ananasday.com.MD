@@ -139,7 +139,7 @@ pousse le site (sauf exclusions) vers `/home/public`. Vérifier https://www.anan
 - [ ] **CV / bio** : ajouter 2024-2026 (le CV s'arrête à 2023-10), valider ce qui est public.
 - [ ] **Vidéo** : retrouver la version FR de la promesse électorale.
 - [ ] **Photo** : version haute résolution du GGRIL en Serbie.
-- [ ] **Email** : configurer le forwarding `contact@ananasday.com` sur NFS.
+- [x] ~~**Email** : configurer le forwarding `contact@ananasday.com` sur NFS.~~ — **sans objet** : cette adresse n'a jamais existé (invention d'un lot précédent, confirmé par Séb le 2026-06-21). Le site n'affiche plus aucun courriel ; voir `contact.html`.
 - [ ] **Crypto/PayPal** : créer les adresses BTC/ETH + lien PayPal → les coller dans `donations.html` et `donation_ai.html` (code déjà prêt, en commentaire).
 - [ ] **Toiles** : photographier les œuvres pour la future page arts visuels.
 
