@@ -64,7 +64,7 @@ ssh-keygen -t ed25519 -C "github-deploy-ananasday" -f deploy_key
 Trouver ton nom d'utilisateur SSH NFS (format `membre_sitecourt`, ex. `corhino_ananasday`)
 et le hôte SSH NFS (`ssh.phx.nearlyfreespeech.net`). Puis ajouter la **clé publique** :
 ```bash
-ssh corhino_ananasday@ssh.phx.nearlyfreespeech.net
+ssh xxxxxxxxx_ananasday@ssh.phx.nearlyfreespeech.net
 # une fois connecté :
 mkdir -p ~/.ssh && chmod 700 ~/.ssh
 echo "CONTENU_DE_deploy_key.pub" >> ~/.ssh/authorized_keys
@@ -76,20 +76,22 @@ chmod 600 ~/.ssh/authorized_keys
 ```bash
 ssh-keyscan ssh.phx.nearlyfreespeech.net
 # copier TOUTES les lignes de sortie → ira dans le secret NFS_KNOWN_HOSTS
+#getaddrinfo ssh.phx.nearlyfreespeech.net: Name does not resolve
+
 ```
 
 ### Étape 4 — Créer les 4 secrets GitHub
 Repo GitHub → **Settings → Secrets and variables → Actions → New repository secret** :
 | Secret | Valeur |
 |---|---|
-| `NFS_SSH_KEY` | tout le contenu de la clé **privée** `deploy_key` (avec `-----BEGIN…END-----`) |
-| `NFS_KNOWN_HOSTS` | la sortie de `ssh-keyscan` (étape 3) |
-| `NFS_USER` | ton user SSH NFS (ex. `corhino_ananasday`) |
-| `NFS_HOST` | `ssh.phx.nearlyfreespeech.net` |
+| `NFS_SSH_KEY` | tout le contenu de la clé **privée** `deploy_key` (avec `-----BEGIN…END-----`) | 
+| `NFS_KNOWN_HOSTS` | la sortie de `ssh-keyscan` (étape 3) | = getaddrinfo ssh.phx.nearlyfreespeech.net: Name does not resolve PROBLEM
+| `NFS_USER` | ton user SSH NFS (ex. `xxxxxxx_ananasday`) | = DONE
+| `NFS_HOST` | `ssh.xxxx.nearlyfreespeech.net` | = DONE
 
 ### Étape 5 — Activer TLS + financer le compte NFS
 - Panneau NFS → ton site → **Add TLS/SSL** (Let's Encrypt, gratuit, un clic).
-- Vérifier que le compte NFS a des fonds (stockage + bande passante = quelques sous).
+- Vérifier que le compte NFS a des fonds (stockage + bande passante = quelques sous). = DONE
 
 ### Étape 6 — Premier déploiement
 Merger `feat/claude-code-create-website` → `main` puis `push`. L'action tourne et `rsync`
@@ -112,9 +114,9 @@ pousse le site (sauf exclusions) vers `/home/public`. Vérifier https://www.anan
 
 **Liens sociaux à mettre dans le footer** (todo dev) :
 - Instagram : **@CoRhino**
-- Bandcamp : **corhino.bandcamp.com** (remplace l'ancien SoundCloud)
+- Bandcamp : **corhino.bandcamp.com**
 - YouTube : **@CoRhino**
-- ❌ retirer LinkedIn et SoundCloud (ne pas les mettre)
+- ❌ pas de SoundCloud (n'existe pas)
 
 **DNS NFS (déjà configuré, pour mémoire) :**
 - `A` 208.94.117.27 · `AAAA` 2607:ff18:80:4::871f
@@ -133,11 +135,11 @@ pousse le site (sauf exclusions) vers `/home/public`. Vérifier https://www.anan
 ## 6. TODO HUMAIN (liste courante)
 
 - [ ] **SSH NFS↔GitHub** : exécuter le §3 (clé + 4 secrets) → débloque le déploiement auto.
-- [ ] **TLS Let's Encrypt** sur NFS + financer le compte.
+- [ ] **TLS Let's Encrypt** sur NFS + financer le compte. --> NFS said TLS is automatically managed for my site. Is that OK ? 
 - [ ] **Audio** : exporter stems + master du single.
 - [ ] **Relire chaque page** avant le merge final → `main` (vérifier qu'aucun contenu inventé ne reste).
 - [ ] **CV / bio** : ajouter 2024-2026 (le CV s'arrête à 2023-10), valider ce qui est public.
-- [ ] **Vidéo** : retrouver la version FR de la promesse électorale.
+- [ ] **Vidéo** : trouver promesse électorale en FR. 
 - [ ] **Photo** : version haute résolution du GGRIL en Serbie.
 - [x] ~~**Email** : configurer le forwarding `contact@ananasday.com` sur NFS.~~ — **sans objet** : cette adresse n'a jamais existé (invention d'un lot précédent, confirmé par Séb le 2026-06-21). Le site n'affiche plus aucun courriel ; voir `contact.html`.
 - [ ] **Crypto/PayPal** : créer les adresses BTC/ETH + lien PayPal → les coller dans `donations.html` et `donation_ai.html` (code déjà prêt, en commentaire).
