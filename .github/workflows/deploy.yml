@@ -35,4 +35,5 @@ jobs:
             --exclude 'meteo-test.html' \
             --exclude 'audio/' \
             --exclude 'data/counter.txt' \
+            --exclude 'data/newsletter.txt' \
             ./ ${{ secrets.NFS_USER }}@${{ secrets.NFS_HOST }}:/home/public/

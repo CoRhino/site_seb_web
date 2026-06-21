@@ -193,25 +193,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --------------------------------------------------------
-    // NEWSLETTER — placeholder (brancher Cyberimpact ici)
+    // NEWSLETTER — collecte réelle (data/newsletter.txt), en attendant Cyberimpact
     // --------------------------------------------------------
     document.querySelectorAll('.newsletter-form').forEach(form => {
         const btn   = form.querySelector('button');
         const input = form.querySelector('input[type="email"]');
         if (!btn || !input) return;
 
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', async () => {
             if (!input.value.includes('@')) {
                 input.style.borderColor = 'var(--danger)';
                 input.focus();
                 return;
             }
-            // TODO: remplacer par le vrai endpoint Cyberimpact
-            btn.textContent  = '🍍 À bientôt!';
-            btn.disabled     = true;
-            input.disabled   = true;
-            input.style.borderColor = 'var(--accent2)';
-            console.info('[Newsletter] À brancher sur Cyberimpact — email:', input.value);
+            const email = input.value;
+            btn.disabled = true;
+            const label = btn.textContent;
+            btn.textContent = '…';
+            try {
+                const r = await fetch('/api/newsletter.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const d = await r.json();
+                if (!d.ok) throw new Error(d.error || 'fail');
+                btn.textContent = '🍍 À bientôt!';
+                input.disabled = true;
+                input.style.borderColor = 'var(--accent2)';
+            } catch (_) {
+                btn.textContent = label;
+                btn.disabled = false;
+                input.style.borderColor = 'var(--danger)';
+            }
         });
 
         input.addEventListener('input', () => input.style.borderColor = '');

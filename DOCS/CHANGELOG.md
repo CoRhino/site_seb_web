@@ -3,6 +3,14 @@
 > Format : `AAAA-MM-JJ — description concise — branche`. Modifications faites par l'agent, en bullets.
 > Le plus récent en haut.
 
+## 2026-06-21 — Revue vocale (suite 3) — `feat/donations`
+
+- **Bug compteur de visiteurs identifié et corrigé** : testé `https://ananasday.com/api/counter.php` en direct — le PHP plantait sur `file_put_contents()` (« Permission denied » sur `data/counter.txt`) et le warning polluait la réponse JSON, donc le `fetch` côté navigateur échouait silencieusement (affichage figé à `000000`). `api/counter.php` ne laisse plus fuiter ces warnings. **Reste une action serveur côté Séb** : ajuster les permissions NFS (voir `TODO_HUMAIN.md`).
+- **`donation_ai.html`** rendu invisible aux humains : page entièrement noire (texte couleur = fond, éléments décoratifs masqués) ; le texte reste dans le HTML source pour les bots/crawlers IA.
+- **Collecte email démarrée** : nouvel endpoint `api/newsletter.php` (append validé dans `data/newsletter.txt`, même pattern que le compteur) ; `script.js` poste réellement au formulaire au lieu de simuler ; formulaire ajouté sur `lancement.html`.
+- **`deploy.yml`** : exclusion de `data/newsletter.txt` ajoutée (même raison que `data/counter.txt`).
+- **PLAN lancement** : TLS confirmé auto-géré par NFS (rien à faire) ; clarifié que le hostname SSH de l'exemple était un placeholder, pas une vraie valeur à copier ; photo GGRIL Serbie HD acceptée comme non trouvée.
+
 ## 2026-06-21 — Revue vocale (suite 2) — `feat/donations`
 
 - **Micro** (accueil) : remplacé par une silhouette SM58/ruban (tête ronde + corps) — l'ancien SVG ressemblait à un micro de bureau « audio in ».

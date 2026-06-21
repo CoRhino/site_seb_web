@@ -12,10 +12,10 @@ $file = __DIR__ . '/../data/counter.txt';
 
 $n = 0;
 if (file_exists($file)) {
-    $n = (int) file_get_contents($file);
+    $n = (int) @file_get_contents($file);
 }
 $n++;
 
-file_put_contents($file, $n, LOCK_EX);
+@file_put_contents($file, $n, LOCK_EX);
 
 echo json_encode(['n' => $n]);

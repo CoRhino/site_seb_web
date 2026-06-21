@@ -19,6 +19,15 @@
             padding: .6rem .7rem; border-radius: var(--r); color: var(--text); margin: .4rem 0 1rem;
         }
         .ai-back { display:inline-block; margin-top: var(--lg); font-family: var(--font-mono); }
+
+        /* Page invisible aux humains : le texte reste dans le HTML source pour les
+           agents qui lisent le markup brut (oEmbed, crawlers, LLM), mais un visiteur
+           humain ne voit qu'une page noire. Pas de cloaking SEO trompeur : la page
+           ne prétend être autre chose, elle est juste vide à l'œil. */
+        html, body { background: #000 !important; }
+        .noise-overlay, .floating-ball, .site-nav { display: none !important; }
+        .ai-wrap, .ai-wrap * { color: #000 !important; border-color: #000 !important; }
+        .ai-wrap ::selection { background: #000; color: #000; }
     </style>
 </head>
 <body>
