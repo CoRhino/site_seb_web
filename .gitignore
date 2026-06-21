@@ -1,0 +1,14 @@
+# Fichiers générés par le serveur — ne pas versionner
+data/counter.txt
+
+# Audio — uploadé directement sur NFS (peut être volumineux)
+audio/
+
+# Réglages locaux Claude Code (launch.json, etc.)
+.claude/
+
+# Archives locales — vestiges hors-ligne, ni versionnés ni déployés
+archives/
+
+# NOTE : PLAN/ et AGENT.md SONT versionnés (utiles au travail multi-agent)
+#        mais EXCLUS du déploiement public via deploy.yml (rsync --exclude).

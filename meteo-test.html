@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TEST] Météo du Bic — ananasday.com</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="meteo.css">
+    <style>
+        .lab { max-width: 900px; margin: 0 auto; padding: 110px var(--md) var(--xl); }
+        .lab-section { margin-bottom: var(--lg); }
+        .lab-label {
+            font-family: var(--font-mono);
+            font-size: .65rem;
+            color: var(--muted);
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            margin-bottom: .7rem;
+            padding-bottom: .3rem;
+            border-bottom: 1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+        }
+        .lab-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--md);
+            align-items: flex-start;
+        }
+        .lab-note {
+            font-family: var(--font-mono);
+            font-size: .68rem;
+            color: var(--muted);
+            margin-top: .5rem;
+        }
+        .lab-note code {
+            background: var(--bg2);
+            padding: .1em .3em;
+            border-radius: 2px;
+            color: var(--accent2);
+        }
+        .test-badge {
+            display: inline-block;
+            background: var(--danger, #ff2200);
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            padding: 2px 7px;
+            border-radius: 2px;
+            letter-spacing: .12em;
+            margin-bottom: var(--sm);
+            vertical-align: middle;
+        }
+        /* Contexte d'intégration simulé */
+        .ctx-block {
+            background: var(--bg2);
+            border-radius: var(--r);
+            padding: var(--md);
+            max-width: 360px;
+        }
+        .ctx-block p {
+            font-family: var(--font-mono);
+            font-size: .78rem;
+            color: var(--muted);
+            margin-bottom: .75rem;
+        }
+        /* Debug box */
+        .debug-box {
+            background: var(--bg2);
+            border: 1px dashed color-mix(in srgb, var(--muted) 35%, transparent);
+            padding: var(--sm);
+            border-radius: var(--r);
+            font-family: 'Courier New', monospace;
+            font-size: .75rem;
+            color: var(--muted);
+            white-space: pre;
+            min-width: 300px;
+        }
+        /* Footer inline demo */
+        .footer-demo {
+            background: var(--bg2);
+            border-radius: var(--r);
+            padding: .6rem 1rem;
+            font-family: var(--font-mono);
+            font-size: .75rem;
+            color: var(--muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="noise-overlay"></div>
+<div class="floating-ball"></div>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-logo">🍍 <span>ananas</span>DAY</a>
+    <ul class="nav-links">
+        <li><a href="corhino.html">CoRhino</a></li>
+        <li><a href="videos.html">Vidéos</a></li>
+        <li><a href="mixer.html">🎛 Mixer</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<div class="lab">
+
+    <p>
+        <span class="test-badge">PAGE DE TEST — NON LIÉE EN PROD</span>
+    </p>
+
+    <h1 style="font-family:var(--font-mono);color:var(--accent);font-size:2.2rem;margin-bottom:.4rem;">
+        // Météo du Bic
+    </h1>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:.4rem;">
+        Source : <strong style="color:var(--text)">Open-Meteo</strong> (open-meteo.com) — gratuit, sans clé API, CORS OK, licence CC.<br>
+        Station : 48.383°N, 68.708°W (Le Bic, QC).
+    </p>
+    <p style="color:var(--accent);font-family:var(--font-mono);font-size:.85rem;margin-bottom:var(--lg);">
+        Température affichée en <strong>Kelvin</strong>. Scientifiquement rigoureux. Socialement déroutant. Parfaitement CoRhino.
+    </p>
+
+    <!-- ── SKIN CARD ── -->
+    <div class="lab-section">
+        <div class="lab-label">// skin : card (défaut)</div>
+        <div class="lab-row">
+            <div data-meteo data-meteo-skin="card"></div>
+        </div>
+        <p class="lab-note">
+            Usage : <code>&lt;div data-meteo data-meteo-skin="card"&gt;&lt;/div&gt;</code>
+        </p>
+    </div>
+
+    <!-- ── SKIN MONO ── -->
+    <div class="lab-section">
+        <div class="lab-label">// skin : mono (terminal)</div>
+        <div class="lab-row">
+            <div data-meteo data-meteo-skin="mono"></div>
+        </div>
+        <p class="lab-note">Idéal en sidebar ou section technique.</p>
+    </div>
+
+    <!-- ── SKIN RETRO ── -->
+    <div class="lab-section">
+        <div class="lab-label">// skin : retro (1998 vibe ✦)</div>
+        <div class="lab-row">
+            <div data-meteo data-meteo-skin="retro"></div>
+        </div>
+        <p class="lab-note">L'encadré avec shadow offset — très GeoCities.</p>
+    </div>
+
+    <!-- ── SKIN PILL ── -->
+    <div class="lab-section">
+        <div class="lab-label">// skin : pill (inline horizontal)</div>
+        <div class="lab-row">
+            <div data-meteo data-meteo-skin="pill"></div>
+        </div>
+        <p class="lab-note">Idéal dans un footer ou barre d'info.</p>
+    </div>
+
+    <!-- ── CONTEXTE D'INTÉGRATION ── -->
+    <div class="lab-section">
+        <div class="lab-label">// exemple d'intégration dans une vraie section (card)</div>
+        <div class="ctx-block">
+            <p>// studio · Rimouski, Bas-St-Laurent</p>
+            <div data-meteo data-meteo-skin="card"></div>
+        </div>
+    </div>
+
+    <!-- ── INTÉGRATION FOOTER (pill) ── -->
+    <div class="lab-section">
+        <div class="lab-label">// intégration footer (pill)</div>
+        <div class="footer-demo">
+            <span>© 2026 Sébastien CoRhino</span>
+            <span style="color:color-mix(in srgb, var(--muted) 40%, transparent)">|</span>
+            <div data-meteo data-meteo-skin="pill"></div>
+        </div>
+    </div>
+
+    <!-- ── DEBUG ── -->
+    <div class="lab-section">
+        <div class="lab-label">// données brutes Open-Meteo (debug)</div>
+        <div class="debug-box" id="debug-raw">// chargement…</div>
+    </div>
+
+    <!-- ── NOTES ── -->
+    <div class="lab-section">
+        <div class="lab-label">// intégration dans d'autres pages</div>
+        <p class="lab-note">
+            1. Ajouter <code>&lt;link rel="stylesheet" href="meteo.css"&gt;</code> dans le <code>&lt;head&gt;</code><br>
+            2. Ajouter <code>&lt;script src="meteo.js"&gt;&lt;/script&gt;</code> avant <code>&lt;/body&gt;</code><br>
+            3. Placer <code>&lt;div data-meteo data-meteo-skin="card"&gt;&lt;/div&gt;</code> où tu veux le widget<br>
+            4. Choisir le skin : <code>card</code> · <code>mono</code> · <code>retro</code> · <code>pill</code>
+        </p>
+    </div>
+
+    <div class="lab-section">
+        <div class="lab-label">// thèmes — tester l'adaptation aux couleurs</div>
+        <p class="lab-note">Utiliser le switcher (coin bas-droit) — tous les widgets s'adaptent via les variables CSS.</p>
+    </div>
+
+</div>
+
+<div class="theme-switcher">
+    <button class="theme-btn" data-theme="yellow"  style="background:#F4E800" aria-label="Jaune"></button>
+    <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
+    <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
+    <button class="theme-btn" data-theme="orange"  style="background:#ff8800" aria-label="Orange"></button>
+    <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Cyan"></button>
+    <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Magenta"></button>
+    <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
+    <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="N&amp;B"></button>
+</div>
+
+<script src="script.js"></script>
+<script src="meteo.js"></script>
+<script>
+/* Debug : données brutes */
+(async () => {
+    const el = document.getElementById('debug-raw');
+    try {
+        const d = await fetchMeteo();
+        el.textContent =
+            `Heure local : ${d.time}\n` +
+            `Code WMO    : ${d.code}  (https://open-meteo.com/en/docs#weathervariables)\n` +
+            `Celsius     : ${d.celsius} °C\n` +
+            `Kelvin      : ${d.kelvin} K   ← affiché dans les widgets\n` +
+            `Vent        : ${d.wind} km/h\n` +
+            `\n` +
+            `// Conversion : K = °C + 273.15\n` +
+            `// Source     : open-meteo.com (gratuit, sans API key)`;
+    } catch (e) {
+        el.textContent = `[ERREUR] ${e.message}`;
+    }
+})();
+</script>
+</body>
+</html>

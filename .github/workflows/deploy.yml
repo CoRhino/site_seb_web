@@ -20,4 +20,19 @@ jobs:
 
       - name: Deploy with rsync
         run: |
-          rsync -avz --delete ./ ${{ secrets.NFS_USER }}@${{ secrets.NFS_HOST }}:/home/public/
+          rsync -avz --delete \
+            --exclude '.git' \
+            --exclude '.github/' \
+            --exclude '.gitignore' \
+            --exclude '.gitattributes' \
+            --exclude '.claude/' \
+            --exclude 'docs/' \
+            --exclude 'DOCS/' \
+            --exclude 'PLAN/' \
+            --exclude 'archives/' \
+            --exclude 'AGENT.md' \
+            --exclude 'README.md' \
+            --exclude 'meteo-test.html' \
+            --exclude 'audio/' \
+            --exclude 'data/counter.txt' \
+            ./ ${{ secrets.NFS_USER }}@${{ secrets.NFS_HOST }}:/home/public/

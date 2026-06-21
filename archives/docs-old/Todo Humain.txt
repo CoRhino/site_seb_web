@@ -1,0 +1,14 @@
+- créer des clés publiques BTC ETH etc.
+- upload photo oeuvres (toiles)
+- photos SÉB : performances, etc.
+- trouver autre idées art ex. luminaires ou photo performances
+
+## 2026-06-11 — Lancement (voir PLAN/2026-06-11 - PLAN - Lancement ananasday.com.MD)
+- DÉPLOIEMENT : clé SSH + 4 secrets GitHub (NFS_SSH_KEY, NFS_KNOWN_HOSTS, NFS_USER, NFS_HOST) + TLS/Let's Encrypt sur NFS + fonds compte NFS
+- AUDIO : exporter stems web (drums/bass/piano/vox/backing) + master du single
+- CONTENU : relire chaque page avant merge → main (data inventée par IA détectée dans data/events.json — détail dans le PLAN §4)
+- CV/BIO : réviser données 2024-2026 (CV s'arrête à 2023-10), valider ce qui est public
+- VIDÉO : retrouver version FR de la promesse électorale (EN = youtube.com/watch?v=Tynlr9QXsuA)
+- PHOTO : version meilleure qualité de la photo GGRIL en Serbie (quoivivrerimouski.ca)
+- EMAIL : configurer forwarding contact@ananasday.com sur NFS
+- TOILES : photographier les toiles pour future page arts visuels

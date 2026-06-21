@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sébastien CoRhino — Artiste</title>
+    <meta name="description" content="Sébastien CoRhino — Musicien, rappeur, artiste total. Ancien chef du Parti Rhinocéros du Canada.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>/* Applique le thème sauvegardé AVANT le rendu = zéro flash entre les pages. */
+(function(){var ok=['yellow','red','green','magenta','rainbow','bw','cyan'];var t=localStorage.getItem('cr-theme');if(ok.indexOf(t)<0){t='yellow';localStorage.setItem('cr-theme',t);}document.body.classList.add('theme-'+t);})();</script>
+
+<div class="noise-overlay"></div>
+<div class="floating-ball"></div>
+
+<nav class="site-nav">
+    <a href="index.html" class="nav-logo">🍍 <span>ananas</span>DAY</a>
+    <ul class="nav-links">
+        <li><a href="corhino.html" class="active">Sébastien CoRhino</a></li>
+        <li><a href="ananas.html">Ananas Day</a></li>
+        <li><a href="videos.html">Vidéos</a></li>
+        <li><a href="mixer.html">🎛 Mixer</a></li>
+    </ul>
+    <div class="nav-right">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+    <a href="corhino.html">Sébastien CoRhino</a>
+    <a href="ananas.html">Ananas Day</a>
+    <a href="videos.html">Vidéos</a>
+    <a href="mixer.html">🎛 Mixer</a>
+    <div class="nav-mobile-langs">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+    </div>
+</div>
+
+<!-- PAGE HERO -->
+<header class="page-hero container">
+    <p class="page-hero-kicker">Musique · Mots · Idées · Inventions</p>
+    <!-- À RÉÉCRIRE ✏️ -->
+    <h1 class="page-hero-title">Sébastien<br><span>CoRhino</span></h1>
+    <p class="page-hero-sub">Aka Côrriveau, Séb Cô, Guter Typ Kanada.<br>L'artiste total — à la Zappa, en mieux habillé.</p>
+</header>
+
+<main>
+
+    <!-- BIO -->
+    <section class="section" id="bio">
+        <div class="container">
+            <div class="fade-in">
+                <span class="section-label">01</span>
+                <h2 class="section-title">Qui est CoRhino?</h2>
+            </div>
+            <div class="bio-grid fade-in">
+                <div class="bio-text">
+                    <!-- À RÉÉCRIRE ✏️ — contenu draft -->
+                    <p>Sébastien CoRhino, c'est 20 ans de musique — compo, voix, clarinette basse, hip-hop — qui arrivent enfin à la surface. 
+                        Après une carrière politique aussi sérieuse que déjantée (chef du Parti Rhinocéros du Canada 
+                        pendant 10 ans, candidat trois fois au poste de premier ministre), il lance maintenant ce pour 
+                        quoi il était fait depuis le début : sa carrière artistique publique.</p>
+                    <p>Basé à Rimouski depuis 2013, il compose, enregistre et produit dans son studio maison. 
+                        Bac. en musique de l'Université de Sherbrooke (composition, enregistrement, mixage) — il 
+                        contrôle tout le processus, de la première note au master final. 
+                        La musique, c'est pas un hobby. C'est le plan A depuis toujours.</p>
+                    <p>Le style CoRhino ne rentre pas dans une case. Rap, hip-hop, humour absurde sérieux, couleurs flamboyantes, rhinocéros comme symbole, ananas comme étendard. Un artiste total, au sens wagnérien.</p>
+                </div>
+                <aside class="bio-sidebar">
+                    <h3>// DONNÉES BRUTES</h3>
+                    <dl class="facts">
+                        <div class="fact"><dt>NOM</dt><dd>Sébastien Côrriveau</dd></div>
+                        <div class="fact"><dt>SCÈNE</dt><dd>Sébastien CoRhino</dd></div>
+                        <div class="fact"><dt>AUSSI</dt><dd>Séb Cô · Guter Typ Kanada (DE)</dd></div>
+                        <div class="fact"><dt>BASE</dt><dd>Rimouski, Québec</dd></div>
+                        <div class="fact"><dt>INSTRU</dt><dd>Clarinette basse · Contrebasse · Basse · Chant</dd></div>
+                        <div class="fact"><dt>STYLE</dt><dd>Chanson · Rap · Hip-hop · Free jazz</dd></div>
+                        <div class="fact"><dt>STUDIO</dt><dd>compo, enregistrement, mix</dd></div>
+                        <div class="fact"><dt>POLITIQUE</dt><dd>ex-Chef Rhino · 3× candidat PM</dd></div>
+                        <div class="fact"><dt>COULEURS</dt><dd>Jaune · Rouge · Vert</dd></div>
+                        <div class="fact"><dt>SYMBOLES</dt><dd>🍍 Ananas  · 🦏 Rhinocéros</dd></div>
+                    </dl>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- RACINES -->
+    <section class="section" id="racines">
+        <div class="container">
+            <div class="fade-in">
+                <span class="section-label">02</span>
+                <h2 class="section-title">Racines</h2>
+            </div>
+            <div class="fade-in" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--md);margin-top:var(--sm);">
+                <div style="border-left:3px solid var(--accent);padding-left:var(--sm);">
+                    <h3 style="font-family:var(--font-mono);color:var(--accent);font-size:.9rem;margin-bottom:.4rem;">Hip-hop</h3>
+                    <p style="color:var(--muted);font-size:.9rem;">Sabir (2010–2013) — hip-hop conscient. Basse, guitare, composition.</p>
+                    <p style="color:var(--muted);font-size:.9rem;margin-top:.3rem;">David Goudreault (2011–2013) — slam. Basse, arrangements.</p>
+                </div>
+                <div style="border-left:3px solid var(--accent);padding-left:var(--sm);">
+                    <h3 style="font-family:var(--font-mono);color:var(--accent);font-size:.9rem;margin-bottom:.4rem;">Jazz improvisé</h3>
+                    <p style="color:var(--muted);font-size:.9rem;">GGRIL depuis 2014 — Grand Groupe de Recherche et d'Improvisation Libérée. Clarinette basse. Tournées internationales (Serbie, Canada).</p>
+                </div>
+                <div style="border-left:3px solid var(--accent);padding-left:var(--sm);">
+                    <h3 style="font-family:var(--font-mono);color:var(--accent);font-size:.9rem;margin-bottom:.4rem;">Poésie & slam</h3>
+                    <p style="color:var(--muted);font-size:.9rem;">1er lauréat SLAM de contes, Festicourt Sherbrooke (2013). Recueil <em>Petits Poèmes</em> (2019).</p>
+                </div>
+                <div style="border-left:3px solid var(--accent);padding-left:var(--sm);">
+                    <h3 style="font-family:var(--font-mono);color:var(--accent);font-size:.9rem;margin-bottom:.4rem;">Arts visuels</h3>
+                    <p style="color:var(--muted);font-size:.9rem;">Peinture depuis 2007 — 50+ œuvres figuratives (art naïf). Expo Galerie JL Desrosiers, Mont-Joli (2022). Peinture en direct avec Armand Vaillancourt (2008).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MUSIQUE -->
+    <section class="section" id="musique">
+        <div class="container">
+            <div class="fade-in">
+                <span class="section-label">03</span>
+                <h2 class="section-title">Musique</h2>
+            </div>
+
+            <div class="fade-in">
+                <div class="release">
+                    <div class="release-art">🍍</div>
+                    <div class="release-info">
+                        <!-- À RÉÉCRIRE ✏️ -->
+                        <h3>AnanasDay</h3>
+                        <p>Single — L'hymne du premier jour férié international. Rap / Hip-hop. Studio maison.</p>
+                        <span class="release-date">1er juillet 2026</span>
+                    </div>
+                    <span class="badge badge-soon">Bientôt</span>
+                </div>
+
+                <div class="release">
+                    <div class="release-art">🦏</div>
+                    <div class="release-info">
+                        <!-- À RÉÉCRIRE ✏️ -->
+                        <h3>EP CoRhino</h3>
+                        <p>4–6 chansons. Studio maison. Mix & mastering professionnel.</p>
+                        <span class="release-date">Automne 2026</span>
+                    </div>
+                    <span class="badge badge-wip">En production</span>
+                </div>
+            </div>
+
+            <!-- Bouton mixer seul (carré « signe distinctif » + texte retirés — revue 2026-06-19) -->
+            <div class="fade-in" style="margin-top:var(--lg);">
+                <a href="mixer.html" class="btn btn-ghost">🎛 Ouvrir le Mixer multi-pistes →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets déplacés vers donations.html (campagnes de financement + thermomètres-ananas). -->
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="container fade-in" style="text-align:center;max-width:520px;margin:0 auto;">
+            <span class="section-label">04</span>
+            <h2 class="section-title" style="justify-content:center;">Contact</h2>
+            <!-- À RÉÉCRIRE ✏️ -->
+            <p style="color:var(--muted);margin-bottom:var(--md);">Collaboration, presse, booking conférence, ou juste envie de parler rhinocéros et ananas?</p>
+            <a href="contact.html" class="btn">Me rejoindre →</a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-logo">🦏 Sébastien CoRhino</div>
+    <nav class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="ananas.html">Ananas Day</a>
+        <a href="videos.html">Vidéos</a>
+        <a href="mixer.html">Mixer</a>
+        <a href="donations.html">♥ Soutien</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="footer-social" aria-label="Réseaux sociaux">
+        <a href="https://corhino.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+        <a href="https://www.youtube.com/@CoRhino" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/corhino/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+    <p class="footer-copy">© 2026 Sébastien CoRhino. Tous droits réservés.</p>
+    <div class="footer-counter">
+        <span class="fc-label">visiteurs depuis le lancement</span>
+        <div class="fc-display" id="fc-num">
+            <span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span>
+        </div>
+    </div>
+    <p class="footer-webmaster">webmaster depuis 1998 &middot; HTML &amp; CSS fait à la main &middot; zéro framework</p>
+    <div class="footer-badges">
+        <a href="/" class="badge88" title="ananasday.com — codé à la main depuis 1998">
+            <svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" aria-label="ananasday.com 1998">
+                <rect width="88" height="31" fill="#111"/>
+                <rect width="42" height="31" fill="#F4E800"/>
+                <text x="21" y="21" text-anchor="middle" font-family="'Courier New',monospace" font-size="13" font-weight="bold" fill="#1a1a00">1998</text>
+                <text x="65" y="13" text-anchor="middle" font-family="'Courier New',monospace" font-size="7" fill="#F4E800">ananas</text>
+                <text x="65" y="24" text-anchor="middle" font-family="'Courier New',monospace" font-size="9" font-weight="bold" fill="#F4E800">DAY</text>
+                <rect x=".5" y=".5" width="87" height="30" fill="none" stroke="#F4E800" stroke-width="1"/>
+            </svg>
+        </a>
+    </div>
+</footer>
+
+<!-- THEME SWITCHER · jaune = défaut (signature CoRhino) + grille 3×2 -->
+<div class="theme-switcher" aria-label="Changer de thème de couleur">
+    <button class="theme-btn theme-btn--main" data-theme="yellow" style="background:#F4E800" aria-label="Jaune Speedyellow (défaut)"></button>
+    <div class="theme-grid">
+        <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
+        <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
+        <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Mauve"></button>
+        <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
+        <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="Négatif"></button>
+        <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Turquoise"></button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

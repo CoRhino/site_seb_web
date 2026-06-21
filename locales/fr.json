@@ -1,81 +1,32 @@
 {
-    "meta": {
-        "title": "Séb | Musicien, artiste & dev",
-        "description": "Portfolio de Séb Cô : Musicien, artiste, dev"
+    "index": {
+        "meta": {
+            "title": "Ananas Day — 1er juillet",
+            "desc": "Le premier jour férié international universel. Sébastien CoRhino. 1er juillet 2026."
+        },
+        "hero": {
+            "eyebrow": "Premier jour férié international universel",
+            "title": "ANANAS DAY",
+            "subtitle": "Le <em>1er juillet</em>, tout le monde est en congé.<br>Partout sur Terre. C'est officiel — enfin presque.",
+            "single": "Single AnanasDay — 1er juillet 2026"
+        },
+        "cd": { "days": "jours", "hours": "heures", "min": "minutes", "sec": "secondes" },
+        "portal": {
+            "corhino": "Artiste, musicien, rappeur. Ancien chef du Parti Rhinocéros. Maintenant sur scène — sa vraie scène.",
+            "ananas": "Le mouvement. Le premier jour férié inventé qui mérite d'être réel. Le 1er juillet, tout le monde décroche."
+        },
+        "nl": {
+            "title": "🍍 Restez dans la boucle",
+            "desc": "Le single arrive le 1er juillet. Soyez les premiers à l'entendre.",
+            "placeholder": "votre@courriel.com",
+            "btn": "Je veux savoir",
+            "note": "Zéro spam. Désabonnement en un clic. Propulsé par Cyberimpact 🇨🇦"
+        },
+        "footer": "© 2026 Sébastien CoRhino. Tous droits réservés. Sauf le 1er juillet — ce jour-là, personne ne travaille."
     },
     "nav": {
-        "bio": "Bio",
-        "art": "Art",
-        "dev": "Dev",
-        "contact": "Contact"
-    },
-    "hero": {
-        "title": "SÉB",
-        "subtitle_art": "ARTISTE",
-        "subtitle_dev": "DÉVELOPPEUR",
-        "tagline": "Créateur coloré la nuit, codeur de jour.",
-        "scroll": "SCROLL"
-    },
-    "bio": {
-        "title": "01. QUI SUIS-JE ?",
-        "p1": "Salut, je suis <span class=\"text-highlight\">Séb</span>. Avant tout musicien, artiste visuel et auteur, j'ai aussi exploré le monde politique.",
-        "p2": "Je ne choisis pas entre le rouge et le jaune. Je prends tout le spectre, de l'infra jusqu'à l'ultra. Toujours habillé de couleurs flamboyantes, je porte mon énergie sur moi.",
-        "p3": "Que ce soit en composant une chanson, une musique expérimentale, en écrivant un conte ou en architecturant une base de données, je cherche toujours à créer quelque chose d'unique et de vibrant. ",
-        "p4": "Le code est pour moi une extension de mon art."
-    },
-    "art": {
-        "title": "02. L'UNIVERS ARTISTIQUE",
-        "music": {
-            "title": "Musique",
-            "desc": "Compositions"
-        },
-        "video": {
-            "title": "Vidéo",
-            "desc": ""
-        },
-        "writings": {
-            "title": "Écrits",
-            "desc": "Poésie, contes et réflexions."
-        },
-        "installations": {
-            "title": "Installations",
-            "desc": "Projets interactifs mêlant code et réel."
-        }
-    },
-    "dev": {
-        "title": "03. L'UNIVERS DEV",
-        "project1": {
-            "title": "Memoire",
-            "desc": "Projet 'Memoire' pour donner memoire aux agents IA."
-        },
-        "project2": {
-            "title": "Expérience",
-            "desc": "Architecture base de données finances avec BQ/GCP/Python"
-        },
-        "cta": "Github : corhino / katze333"
-    },
-    "archives": {
-        "title": "03.5. MÉMOIRE & ARCHIVES",
-        "intro": "Une collection de fragments, de projets passéses et de souvenirs numériques. Pour la postérité.",
-        "item1": {
-            "title": "avec Le GGRIL",
-            "desc": ""
-        },
-        "item2": {
-            "title": "avec Sabir",
-            "desc": "Live set expérimental."
-        },
-        "item3": {
-            "title": "...",
-            "desc": ""
-        }
-    },
-    "contact": {
-        "title": "04. CONTACT",
-        "text": "Un projet ? Une collab ? Ou juste envie de parler couleurs ?",
-        "btn": "Me dire bonjour"
-    },
-    "footer": {
-        "text": "Conçu & Codé par Séb. &copy; sur le web depuis 1998."
+        "corhino": "Sébastien CoRhino",
+        "ananas": "Ananas Day",
+        "mixer": "🎛 Mixer"
     }
 }

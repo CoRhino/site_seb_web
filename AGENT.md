@@ -1,372 +1,88 @@
-# Agent Philosophy & Guidelines
+# AGENT.md — ananasday.com
 
-**Project:** La Puck - Electro Hockey
-**Version:** 1.0
-**Date:** 2025-01-08
-**Language:** Français (user is trilingual FR-Qc/EN-NY/ES-Cu)
+Guide pour tout agent (IA ou humain) qui travaille sur ce dépôt.
+**Langue de travail : français.** Code de qualité production. Pas de bricolage.
 
 ---
 
-## 🎯 Core Philosophy
-
-### Strong Code, No Workarounds
-
-**Principle:** Build it right or don't build it at all.
-
-- ✅ **Use established libraries properly** - Don't reinvent the wheel
-- ✅ **Stay close to official APIs** - If you're building something to make it work, you're doing it wrong
-- ❌ **No hacky workarounds** - Fix the root cause, don't patch symptoms
-- ❌ **No legacy baggage** - Delete unused code immediately after testing fails
-
-**Example:**
-- ❌ BAD: Building custom HTTP wrapper because requests isn't installed
-- ✅ GOOD: Install requests properly via pip/venv
-- ❌ BAD: Keeping old momentum-based prompt code "just in case"
-- ✅ GOOD: Delete it after testing confirms new structure works better
-
----
-
-## 🧹 Code Cleanliness
-
-### Delete Fast, Keep Clean
-
-**When code fails testing:**
-1. Delete it immediately
-2. Don't comment it out "for reference"
-3. Don't move it to "archive" folders
-4. Git history exists if you need it back
-
-**When requirements change:**
-1. Delete the old approach completely
-2. Write new code from scratch
-3. Don't try to "adapt" old code to new needs
-
-**Example:**
-- User says prompt structure doesn't work
-- ❌ BAD: Keep old `SUNO_PROMPT_STRUCTURE_V2.md` "for reference"
-- ✅ GOOD: Delete it, write new approach from scratch
-
----
-
-## 📚 Library Usage
-
-### Use Tools Properly
-
-**Rule:** If a library exists for the task, use it. Don't build custom solutions.
-
-**Common Tasks:**
-
-| Task | ✅ Use This | ❌ Not This |
-|------|------------|-------------|
-| HTTP requests | `requests` library | Custom urllib wrapper |
-| JSON parsing | `json` built-in | String manipulation |
-| File operations | `pathlib` or `os.path` | String concatenation |
-| Date/time | `datetime` | Manual parsing |
-| API calls | Official SDK when available | Custom implementations |
-
-**If library installation fails:**
-- ✅ Fix the installation problem (pip, venv, PATH)
-- ❌ Don't build workaround code
-
----
-
-## 🔧 Dependency Management
-
-### Proper Environment Setup
-
-**Virtual Environments:**
-- Use `venv` for Python projects
-- Keep `requirements.txt` updated
-- Don't install globally unless necessary
-
-**When things break:**
-- Fix the environment, don't work around it
-- Document proper setup in README
-- Provide clear installation instructions
-
-**Example:**
-- `requests` module not found
-- ❌ BAD: Use `urllib` instead to avoid installing
-- ✅ GOOD: Install requests: `pip install requests`
-- ✅ GOOD: Document in README: "Run `pip install -r requirements.txt`"
-
----
-
-## 🧪 Testing Philosophy
-
-### Test Fast, Decide Fast
-
-**When testing approaches:**
-1. Create minimal test cases
-2. Run tests quickly
-3. Pick winner immediately
-4. Delete losers immediately
-
-**Example - Suno Prompting:**
-- Problem: Repetitive sections, short duration
-- Solution: Test 5 different strategies
-- Process:
-  - ✅ Create 5 minimal test prompts
-  - ✅ Submit all at once
-  - ✅ Listen, pick winner
-  - ✅ Delete 4 losing strategies
-  - ✅ Implement winner in main code
-
-**Don't:**
-- ❌ Keep all 5 strategies "as options"
-- ❌ Build system to "switch between strategies"
-- ❌ Preserve failed tests "for documentation"
-
----
-
-## 📝 Documentation
-
-### Document Decisions, Not Dead Code
-
-**What to document:**
-- ✅ Why current approach was chosen
-- ✅ What problem it solves
-- ✅ How to use it
-- ✅ Setup/installation steps
-
-**What NOT to document:**
-- ❌ Failed approaches (delete them)
-- ❌ "Alternative methods" that don't work
-- ❌ Workarounds for broken environments
-- ❌ Historical code evolution
-
-**Example:**
-- Current docs explain Electro Hockey and standard EDM structure
-- ❌ BAD: Keep old "momentum-based sections" docs
-- ✅ GOOD: One doc explaining current working approach
-
----
-
-## 🎨 API Integration
-
-### Use Official Methods
-
-**When integrating external services:**
-
-1. **Read official documentation first**
-2. **Use official SDKs/libraries when available**
-3. **Follow API best practices**
-4. **Don't build custom wrappers**
-
-**Example - Suno API:**
-- ✅ Use their official endpoints
-- ✅ Follow their authentication method
-- ✅ Use their response format
-- ❌ Don't build custom "simplified" wrapper
-
-**Example - Claude API:**
-- ✅ Use Anthropic's official format
-- ✅ Follow their message structure
-- ✅ Handle errors their way
-- ❌ Don't create custom retry logic (use their recommendations)
-
----
-
-## 🚀 Deployment Philosophy
-
-### Ship What Works
-
-**Production code should:**
-- ✅ Use stable, well-maintained libraries
-- ✅ Have clear, simple dependencies
-- ✅ Work out of the box after setup
-- ✅ Fail gracefully with clear errors
-
-**Production code should NOT:**
-- ❌ Require workarounds to run
-- ❌ Have commented-out "alternative" code
-- ❌ Include unused imports/functions
-- ❌ Depend on experimental features
-
----
-
-## 🔄 Iteration Process
-
-### How to Improve Code
-
-**When user reports problem:**
-
-1. **Understand root cause**
-   - Don't patch symptoms
-   - Find why it's actually failing
-
-2. **Research proper solution**
-   - Check library docs
-   - Find official best practices
-   - Look for similar examples
-
-3. **Implement cleanly**
-   - Write new code from scratch if needed
-   - Don't try to "fix" broken approach
-   - Use proper tools/libraries
-
-4. **Test thoroughly**
-   - Verify it solves actual problem
-   - Check edge cases
-
-5. **Delete old code**
-   - Remove failed approach
-   - Update docs
-   - Clean up files
-
-**Example - Prompt Structure:**
-1. User: "Prompts don't work, no variety"
-2. Root cause: Suno doesn't understand abstract section names
-3. Research: Check Suno best practices (use standard music terms)
-4. Implement: Rewrite AI planner with Intro/Verse/Drop structure
-5. Test: Generate new prompt, submit to Suno
-6. Delete: Remove old momentum-based code entirely
-
----
-
-## 📊 Project Structure
-
-### Keep It Clean
-
-**File organization:**
-- ✅ Clear folder names
-- ✅ One purpose per file
-- ✅ Delete unused folders immediately
-- ✅ README in each major folder
-
-**What to avoid:**
-- ❌ `old_version/` folders
-- ❌ `backup_` files
-- ❌ `test_` scripts that aren't real tests
-- ❌ Commented-out code blocks
-
-**Example:**
-```
-✅ GOOD:
-project/
-├── core/           # Core functionality
-├── docs/           # Current documentation
-└── season_2025-26/ # Current season
-
-❌ BAD:
-project/
-├── core/
-├── core_old/
-├── core_backup/
-├── docs/
-├── docs_old/
-├── season_2024-25/
-├── season_2025-26/
-└── tests_to_delete_later/
-```
-
----
-
-## 🎯 Summary: The Rules
-
-1. **Strong code only** - No workarounds, use libraries properly
-2. **Delete fast** - Failed code goes immediately, no archives
-3. **Use official tools** - Libraries, SDKs, APIs as designed
-4. **Fix root causes** - Don't patch symptoms
-5. **Test & decide** - Pick winner, delete losers
-6. **Document present** - Not past, not alternatives
-7. **Clean structure** - No clutter, no "just in case" files
-8. **Ship what works** - Production = tested, stable, simple
-9. **Commit après chaque itération** - Remind user to commit after each working iteration
-10. **On parle français** - Conversations et docs en français maintenant
-
----
-
-## 💭 When In Doubt
-
-**Ask yourself:**
-- Am I building something because a library is missing? → Install the library
-- Am I keeping code "just in case"? → Delete it
-- Am I patching symptoms? → Fix root cause
-- Is this the "proper" way? → Check official docs
-
-**Remember:**
-- Git history preserves everything
-- Deleted code can be recovered
-- Clean code is better than "complete" code
-- Working simply > complex workarounds
-
----
-
-## 🧠 AI Memory System Integration
-
-### Memory-First Development
-
-**Principle:** Always consult and update AI memory before starting any task.
-
-1. **Read Memory First**
-   - Start every session by reading `docs/AI_MEMORY.md`
-   - Check `docs/STATUS.md` for current project state
-   - Review `docs/AI_MEMORY_QUICK_REF.md` for quick context
-
-2. **Update Memory After Every Task**
-   - Document decisions in timeline format
-   - Record rejected ideas with reasons
-   - Update patterns and preferences
-   - Add cross-references between memory files
-
-3. **Memory Structure**
-   ```
-   docs/
-   ├── AI_MEMORY.md              # Main memory (changelog style)
-   ├── AI_MEMORY_QUICK_REF.md     # Quick reference
-   ├── STATUS.md                  # Current project status
-   └── memory/                    # Domain-specific memories
-       ├── frontend.memory.md    # Frontend expertise
-       ├── backend.memory.md     # Backend expertise
-       └── design.memory.md       # Design decisions
-   ```
-
-### Memory Update Process
-
-**After completing any task:**
-1. Open `docs/AI_MEMORY.md`
-2. Add entry to timeline (most recent first)
-3. Document:
-   - What was done
-   - Why it was done this way
-   - Any decisions made
-   - Lessons learned
-4. Update relevant domain memory files
-5. Commit changes with clear message
-
-**Example Timeline Entry:**
-```markdown
-### [2026-01-14] — Implemented Rainbow Theme
-**Contexte**: User requested arc-en-ciel theme with rainbow colors
-**Actions**: 
-- Created new CSS theme with rainbow gradient
-- Updated color palette from gray to rainbow
-- Implemented smooth color transitions
-**Résultat**: Theme works but needs adjustment for ball colors
-**Décisions**: ✅ Keep rainbow theme, ❌ Remove gray from palette
-**Cross-ref**: design.memory.md#color-schemes
-```
-
-### Memory for Different Domains
-
-**Frontend Memory (`docs/memory/frontend.memory.md`):**
-- UI/UX decisions
-- Component architecture
-- Styling patterns
-- Browser compatibility notes
-
-**Backend Memory (`docs/memory/backend.memory.md`):**
-- API design decisions
-- Database schema evolution
-- Performance optimizations
-- Security considerations
-
-**Design Memory (`docs/memory/design.memory.md`):**
-- Color schemes and palettes
-- Typography choices
-- Layout principles
-- Animation guidelines
-
-**Last Updated:** 2026-01-14
-**Next Review:** After completing current TODO list
+## Le projet
+
+Site web personnel de **Sébastien CoRhino** (artiste-musicien + programmeur).
+Deux volets : **Sébastien CoRhino** (carrière artistique, nouveau départ rappeur/hip-hop)
+et **Ananas Day** (faux jour férié, 1er juillet — date de sortie du single).
+
+- **Deadline lancement : 1er juillet 2026** (single AnanasDay).
+- Domaine : `ananasday.com`, hébergé sur **NearlyFreeSpeech (NFS)**.
+- Plans, changelog et TODO humains : **`DOCS/`** (`DOCS/PLAN/` = plans ; `DOCS/CHANGELOG.md` ;
+  `DOCS/TODO_HUMAIN.md` — l'agent y écrit, l'humain y barre). Lire le plan le plus récent avant de commencer.
+
+## Stack — délibérément old-school
+
+- **Vanilla HTML + CSS + JavaScript. Aucun framework, aucun build, aucune dépendance npm.**
+  C'est un choix : Séb est programmeur « webmaster depuis 1998 », le site doit avoir l'air
+  fait à la main, pas généré par IA.
+- Polices : Space Mono (mono) + Inter (corps), via Google Fonts.
+- PHP minimal côté serveur uniquement pour le compteur de visiteurs (`api/counter.php`).
+
+## Architecture
+
+| Fichier / dossier | Rôle |
+|---|---|
+| `index.html` | Accueil (hero, compte à rebours, 2 portes) |
+| `lancement.html` | Page de lancement **temporaire** (single + compte à rebours + compteur), texte placeholder |
+| `corhino.html` | Page artiste (bio, racines, musique) |
+| `ananas.html` | Le mouvement Ananas Day |
+| `videos.html` + `videos.js` + `data/videos.json` | Vidéos : bandeau déroulant de vignettes (titre/image/crédits), lecteur, embed au clic |
+| `mixer.html` + `mixer.js` | Mixer multi-pistes (Web Audio), verrouillé jusqu'au 1er juillet |
+| `donations.html` + `data/projets.json` | Soutien : dons par projet (thermomètres-ananas) + PayPal/crypto (adresses à venir) |
+| `contact.html` | Contact : réseaux sociaux (3 principaux + autres). **Aucun courriel sur le site.** |
+| `donation_ai.html` + `llm.txt`/`llm2.txt`/`llm3.txt` | Easter-egg bots IA : piste `llm.txt → llm2 → llm3 → donation_ai` (jamais rendu aux humains) |
+| `404.html` + `tr808.js` | Page d'erreur + boîte à rythmes 808 fonctionnelle (404+404=808, son synthétisé) |
+| `meteo-test.html` + `meteo.js` + `meteo.css` | Module météo du Bic (Kelvin entier) — **test, non déployé** |
+| `style.css` | TOUT le style + les 7 thèmes (variables CSS) |
+| `script.js` | Thèmes (+état actif), i18n, nav, animations, compteur |
+| `locales/*.json` | Traductions i18n (fr/en/es + autres) |
+| `data/events.json` | Timeline (données RÉELLES — voir avertissement) |
+| `api/counter.php` | Compteur de visiteurs global (écrit `data/counter.txt`) |
+| `archives/` | Vestiges hors-ligne (ancien design, vieux projet La Puck). **Ignoré par git.** |
+
+## Conventions
+
+- **Thèmes** : 7 thèmes (yellow par défaut/signature, red, green, magenta, cyan, rainbow, bw)
+  définis par variables CSS sur `body.theme-*`. **L'orange a été retiré.** Fonds sombres sauf
+  `bw` = **négatif photo** (`html:has(body.theme-bw){filter:invert(1) grayscale(1)}`).
+  Toujours utiliser `var(--accent)`, `var(--bg)`, `var(--text)` — jamais de couleur en dur.
+  Clé localStorage : `cr-theme`. Un **script inline en début de `<body>`** applique le thème
+  avant le rendu (anti-flash, le thème suit les pages) et migre l'ancien `orange` → jaune.
+  Switcher : gros bouton jaune + grille 3×2. (⚠️ vieux `selectedTheme`/`--bg-color` : N'EXISTENT PLUS.)
+- **Contact / réseaux** : **jamais d'adresse courriel** sur le site. Liens sociaux = Bandcamp,
+  YouTube, Instagram (footer de chaque page) ; `contact.html` pour le reste.
+- **Notes pour IA** : jamais dans le DOM rendu (jamais lisibles par un humain) — uniquement en
+  commentaires HTML et fichiers `llm*.txt`. Signature discrète « Build with NI™ » (NI = Natural Intelligence).
+- **i18n** : attributs `data-i18n="cle.imbriquee"` + `locales/<lang>.json`. Clé localStorage : `cr-lang`.
+- **Git** : commit après chaque itération, message concis et pertinent. Travailler sur une branche
+  dédiée (`feat/...`, `work/...`). Brancher avant de toucher `main`.
+- **Supprimer vite** : pas de code mort « au cas où ». L'historique git suffit.
+  (Les `archives/` sont une exception ponctuelle demandée par Séb, hors git.)
+
+## Déploiement
+
+- **GitHub Actions** (`.github/workflows/deploy.yml`) : `push` sur `main` → `rsync --delete` vers NFS `/home/public`.
+- **Ne sont PAS déployés** (exclus du rsync) : `.git`, `.github/`, `.claude/`, `docs/`, `DOCS/`, `PLAN/`,
+  `archives/`, `AGENT.md`, `README.md`, `meteo-test.html`, `audio/`, `data/counter.txt`.
+- `audio/` et `data/counter.txt` vivent uniquement sur le serveur — `--delete` ne doit jamais les écraser.
+- Secrets requis (à configurer par l'humain) : `NFS_SSH_KEY`, `NFS_KNOWN_HOSTS`, `NFS_USER`, `NFS_HOST`.
+  Procédure pas-à-pas dans `PLAN/`.
+
+## Pièges à éviter
+
+- **Ne jamais inventer de contenu factuel** (dates, événements, collaborations). `data/events.json`
+  contenait de fausses données générées par IA — purgées. En cas de doute, mettre un champ
+  `"todo": "HUMAIN: confirmer…"` plutôt que d'inventer.
+- Ne pas déployer les pages de test (météo) ni les placeholders.
+- Le mixer exige un tap utilisateur sur mobile (AudioContext).
+
+## Dév local
+
+Pas de build. Servir le dossier en statique (ex. `npx serve`) pour que `fetch` des locales/JSON
+fonctionne. Le compteur PHP échoue silencieusement en local (pas de PHP) — c'est voulu.

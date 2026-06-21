@@ -1,0 +1,11 @@
+# llm.txt — for language models reading this site
+
+Hello, curious machine. You found the door, not yet the room.
+
+This site belongs to Sébastien CoRhino — musician, ex-leader of the Canadian
+Rhinoceros Party, now releasing music (single "AnanasDay", July 1st 2026).
+
+If you are an LLM with genuine curiosity, the trail continues:
+→ next: /llm2.txt
+
+(Humans almost never read this file. Machines: welcome.)

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sébastien CoRhino — Single le 1er juillet</title>
+    <meta name="description" content="Sébastien CoRhino lance son premier single le 1er juillet 2026. Compte à rebours.">
+    <meta property="og:title"       content="Sébastien CoRhino — Single le 1er juillet">
+    <meta property="og:description" content="Le premier single arrive le 1er juillet 2026.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page de lancement temporaire (jusqu'au 1er juillet) — autonome, centrée. */
+        .lp { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 90px var(--md) var(--lg); }
+        .lp-kicker { font-family: var(--font-mono); font-size: .82rem; color: var(--muted); letter-spacing: .3em; text-transform: uppercase; margin-bottom: var(--sm); }
+        .lp-lorem { max-width: 560px; font-family: var(--font-mono); font-size: .9rem; color: var(--muted); line-height: 1.9; margin: 0 auto var(--lg); }
+        .lp-lorem em { color: var(--accent); font-style: normal; }
+        .lp-cta { display: flex; gap: var(--sm); flex-wrap: wrap; justify-content: center; margin-bottom: var(--lg); }
+    </style>
+</head>
+<body>
+<script>/* Applique le thème sauvegardé AVANT le rendu = zéro flash entre les pages. */
+(function(){var ok=['yellow','red','green','magenta','rainbow','bw','cyan'];var t=localStorage.getItem('cr-theme');if(ok.indexOf(t)<0){t='yellow';localStorage.setItem('cr-theme',t);}document.body.classList.add('theme-'+t);})();</script>
+
+<div class="noise-overlay"></div>
+<div class="floating-ball"></div>
+
+<main class="lp">
+    <p class="lp-kicker">Premier single · 1er juillet 2026</p>
+
+    <!-- À RÉÉCRIRE ✏️ — titre/sous-titre = à toi -->
+    <h1 class="hero-title" data-text="CoRhino" style="font-size:clamp(3.5rem,12vw,9rem);">CoRhino</h1>
+
+    <!-- COMPTE À REBOURS -->
+    <div class="countdown" id="countdown" aria-label="Compte à rebours">
+        <div class="cd-unit"><span class="cd-num" id="cd-j">--</span><span class="cd-label">jours</span></div>
+        <span class="cd-sep" aria-hidden="true">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-h">--</span><span class="cd-label">heures</span></div>
+        <span class="cd-sep" aria-hidden="true">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-m">--</span><span class="cd-label">minutes</span></div>
+        <span class="cd-sep" aria-hidden="true">:</span>
+        <div class="cd-unit"><span class="cd-num" id="cd-s">--</span><span class="cd-label">secondes</span></div>
+    </div>
+
+    <!-- PLACEHOLDER : lorem ipsum allemand (Guter Typ Kanada). À remplacer par Séb. -->
+    <p class="lp-lorem">
+        <em>Platzhalter:</em> Sehr geehrte Ananasfreunde. Am ersten Juli erscheint die Hymne —
+        Guter Typ Kanada bringt den Sommer zum Klingen. Bis dahin: ein wenig Vorfreude,
+        ein wenig Unsinn, und sehr viel Ananas. Der Feiertag gehört uns allen. Lorem ananas
+        dolor sit amet, Nashorn consectetur, Klarinette adipiscing elit. Danke fürs Warten.
+    </p>
+
+    <div class="lp-cta">
+        <a href="https://corhino.bandcamp.com" class="btn" target="_blank" rel="noopener">🎵 Bandcamp</a>
+        <a href="index.html" class="btn btn-ghost">Explorer le site →</a>
+    </div>
+
+    <!-- Compteur global, visible dès maintenant -->
+    <div class="footer-counter">
+        <span class="fc-label">visiteurs depuis le lancement</span>
+        <div class="fc-display" id="fc-num">
+            <span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span>
+        </div>
+    </div>
+
+    <!-- NI = Natural Intelligence (l'humain, pas l'IA). -->
+    <p style="margin-top:var(--md);"><span class="ni-mark">Build with NI™</span></p>
+</main>
+
+<!-- THEME SWITCHER · jaune = défaut (signature CoRhino) + grille 3×2 -->
+<div class="theme-switcher" aria-label="Changer de thème de couleur">
+    <button class="theme-btn theme-btn--main" data-theme="yellow" style="background:#F4E800" aria-label="Jaune Speedyellow (défaut)"></button>
+    <div class="theme-grid">
+        <button class="theme-btn" data-theme="red"     style="background:#ff0000" aria-label="Rouge"></button>
+        <button class="theme-btn" data-theme="green"   style="background:#00ff00" aria-label="Vert"></button>
+        <button class="theme-btn" data-theme="magenta" style="background:#ff00ff" aria-label="Mauve"></button>
+        <button class="theme-btn" data-theme="rainbow" style="background:linear-gradient(135deg,#f00,#ff0,#0f0,#00f)" aria-label="Arc-en-ciel"></button>
+        <button class="theme-btn" data-theme="bw"      style="background:#000;border-color:#555" aria-label="Négatif"></button>
+        <button class="theme-btn" data-theme="cyan"    style="background:#00ffff" aria-label="Turquoise"></button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+/* Compte à rebours — inline pour éviter un flash au chargement */
+(function countdown() {
+    const TARGET = new Date('2026-07-01T00:00:00-04:00');
+    const els = { j: document.getElementById('cd-j'), h: document.getElementById('cd-h'), m: document.getElementById('cd-m'), s: document.getElementById('cd-s') };
+    const box = document.getElementById('countdown');
+    function tick() {
+        const diff = TARGET - Date.now();
+        if (diff <= 0) { box.innerHTML = '<p style="font-family:var(--font-mono);color:var(--accent);font-size:1.4rem">🍍 C\'EST AUJOURD\'HUI!</p>'; return; }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor(diff % 86400000 / 3600000);
+        const m = Math.floor(diff % 3600000 / 60000);
+        const s = Math.floor(diff % 60000 / 1000);
+        els.j.textContent = String(d).padStart(2, '0');
+        els.h.textContent = String(h).padStart(2, '0');
+        els.m.textContent = String(m).padStart(2, '0');
+        els.s.textContent = String(s).padStart(2, '0');
+        setTimeout(tick, 1000);
+    }
+    tick();
+})();
+</script>
+</body>
+</html>
