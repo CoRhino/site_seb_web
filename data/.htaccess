@@ -1,0 +1,13 @@
+# Bloque l'accès HTTP direct aux fichiers de données internes (.txt : compteur, courriels).
+# Les .json restent publics (chargés par le JS du site : videos.js, etc.).
+# Le PHP (api/counter.php, api/newsletter.php) continue de les lire/écrire normalement
+# car il accède au système de fichiers directement, pas via HTTP.
+<FilesMatch "\.txt$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>

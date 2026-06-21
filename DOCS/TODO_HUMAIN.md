@@ -40,6 +40,11 @@
 
 - [ ] Valider la chaîne `llm.txt → llm2.txt → …` et le ton du pitch crypto (rien de rendu visible aux humains).
 
+## ⚠️ Sécurité — urgent
+
+- [ ] **`data/*.txt` étaient publics en HTTP** : j'ai vérifié, `https://ananasday.com/data/counter.txt` était lisible par n'importe qui (j'ai vu son contenu brut). Donc `data/newsletter.txt` serait aussi lisible en clair par n'importe qui qui connaît/devine l'URL — vrais courriels exposés. **Corrigé côté code** : j'ai ajouté `data/.htaccess` qui bloque l'accès HTTP direct aux `.txt` (les `.json` publics — vidéos, projets — restent accessibles, le PHP continue de lire/écrire les `.txt` normalement).
+  - **Action toi, prioritaire** : ce fichier n'est utile que s'il est sur le serveur. Upload `data/.htaccess` manuellement dès que possible (ne pas attendre le merge vers `main`), puis reteste `https://ananasday.com/data/counter.txt` dans un navigateur — tu dois voir une erreur 403, plus le contenu brut.
+
 ## Infolettre — collecte démarrée
 
 - [x] ~~Collecte email~~ — démarrée (2026-06-21) : `api/newsletter.php` ajoute chaque courriel valide dans `data/newsletter.txt` (un par ligne). Formulaire actif sur `lancement.html` en plus de `index.html`/`ananas.html`. **Même note de permissions que le compteur ci-dessus** : `data/newsletter.txt` devra être accessible en écriture par le process PHP sur NFS.

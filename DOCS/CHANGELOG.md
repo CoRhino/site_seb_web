@@ -3,6 +3,10 @@
 > Format : `AAAA-MM-JJ — description concise — branche`. Modifications faites par l'agent, en bullets.
 > Le plus récent en haut.
 
+## 2026-06-21 — Sécurité : data/*.txt exposés en HTTP — `feat/donations`
+
+- **Faille trouvée et corrigée** : `data/counter.txt` (et donc `data/newsletter.txt`) était lisible publiquement via HTTP — vérifié en direct sur `https://ananasday.com/data/counter.txt`, contenu brut retourné. Ajout de `data/.htaccess` bloquant l'accès direct aux `.txt` (les `.json` publics — vidéos, projets, events — restent accessibles, le PHP continue de lire/écrire les `.txt` via le système de fichiers, pas via HTTP). **Action serveur restante** : uploader `data/.htaccess` manuellement sur NFS sans attendre le prochain merge (voir `TODO_HUMAIN.md`).
+
 ## 2026-06-21 — Revue vocale (suite 3) — `feat/donations`
 
 - **Bug compteur de visiteurs identifié et corrigé** : testé `https://ananasday.com/api/counter.php` en direct — le PHP plantait sur `file_put_contents()` (« Permission denied » sur `data/counter.txt`) et le warning polluait la réponse JSON, donc le `fetch` côté navigateur échouait silencieusement (affichage figé à `000000`). `api/counter.php` ne laisse plus fuiter ces warnings. **Reste une action serveur côté Séb** : ajuster les permissions NFS (voir `TODO_HUMAIN.md`).
