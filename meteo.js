@@ -123,9 +123,9 @@ class MeteoWidget {
                 return `<div class="mw mw-card">
 <div class="mw-sym">${sym}</div>
 <div class="mw-body">
-  <div class="mw-k">${d.kelvin}&nbsp;K</div>
+  <div class="mw-k">${d.kelvin}&nbsp;&deg;K</div>
   <div class="mw-cond">${cond}</div>
-  <div class="mw-place">${PLACE} <span class="mw-muted">// ${d.celsius}&deg;C &middot; ${d.wind}&nbsp;km/h</span></div>
+  <div class="mw-place">${PLACE} <span class="mw-muted"> &middot; ${d.wind}&nbsp;km/h &middot; </span></div>
 </div>
 </div>`;
         }
