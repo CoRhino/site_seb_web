@@ -22,7 +22,7 @@ const API   = 'https://api.open-meteo.com/v1/forecast';
 
 /* ---- Codes WMO → symbole + libellé ---- */
 function wmo(code) {
-    if (code === 0)  return { sym: '☀',   fr: 'Dégagé',     en: 'Clear' };
+    if (code === 0)  return { sym: '☀',   fr: 'Ensoleillé', en: 'Clear' };
     if (code <= 2)   return { sym: '⛅',  fr: 'Peu nuageux', en: 'Partly cloudy' };
     if (code === 3)  return { sym: '☁',   fr: 'Couvert',    en: 'Overcast' };
     if (code <= 48)  return { sym: '≈≈',  fr: 'Brouillard', en: 'Fog' };
@@ -122,6 +122,8 @@ class MeteoWidget {
 <span class="mw-k">${d.kelvin}&nbsp;&deg;K</span>
 <span class="mw-sep">|</span>
 <span class="mw-cond">${cond}</span>
+<span class="mw-sep">|</span>
+<span class="mw-muted">${PLACE}</span>
 <span class="mw-sep">|</span>
 <span class="mw-muted">${d.windCmS}&nbsp;cm/s</span>
 </div>`;
