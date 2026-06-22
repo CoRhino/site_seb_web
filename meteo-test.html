@@ -225,11 +225,13 @@
             `Heure local : ${d.time}\n` +
             `Code WMO    : ${d.code}  (https://open-meteo.com/en/docs#weathervariables)\n` +
             `Celsius     : ${d.celsius} °C\n` +
-            `Kelvin      : ${d.kelvin} K   ← affiché dans les widgets\n` +
-            `Vent        : ${d.wind} km/h\n` +
+            `Kelvin      : ${d.kelvin} °K   ← affiché dans les widgets\n` +
+            `Vent (brut) : ${d.wind} km/h\n` +
+            `Vent        : ${d.windCmS} cm/s   ← affiché dans les widgets\n` +
             `\n` +
-            `// Conversion : K = °C + 273.15\n` +
-            `// Source     : open-meteo.com (gratuit, sans API key)`;
+            `// Conversion K   : °C + 273.15\n` +
+            `// Conversion vent : km/h / 3.6 = m/s, m/s * 100 = cm/s\n` +
+            `// Source         : open-meteo.com (gratuit, sans API key)`;
     } catch (e) {
         el.textContent = `[ERREUR] ${e.message}`;
     }

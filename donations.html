@@ -109,6 +109,7 @@
         .proj-cta { margin-top: auto; align-self: flex-start; }
         .proj-done { margin-top: auto; font-family: var(--font-mono); color: var(--accent2); font-size: .9rem; }
     </style>
+    <link rel="stylesheet" href="meteo.css">
 </head>
 <body>
 <script>/* Applique le thème sauvegardé AVANT le rendu = zéro flash entre les pages. */
@@ -251,6 +252,9 @@
         </div>
     </div>
     <p class="footer-webmaster">webmaster depuis 1998 &middot; HTML &amp; CSS fait à la main &middot; zéro framework</p>
+    <div style="text-align:center;margin:.6rem 0;">
+        <div data-meteo data-meteo-skin="pill"></div>
+    </div>
     <div class="footer-badges">
         <a href="/" class="badge88" title="ananasday.com — codé à la main depuis 1998">
             <svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" aria-label="ananasday.com 1998">
@@ -279,6 +283,7 @@
 </div>
 
 <script src="script.js"></script>
+<script src="meteo.js"></script>
 <script>
 /* Dons en cryptomonnaie.
    TODO HUMAIN : coller les vraies adresses ci-dessous. Tant qu'une 'address' est vide,
