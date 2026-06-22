@@ -118,14 +118,13 @@ class MeteoWidget {
             /* ---- PILL — horizontal, inline ---- */
             case 'pill':
                 return `<div class="mw mw-pill">
+<span class="mw-muted">${PLACE}</span>
 <span class="mw-sym">${sym}</span>
-<span class="mw-k">${d.kelvin}&nbsp;&deg;K</span>
-<span class="mw-sep">|</span>
 <span class="mw-cond">${cond}</span>
 <span class="mw-sep">|</span>
-<span class="mw-muted">${PLACE}</span>
+<span class="mw-k">${d.kelvin}&nbsp;&deg;K</span>
 <span class="mw-sep">|</span>
-<span class="mw-muted">${d.windCmS}&nbsp;cm/s</span>
+<span class="mw-muted">vents&nbsp;: ${d.windCmS}&nbsp;cm/s</span>
 </div>`;
 
             /* ---- CARD (défaut) ---- */
