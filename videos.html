@@ -6,6 +6,7 @@
     <title>Vidéos — Sébastien CoRhino</title>
     <meta name="description" content="Vidéos de Sébastien CoRhino : promesse électorale du Parti Rhinocéros, poésie avec Paraloeil au phare de Pointe-Métis, orchestre GGRIL.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="meteo.css">
 </head>
 <body>
 <script>/* Applique le thème sauvegardé AVANT le rendu = zéro flash entre les pages. */
@@ -20,7 +21,6 @@
         <li><a href="corhino.html">Sébastien CoRhino</a></li>
         <li><a href="ananas.html">Ananas Day</a></li>
         <li><a href="videos.html" class="active">Vidéos</a></li>
-        <li><a href="mixer.html">🎛 Mixer</a></li>
     </ul>
     <div class="nav-right">
         <button class="lang-btn" data-lang="fr">FR</button>
@@ -35,7 +35,6 @@
     <a href="corhino.html">Sébastien CoRhino</a>
     <a href="ananas.html">Ananas Day</a>
     <a href="videos.html">Vidéos</a>
-    <a href="mixer.html">🎛 Mixer</a>
     <div class="nav-mobile-langs">
         <button class="lang-btn" data-lang="fr">FR</button>
         <button class="lang-btn" data-lang="en">EN</button>
@@ -74,7 +73,6 @@
         <a href="corhino.html">CoRhino</a>
         <a href="ananas.html">Ananas Day</a>
         <a href="videos.html">Vidéos</a>
-        <a href="mixer.html">Mixer</a>
         <a href="donations.html">♥ Soutien</a>
         <a href="contact.html">Contact</a>
     </nav>
@@ -91,6 +89,9 @@
         </div>
     </div>
     <p class="footer-webmaster">webmaster depuis 1998 &middot; HTML &amp; CSS fait à la main &middot; zéro framework</p>
+    <div style="text-align:center;margin:.6rem 0;">
+        <div data-meteo data-meteo-skin="pill"></div>
+    </div>
     <div class="footer-badges">
         <a href="/" class="badge88" title="ananasday.com — codé à la main depuis 1998">
             <svg xmlns="http://www.w3.org/2000/svg" width="88" height="31" viewBox="0 0 88 31" aria-label="ananasday.com 1998">
@@ -119,6 +120,7 @@
 </div>
 
 <script src="script.js"></script>
+<script src="meteo.js"></script>
 <script src="videos.js"></script>
 </body>
 </html>

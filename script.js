@@ -193,28 +193,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --------------------------------------------------------
-    // NEWSLETTER — placeholder (brancher Cyberimpact ici)
+    // NEWSLETTER — collecte réelle (data/newsletter.txt), en attendant Cyberimpact
     // --------------------------------------------------------
     document.querySelectorAll('.newsletter-form').forEach(form => {
         const btn   = form.querySelector('button');
         const input = form.querySelector('input[type="email"]');
         if (!btn || !input) return;
 
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', async () => {
             if (!input.value.includes('@')) {
                 input.style.borderColor = 'var(--danger)';
                 input.focus();
                 return;
             }
-            // TODO: remplacer par le vrai endpoint Cyberimpact
-            btn.textContent  = '🍍 À bientôt!';
-            btn.disabled     = true;
-            input.disabled   = true;
-            input.style.borderColor = 'var(--accent2)';
-            console.info('[Newsletter] À brancher sur Cyberimpact — email:', input.value);
+            const email = input.value;
+            btn.disabled = true;
+            const label = btn.textContent;
+            btn.textContent = '…';
+            try {
+                const r = await fetch('/api/newsletter.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const d = await r.json();
+                if (!d.ok) throw new Error(d.error || 'fail');
+                btn.textContent = '🍍 À bientôt!';
+                input.disabled = true;
+                input.style.borderColor = 'var(--accent2)';
+            } catch (_) {
+                btn.textContent = label;
+                btn.disabled = false;
+                input.style.borderColor = 'var(--danger)';
+            }
         });
 
         input.addEventListener('input', () => input.style.borderColor = '');
     });
+
+    // --------------------------------------------------------
+    // NUDGE BANDCAMP — toast discret après quelques visites
+    // (localStorage seulement, pas de cookie, pas de bannière)
+    // --------------------------------------------------------
+    (() => {
+        const THRESHOLDS = [3, 8, 15];
+        const visits = (parseInt(localStorage.getItem('cr-visits') || '0', 10) || 0) + 1;
+        localStorage.setItem('cr-visits', visits);
+
+        const lastNudge = parseInt(localStorage.getItem('cr-nudge-last') || '0', 10) || 0;
+        const due = THRESHOLDS.find(t => visits >= t && lastNudge < t);
+        if (!due) return;
+        localStorage.setItem('cr-nudge-last', due);
+
+        const toast = document.createElement('div');
+        toast.className = 'bc-nudge';
+        toast.innerHTML =
+            '<button class="bc-nudge-close" type="button" aria-label="Fermer">×</button>' +
+            '<p>🎵 Psst — t’as déjà écouté le dernier titre sur Bandcamp&nbsp;?</p>' +
+            '<a href="https://corhino.bandcamp.com" target="_blank" rel="noopener" class="btn">Écouter →</a>';
+        document.body.appendChild(toast);
+        requestAnimationFrame(() => toast.classList.add('show'));
+
+        const close = () => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 400); };
+        toast.querySelector('.bc-nudge-close').addEventListener('click', close);
+        setTimeout(close, 12000);
+    })();
 
 });

@@ -3,6 +3,37 @@
 > Format : `AAAA-MM-JJ — description concise — branche`. Modifications faites par l'agent, en bullets.
 > Le plus récent en haut.
 
+## 2026-06-22 — Météo : vent en cm/s + sortie de la page de test — `docs/meteo-cms-plan`
+
+- **Vent en cm/s** : `meteo.js` convertit le vent Open-Meteo (km/h) en cm/s (`× 100 / 3.6`), arrondi à 1 décimale sous 100 cm/s, sans décimale au-delà (ex. `21,4 cm/s` vs `153 cm/s`). Plus aucune unité km/h ni Celsius affichée — `&deg;K` uniforme sur les 4 skins (`card`, `mono`, `retro`, `pill`).
+- **Widget sorti de `meteo-test.html`** : skin `card` ajouté sous le compte à rebours de `lancement.html` ; skin `pill` ajouté dans le `<footer>` de `index.html`, `corhino.html`, `ananas.html`, `donations.html`, `mixer.html`, `videos.html`.
+- **Pill retravaillé** : lieu (`Le Bic, QC`) qui avait disparu en cours de route, re-ajouté ; condition `Clear`→`Ensoleillé` en français ; ordre final `Lieu · symbole · condition | °K | vents : cm/s`.
+- **`api/counter.php` durci** : `display_errors`/`error_reporting` coupés pour ne plus jamais laisser fuiter un warning PHP (chemin serveur) dans la réponse JSON.
+- **Bug compteur de visiteurs résolu** : la cause de fond était les permissions NFS (`664` insuffisant — le process PHP tourne sous un autre utilisateur que le SSH ; corrigé par Séb avec `chmod 666 data/counter.txt`). Vérifié en direct sur `ananasday.com` : incrémente bien à chaque visite. `TODO_HUMAIN.md` mis à jour.
+- Plan détaillé : `DOCS/PLAN/2026-06-22 - PLAN - Météo cm-s et intégration.md`.
+
+## 2026-06-21 — Sécurité : data/*.txt exposés en HTTP — `feat/donations`
+
+- **Faille trouvée et corrigée** : `data/counter.txt` (et donc `data/newsletter.txt`) était lisible publiquement via HTTP — vérifié en direct sur `https://ananasday.com/data/counter.txt`, contenu brut retourné. Ajout de `data/.htaccess` bloquant l'accès direct aux `.txt` (les `.json` publics — vidéos, projets, events — restent accessibles, le PHP continue de lire/écrire les `.txt` via le système de fichiers, pas via HTTP). **Action serveur restante** : uploader `data/.htaccess` manuellement sur NFS sans attendre le prochain merge (voir `TODO_HUMAIN.md`).
+
+## 2026-06-21 — Revue vocale (suite 3) — `feat/donations`
+
+- **Bug compteur de visiteurs identifié et corrigé** : testé `https://ananasday.com/api/counter.php` en direct — le PHP plantait sur `file_put_contents()` (« Permission denied » sur `data/counter.txt`) et le warning polluait la réponse JSON, donc le `fetch` côté navigateur échouait silencieusement (affichage figé à `000000`). `api/counter.php` ne laisse plus fuiter ces warnings. **Reste une action serveur côté Séb** : ajuster les permissions NFS (voir `TODO_HUMAIN.md`).
+- **`donation_ai.html`** rendu invisible aux humains : page entièrement noire (texte couleur = fond, éléments décoratifs masqués) ; le texte reste dans le HTML source pour les bots/crawlers IA.
+- **Collecte email démarrée** : nouvel endpoint `api/newsletter.php` (append validé dans `data/newsletter.txt`, même pattern que le compteur) ; `script.js` poste réellement au formulaire au lieu de simuler ; formulaire ajouté sur `lancement.html`.
+- **`deploy.yml`** : exclusion de `data/newsletter.txt` ajoutée (même raison que `data/counter.txt`).
+- **PLAN lancement** : TLS confirmé auto-géré par NFS (rien à faire) ; clarifié que le hostname SSH de l'exemple était un placeholder, pas une vraie valeur à copier ; photo GGRIL Serbie HD acceptée comme non trouvée.
+
+## 2026-06-21 — Revue vocale (suite 2) — `feat/donations`
+
+- **Micro** (accueil) : remplacé par une silhouette SM58/ruban (tête ronde + corps) — l'ancien SVG ressemblait à un micro de bureau « audio in ».
+- **Vidéos** (`data/videos.json`) : « Le GGRIL » remplacé par https://www.youtube.com/watch?v=kmoFRGPlHGg ; thumbnail « Au Phare de Pointe-Métis » récupérée via l'oEmbed officiel Vimeo (plus de vignette vide).
+- **`contact.html`** : handles réels — LinkedIn (`/in/sebcorriveau`), Facebook (`fb.me/CoRhino`), TikTok (`@CoRhino`), Tinder (`@corhino`, texte seul). Retrait des « bientôt ».
+- **404 / 808** (`tr808.js`) : remplacement du bouton DEMO par **3 presets tirés au hasard** au chargement (boom bap 85 BPM, jungle/bouyon 160 BPM, house/techno 120 BPM), sélectionnables manuellement.
+- **Nudge Bandcamp** : toast discret (localStorage, sans cookie) après 3/8/15 visites, lien vers Bandcamp, auto-fermeture 12s.
+- **Plan gamification « niveaux »** proposé dans `DOCS/PLAN/` — **non codé**, en attente de validation humaine (ton, affichage, public/privé).
+- **`DOCS/TODO_HUMAIN.md`** nettoyé : items résolus barrés ; clarifié que `contact@ananasday.com` n'a jamais existé (confirmé par Séb) ; diagnostic du compteur qui ne s'incrémente pas sur `ananasday.com` (déploiement CI pas encore déclenché — rien n'est encore sur `main`).
+
 ## 2026-06-19 — Revue vocale (lot en cours) — `feat/revue-vocale-19juin`
 
 - Mise en place `/DOCS` : déplacement de `/PLAN` → `/DOCS/PLAN`, ajout `CHANGELOG.md` + `TODO_HUMAIN.md`.

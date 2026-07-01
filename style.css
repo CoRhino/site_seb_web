@@ -385,6 +385,27 @@ footer {
 }
 .ni-mark:hover { opacity: .5; }
 
+/* Nudge Bandcamp : toast discret après quelques visites (localStorage, pas de cookie) */
+.bc-nudge {
+    position: fixed; right: var(--md); bottom: var(--md); z-index: 80;
+    max-width: 260px; background: var(--bg2);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius: var(--r); padding: var(--sm) var(--md);
+    box-shadow: 0 8px 24px rgba(0,0,0,.35);
+    font-family: var(--font-mono); font-size: .8rem; color: var(--text);
+    opacity: 0; transform: translateY(12px); transition: opacity .35s, transform .35s;
+    pointer-events: none;
+}
+.bc-nudge.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.bc-nudge p { margin: 0 0 .6rem; line-height: 1.4; }
+.bc-nudge-close {
+    position: absolute; top: .3rem; right: .55rem; background: none; border: none;
+    color: var(--muted); font-size: 1.1rem; line-height: 1; cursor: pointer;
+}
+.bc-nudge-close:hover { color: var(--accent); }
+.bc-nudge .btn { font-size: .72rem; padding: .35rem .7rem; }
+@media (max-width: 480px) { .bc-nudge { left: var(--sm); right: var(--sm); max-width: none; } }
+
 /* ============================================================
    INDEX — Landing page
    ============================================================ */
@@ -516,6 +537,16 @@ footer {
 .newsletter-form input[type="email"]:focus { border-color: var(--accent); }
 .newsletter-form input::placeholder { color: var(--muted); opacity: .7; }
 .newsletter-note { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: .75rem; opacity: .7; }
+
+/* Lecteur single (pré-lancement) */
+.single-player {
+    text-align: center;
+    padding: var(--md) var(--md) var(--lg);
+    max-width: 580px; margin: 0 auto;
+}
+.single-player h2 { color: var(--accent); font-size: 1.4rem; margin-bottom: .4rem; }
+.single-player p { color: var(--muted); font-size: .9rem; margin-bottom: var(--md); }
+.single-player audio { width: 100%; max-width: 420px; accent-color: var(--accent); }
 
 /* ============================================================
    PAGE HERO (corhino, ananas, mixer)
@@ -982,11 +1013,17 @@ footer {
 .tr-play.on { background: #ff5a2c; color: #fff; border-color: #ff5a2c; }
 .tr-tempo { display: flex; align-items: center; gap: .35rem; color: #e2c089; font-size: .72rem; letter-spacing: .05em; }
 .tr-tempo input[type="range"] { width: 90px; accent-color: #ff5a2c; }
+.tr-presets { display: flex; gap: .35rem; margin-left: auto; flex-wrap: wrap; }
+.tr-preset {
+    background: #1a1a1a; color: #7a6a4a; border: 1px solid #555;
+    font-family: inherit; font-size: .62rem; letter-spacing: .03em; padding: .3rem .5rem; border-radius: 3px; cursor: pointer;
+}
+.tr-preset:hover { border-color: #c9a227; color: #c9a227; }
+.tr-preset.active { background: #c9a227; color: #1a1a1a; border-color: #c9a227; }
 .tr-clear {
     background: #1a1a1a; color: #c9a227; border: 1px solid #555;
     font-family: inherit; font-size: .68rem; padding: .3rem .55rem; border-radius: 3px; cursor: pointer;
 }
-.tr-clear:first-of-type { margin-left: auto; }
 .tr-clear:hover { border-color: #ff5a2c; color: #ff5a2c; }
 .tr-grid { display: flex; flex-direction: column; gap: 4px; }
 .tr-row { display: grid; grid-template-columns: 34px repeat(16, 1fr); gap: 3px; align-items: center; }

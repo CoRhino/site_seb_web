@@ -22,7 +22,7 @@ const API   = 'https://api.open-meteo.com/v1/forecast';
 
 /* ---- Codes WMO → symbole + libellé ---- */
 function wmo(code) {
-    if (code === 0)  return { sym: '☀',   fr: 'Dégagé',     en: 'Clear' };
+    if (code === 0)  return { sym: '☀',   fr: 'Ensoleillé', en: 'Clear' };
     if (code <= 2)   return { sym: '⛅',  fr: 'Peu nuageux', en: 'Partly cloudy' };
     if (code === 3)  return { sym: '☁',   fr: 'Couvert',    en: 'Overcast' };
     if (code <= 48)  return { sym: '≈≈',  fr: 'Brouillard', en: 'Fog' };
@@ -39,6 +39,13 @@ function toK(c) {
     return Math.round(parseFloat(c) + 273.15);
 }
 
+/* ---- Vent : km/h -> cm/s (km/h /3.6 = m/s, m/s *100 = cm/s) ----
+   1-2 chiffres (< 100 cm/s) : une décimale. 3 chiffres (>= 100) : entier. */
+function toCmS(kmh) {
+    const cms = parseFloat(kmh) * 100 / 3.6;
+    return cms < 100 ? cms.toFixed(1) : String(Math.round(cms));
+}
+
 /* ---- Fetch ---- */
 async function fetchMeteo() {
     const url = `${API}?latitude=${LAT}&longitude=${LON}` +
@@ -53,6 +60,7 @@ async function fetchMeteo() {
         kelvin:  toK(c.temperature_2m),
         code:    c.weather_code,
         wind:    c.wind_speed_10m,
+        windCmS: toCmS(c.wind_speed_10m),
         icon:    wmo(c.weather_code),
         time:    c.time,
     };
@@ -92,30 +100,31 @@ class MeteoWidget {
             case 'mono':
                 return `<div class="mw mw-mono">
 <div class="mw-hd">// météo · ${PLACE}</div>
-<div class="mw-main"><span class="mw-sym">${sym}</span> <span class="mw-k">${d.kelvin}&nbsp;K</span></div>
+<div class="mw-main"><span class="mw-sym">${sym}</span> <span class="mw-k">${d.kelvin}&nbsp;&deg;K</span></div>
 <div class="mw-row">&raquo; ${cond}</div>
-<div class="mw-row mw-muted">&raquo; vent : ${d.wind}&nbsp;km/h &nbsp;// ${d.celsius}&deg;C</div>
+<div class="mw-row mw-muted">&raquo; vent : ${d.windCmS}&nbsp;cm/s</div>
 </div>`;
 
             /* ---- RETRO — encadré 1998 ---- */
             case 'retro':
                 return `<div class="mw mw-retro">
 <div class="mw-retro-title">MÉTÉO&nbsp;DU&nbsp;BIC</div>
-<div class="mw-main"><span class="mw-sym">${sym}</span><span class="mw-k">${d.kelvin}&nbsp;K</span></div>
+<div class="mw-main"><span class="mw-sym">${sym}</span><span class="mw-k">${d.kelvin}&nbsp;&deg;K</span></div>
 <div class="mw-cond">${cond.toUpperCase()}</div>
-<div class="mw-muted">${d.celsius}&deg;C &nbsp;&middot;&nbsp; ${d.wind}&nbsp;km/h</div>
+<div class="mw-muted">${d.windCmS}&nbsp;cm/s</div>
 <div class="mw-retro-foot">open-meteo.com</div>
 </div>`;
 
             /* ---- PILL — horizontal, inline ---- */
             case 'pill':
                 return `<div class="mw mw-pill">
+<span class="mw-muted">${PLACE}</span>
 <span class="mw-sym">${sym}</span>
-<span class="mw-k">${d.kelvin}&nbsp;K</span>
-<span class="mw-sep">|</span>
 <span class="mw-cond">${cond}</span>
 <span class="mw-sep">|</span>
-<span class="mw-muted">${PLACE}</span>
+<span class="mw-k">${d.kelvin}&nbsp;&deg;K</span>
+<span class="mw-sep">|</span>
+<span class="mw-muted">vents&nbsp;: ${d.windCmS}&nbsp;cm/s</span>
 </div>`;
 
             /* ---- CARD (défaut) ---- */
@@ -123,9 +132,9 @@ class MeteoWidget {
                 return `<div class="mw mw-card">
 <div class="mw-sym">${sym}</div>
 <div class="mw-body">
-  <div class="mw-k">${d.kelvin}&nbsp;K</div>
+  <div class="mw-k">${d.kelvin}&nbsp;&deg;K</div>
   <div class="mw-cond">${cond}</div>
-  <div class="mw-place">${PLACE} <span class="mw-muted">// ${d.celsius}&deg;C &middot; ${d.wind}&nbsp;km/h</span></div>
+  <div class="mw-place">${PLACE} <span class="mw-muted"> &middot; ${d.windCmS}&nbsp;cm/s</span></div>
 </div>
 </div>`;
         }

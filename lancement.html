@@ -8,6 +8,7 @@
     <meta property="og:title"       content="Sébastien CoRhino — Single le 1er juillet">
     <meta property="og:description" content="Le premier single arrive le 1er juillet 2026.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="meteo.css">
     <style>
         /* Page de lancement temporaire (jusqu'au 1er juillet) — autonome, centrée. */
         .lp { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 90px var(--md) var(--lg); }
@@ -41,6 +42,11 @@
         <div class="cd-unit"><span class="cd-num" id="cd-s">--</span><span class="cd-label">secondes</span></div>
     </div>
 
+    <!-- MÉTÉO — ambiance studio, Rimouski/Le Bic -->
+    <div style="margin-bottom:var(--lg);">
+        <div data-meteo data-meteo-skin="card"></div>
+    </div>
+
     <!-- PLACEHOLDER : lorem ipsum allemand (Guter Typ Kanada). À remplacer par Séb. -->
     <p class="lp-lorem">
         <em>Platzhalter:</em> Sehr geehrte Ananasfreunde. Am ersten Juli erscheint die Hymne —
@@ -50,9 +56,20 @@
     </p>
 
     <div class="lp-cta">
-        <a href="https://corhino.bandcamp.com" class="btn" target="_blank" rel="noopener">🎵 Bandcamp</a>
-        <a href="index.html" class="btn btn-ghost">Explorer le site →</a>
+        <!--<a href="https://corhino.bandcamp.com" class="btn" target="_blank" rel="noopener">🎵 Bandcamp</a>
+        <a href="index.html" class="btn btn-ghost">Explorer le site →</a>-->
     </div>
+
+    <!-- INFOLETTRE — collecte démarrée maintenant, en attendant Cyberimpact -->
+    <section class="newsletter fade-in" style="padding-top:0;">
+        <h2>🍍 Être averti·e le jour J</h2>
+        <p>Laisse ton courriel, je t'écris quand le single sort le 1er juillet.</p>
+        <div class="newsletter-form">
+            <input type="email" placeholder="votre@courriel.com" aria-label="Votre courriel">
+            <button class="btn" type="button">M'avertir</button>
+        </div>
+        <p class="newsletter-note">Zéro spam. Désabonnement en un clic.</p>
+    </section>
 
     <!-- Compteur global, visible dès maintenant -->
     <div class="footer-counter">
@@ -80,6 +97,7 @@
 </div>
 
 <script src="script.js"></script>
+<script src="meteo.js"></script>
 <script>
 /* Compte à rebours — inline pour éviter un flash au chargement */
 (function countdown() {

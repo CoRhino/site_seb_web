@@ -15,6 +15,10 @@
             "corhino": "Artist, musician, rapper. Former leader of the Rhinoceros Party of Canada. Now on stage — his real stage.",
             "ananas": "The movement. The invented holiday that deserves to be real. On July 1st, everyone disconnects."
         },
+        "player": {
+            "title": "🎵 Listen to the single — early preview",
+            "desc": "AnanasDay — MP3 version, ahead of the stems landing July 1st."
+        },
         "nl": {
             "title": "🍍 Stay in the loop",
             "desc": "The single drops July 1st. Be the first to hear it.",
@@ -26,7 +30,6 @@
     },
     "nav": {
         "corhino": "Sébastien CoRhino",
-        "ananas": "Ananas Day",
-        "mixer": "🎛 Mixer"
+        "ananas": "Ananas Day"
     }
 }

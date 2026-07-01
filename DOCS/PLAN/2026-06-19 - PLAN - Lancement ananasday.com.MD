@@ -20,7 +20,7 @@
 - Compteur de visiteurs old-school (PHP `api/counter.php` + affichage odomètre, +1 par chargement).
 - Footer « webmaster depuis 1998 · fait main · zéro framework » + badge 88×31.
 - Page `donations.html` refaite (nouveau design) : PayPal + crypto + Bandcamp (adresses « à venir »).
-- Page cachée `donation_ai.html` (easter egg bots IA) — résout les anciens liens cassés.
+- Page cachée `donation_ai.html` (easter egg bots IA) — résout les anciens liens cassés. **Corrigé (2026-06-21)** : page entièrement noire pour un humain (texte couleur = fond), le texte reste dans le HTML source pour les bots/crawlers.
 - **Thème arc-en-ciel** refait : vrai drapeau spectral vertical IR (rouge, haut) → UV (violet, bas), boule radiale UV-centre→IR-bord, titres de section en dégradé.
 - Module **météo du Bic** (Open-Meteo, Kelvin, 4 skins) — `meteo-test.html`, **test seulement, non déployé**.
 - Repo nettoyé : vestiges projet La Puck + ancien design dans `archives/` (hors git, hors déploiement). `AGENT.md` propre.
@@ -30,7 +30,7 @@
 - Lecteur « écoute libre » du single complet sur `ananas.html`/`corhino.html` (≠ mixer de stems).
 - Nudge soutien en `localStorage` (après N visites/écoutes → toast Bandcamp/don). Pas de DB, pas de bannière cookies (stockage fonctionnel = conforme Loi 25/RGPD).
 - Favicon 🍍 + image Open Graph (partage réseaux).
-- Page « Vie privée » courte (Loi 25) — utile dès qu'on collecte des courriels.
+- Page « Vie privée » courte (Loi 25) — **devient urgent** : la collecte de courriels a démarré (2026-06-21, voir §6 ci-dessous).
 - Pages d'erreur comiques 403 / 500 / 418 (bandeau « toutes les erreurs » déjà dans `404.html`, cibles à créer).
 - Brancher l'infolettre (Cyberimpact 🇨🇦 ou MySQL NFS).
 - Liens sociaux dans le footer (§5).
@@ -64,7 +64,7 @@ ssh-keygen -t ed25519 -C "github-deploy-ananasday" -f deploy_key
 Trouver ton nom d'utilisateur SSH NFS (format `membre_sitecourt`, ex. `corhino_ananasday`)
 et le hôte SSH NFS (`ssh.phx.nearlyfreespeech.net`). Puis ajouter la **clé publique** :
 ```bash
-ssh corhino_ananasday@ssh.phx.nearlyfreespeech.net
+ssh xxxxxxxxx_ananasday@ssh.phx.nearlyfreespeech.net
 # une fois connecté :
 mkdir -p ~/.ssh && chmod 700 ~/.ssh
 echo "CONTENU_DE_deploy_key.pub" >> ~/.ssh/authorized_keys
@@ -73,23 +73,33 @@ chmod 600 ~/.ssh/authorized_keys
 (Alternative : panneau membre NFS → Profile → SSH Keys → coller `deploy_key.pub`.)
 
 ### Étape 3 — Récupérer le known_hosts (anti-MITM)
+
+> ⚠️ `ssh.phx.nearlyfreespeech.net` ci-dessus (et à l'étape 2) est un **exemple
+> générique**, pas une vraie valeur à copier-coller. Le vrai nom d'hôte SSH est
+> spécifique à ton compte/site NFS — c'est la même valeur que tu as déjà mise dans
+> le secret `NFS_HOST` (étape 4, marqué DONE). Utilise **cette même valeur exacte**
+> pour le keyscan, pas le texte de l'exemple :
 ```bash
-ssh-keyscan ssh.phx.nearlyfreespeech.net
+ssh-keyscan <valeur-exacte-de-ton-secret-NFS_HOST>
 # copier TOUTES les lignes de sortie → ira dans le secret NFS_KNOWN_HOSTS
 ```
+> Le nom d'hôte SSH exact est visible dans le panneau membre NFS → ton site →
+> onglet **Info** (souvent une variante régionale type `ssh.phx2.nearlyfreespeech.net`,
+> différente du nom du site web lui-même).
 
 ### Étape 4 — Créer les 4 secrets GitHub
 Repo GitHub → **Settings → Secrets and variables → Actions → New repository secret** :
 | Secret | Valeur |
 |---|---|
-| `NFS_SSH_KEY` | tout le contenu de la clé **privée** `deploy_key` (avec `-----BEGIN…END-----`) |
-| `NFS_KNOWN_HOSTS` | la sortie de `ssh-keyscan` (étape 3) |
-| `NFS_USER` | ton user SSH NFS (ex. `corhino_ananasday`) |
-| `NFS_HOST` | `ssh.phx.nearlyfreespeech.net` |
+| `NFS_SSH_KEY` | tout le contenu de la clé **privée** `deploy_key` (avec `-----BEGIN…END-----`) | 
+| `NFS_KNOWN_HOSTS` | la sortie de `ssh-keyscan` (étape 3) | = getaddrinfo ssh.phx.nearlyfreespeech.net: Name does not resolve PROBLEM
+| `NFS_USER` | ton user SSH NFS (ex. `xxxxxxx_ananasday`) | = DONE
+| `NFS_HOST` | `ssh.xxxx.nearlyfreespeech.net` | = DONE
 
-### Étape 5 — Activer TLS + financer le compte NFS
-- Panneau NFS → ton site → **Add TLS/SSL** (Let's Encrypt, gratuit, un clic).
-- Vérifier que le compte NFS a des fonds (stockage + bande passante = quelques sous).
+### Étape 5 — TLS + financer le compte NFS
+- **TLS : rien à faire.** NFS gère maintenant le TLS/SSL automatiquement pour les sites
+  modernes (Let's Encrypt auto-renouvelé) — pas besoin de l'activer toi-même. ✅
+- Vérifier que le compte NFS a des fonds (stockage + bande passante = quelques sous). = DONE
 
 ### Étape 6 — Premier déploiement
 Merger `feat/claude-code-create-website` → `main` puis `push`. L'action tourne et `rsync`
@@ -112,9 +122,9 @@ pousse le site (sauf exclusions) vers `/home/public`. Vérifier https://www.anan
 
 **Liens sociaux à mettre dans le footer** (todo dev) :
 - Instagram : **@CoRhino**
-- Bandcamp : **corhino.bandcamp.com** (remplace l'ancien SoundCloud)
+- Bandcamp : **corhino.bandcamp.com**
 - YouTube : **@CoRhino**
-- ❌ retirer LinkedIn et SoundCloud (ne pas les mettre)
+- ❌ pas de SoundCloud (n'existe pas)
 
 **DNS NFS (déjà configuré, pour mémoire) :**
 - `A` 208.94.117.27 · `AAAA` 2607:ff18:80:4::871f
@@ -132,14 +142,14 @@ pousse le site (sauf exclusions) vers `/home/public`. Vérifier https://www.anan
 
 ## 6. TODO HUMAIN (liste courante)
 
-- [ ] **SSH NFS↔GitHub** : exécuter le §3 (clé + 4 secrets) → débloque le déploiement auto.
-- [ ] **TLS Let's Encrypt** sur NFS + financer le compte.
+- [ ] **SSH NFS↔GitHub** : `NFS_USER`/`NFS_HOST` faits. Reste le `NFS_KNOWN_HOSTS` (étape 3) — le hostname de l'exemple dans ce doc était un placeholder générique, pas une vraie valeur ; relancer `ssh-keyscan` avec le **vrai** hostname (même valeur que ton secret `NFS_HOST`).
+- [x] ~~**TLS Let's Encrypt**~~ — confirmé : NFS gère le TLS automatiquement pour ton site, rien à faire de ton côté. ✅
 - [ ] **Audio** : exporter stems + master du single.
 - [ ] **Relire chaque page** avant le merge final → `main` (vérifier qu'aucun contenu inventé ne reste).
 - [ ] **CV / bio** : ajouter 2024-2026 (le CV s'arrête à 2023-10), valider ce qui est public.
-- [ ] **Vidéo** : retrouver la version FR de la promesse électorale.
-- [ ] **Photo** : version haute résolution du GGRIL en Serbie.
-- [ ] **Email** : configurer le forwarding `contact@ananasday.com` sur NFS.
+- [ ] **Vidéo** : trouver promesse électorale en FR. 
+- [x] ~~**Photo** : version haute résolution du GGRIL en Serbie.~~ — pas trouvée, accepté tel quel (2026-06-21).
+- [x] ~~**Email** : configurer le forwarding `contact@ananasday.com` sur NFS.~~ — **sans objet** : cette adresse n'a jamais existé (invention d'un lot précédent, confirmé par Séb le 2026-06-21). Le site n'affiche plus aucun courriel ; voir `contact.html`.
 - [ ] **Crypto/PayPal** : créer les adresses BTC/ETH + lien PayPal → les coller dans `donations.html` et `donation_ai.html` (code déjà prêt, en commentaire).
 - [ ] **Toiles** : photographier les œuvres pour la future page arts visuels.
 
@@ -149,7 +159,7 @@ pousse le site (sauf exclusions) vers `/home/public`. Vérifier https://www.anan
 
 - Page **arts visuels** : 50+ toiles (rhinocéros, oiseaux, marmotte… style naïf), expo Mont-Joli 2022, peinture en direct avec Armand Vaillancourt (2008).
 - Pages d'erreur comiques 403 / 500 / 418 (humour de programmeur, façon Wikipedia).
-- Infolettre (Cyberimpact ou MySQL NFS).
+- Infolettre (Cyberimpact ou MySQL NFS) — **démarré (2026-06-21)** : collecte simple en place dès maintenant (`api/newsletter.php` → `data/newsletter.txt`, formulaire ajouté sur `lancement.html`). Migration vers Cyberimpact reste à faire plus tard, sans urgence.
 - Analytique sans cookie (GoatCounter / Plausible) si besoin de chiffres.
 - EP automne 2026.
 
