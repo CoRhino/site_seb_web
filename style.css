@@ -538,6 +538,16 @@ footer {
 .newsletter-form input::placeholder { color: var(--muted); opacity: .7; }
 .newsletter-note { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); margin-top: .75rem; opacity: .7; }
 
+/* Lecteur single (pré-lancement) */
+.single-player {
+    text-align: center;
+    padding: var(--md) var(--md) var(--lg);
+    max-width: 580px; margin: 0 auto;
+}
+.single-player h2 { color: var(--accent); font-size: 1.4rem; margin-bottom: .4rem; }
+.single-player p { color: var(--muted); font-size: .9rem; margin-bottom: var(--md); }
+.single-player audio { width: 100%; max-width: 420px; accent-color: var(--accent); }
+
 /* ============================================================
    PAGE HERO (corhino, ananas, mixer)
    ============================================================ */

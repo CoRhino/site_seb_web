@@ -3,6 +3,15 @@
 > Format : `AAAA-MM-JJ — description concise — branche`. Modifications faites par l'agent, en bullets.
 > Le plus récent en haut.
 
+## 2026-06-22 — Météo : vent en cm/s + sortie de la page de test — `docs/meteo-cms-plan`
+
+- **Vent en cm/s** : `meteo.js` convertit le vent Open-Meteo (km/h) en cm/s (`× 100 / 3.6`), arrondi à 1 décimale sous 100 cm/s, sans décimale au-delà (ex. `21,4 cm/s` vs `153 cm/s`). Plus aucune unité km/h ni Celsius affichée — `&deg;K` uniforme sur les 4 skins (`card`, `mono`, `retro`, `pill`).
+- **Widget sorti de `meteo-test.html`** : skin `card` ajouté sous le compte à rebours de `lancement.html` ; skin `pill` ajouté dans le `<footer>` de `index.html`, `corhino.html`, `ananas.html`, `donations.html`, `mixer.html`, `videos.html`.
+- **Pill retravaillé** : lieu (`Le Bic, QC`) qui avait disparu en cours de route, re-ajouté ; condition `Clear`→`Ensoleillé` en français ; ordre final `Lieu · symbole · condition | °K | vents : cm/s`.
+- **`api/counter.php` durci** : `display_errors`/`error_reporting` coupés pour ne plus jamais laisser fuiter un warning PHP (chemin serveur) dans la réponse JSON.
+- **Bug compteur de visiteurs résolu** : la cause de fond était les permissions NFS (`664` insuffisant — le process PHP tourne sous un autre utilisateur que le SSH ; corrigé par Séb avec `chmod 666 data/counter.txt`). Vérifié en direct sur `ananasday.com` : incrémente bien à chaque visite. `TODO_HUMAIN.md` mis à jour.
+- Plan détaillé : `DOCS/PLAN/2026-06-22 - PLAN - Météo cm-s et intégration.md`.
+
 ## 2026-06-21 — Sécurité : data/*.txt exposés en HTTP — `feat/donations`
 
 - **Faille trouvée et corrigée** : `data/counter.txt` (et donc `data/newsletter.txt`) était lisible publiquement via HTTP — vérifié en direct sur `https://ananasday.com/data/counter.txt`, contenu brut retourné. Ajout de `data/.htaccess` bloquant l'accès direct aux `.txt` (les `.json` publics — vidéos, projets, events — restent accessibles, le PHP continue de lire/écrire les `.txt` via le système de fichiers, pas via HTTP). **Action serveur restante** : uploader `data/.htaccess` manuellement sur NFS sans attendre le prochain merge (voir `TODO_HUMAIN.md`).

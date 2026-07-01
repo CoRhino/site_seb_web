@@ -15,6 +15,10 @@
             "corhino": "Artiste, musicien, rappeur. Ancien chef du Parti Rhinocéros. Maintenant sur scène — sa vraie scène.",
             "ananas": "Le mouvement. Le premier jour férié inventé qui mérite d'être réel. Le 1er juillet, tout le monde décroche."
         },
+        "player": {
+            "title": "🎵 Écouter le single en avant-première",
+            "desc": "AnanasDay — version MP3, avant l'arrivée des stems le 1er juillet."
+        },
         "nl": {
             "title": "🍍 Restez dans la boucle",
             "desc": "Le single arrive le 1er juillet. Soyez les premiers à l'entendre.",
@@ -26,7 +30,6 @@
     },
     "nav": {
         "corhino": "Sébastien CoRhino",
-        "ananas": "Ananas Day",
-        "mixer": "🎛 Mixer"
+        "ananas": "Ananas Day"
     }
 }

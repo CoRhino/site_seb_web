@@ -30,10 +30,7 @@
 
 ## Vérifications techniques (Séb)
 
-- [ ] **Compteur sur `ananasday.com` — cause trouvée, 1 action serveur reste.** J'ai testé `https://ananasday.com/api/counter.php` directement : le PHP s'exécute et incrémente bien, **mais** `file_put_contents()` plantait avec *« Permission denied »* en écrivant `data/counter.txt`, et ce warning PHP polluait la réponse JSON — ton navigateur recevait du texte cassé au lieu de `{"n":...}`, donc l'affichage restait figé à `000000`.
-  - **Corrigé côté code** (déjà fait) : `counter.php` ne laisse plus fuiter ces warnings dans la réponse.
-  - **Reste à faire côté serveur (toi)** : la cause de fond est un problème de **permissions NFS**. Sur NFS, le PHP tourne sous un utilisateur différent de ton compte SSH/FTP — il faut donc rendre `data/counter.txt` et `data/newsletter.txt` accessibles en écriture pour ce compte (généralement `chmod 666` sur les fichiers, et `chmod 777` sur le dossier `data/` si un fichier doit être créé). Tu as mis `664` — augmente à `666` (ou plus si NFS l'exige) et reteste `https://ananasday.com/api/counter.php` : tu dois voir uniquement `{"n":...}`, rien d'autre.
-  - Une fois le déploiement déclenché (merge vers `main`, voir `DOCS/PLAN/` §3), il faudra refaire ces permissions car le fichier risque d'être recréé.
+- [x] ~~Compteur sur `ananasday.com`~~ — **résolu (2026-06-22)** : `chmod 666 data/counter.txt` côté Séb (664 ne suffisait pas, PHP tourne sous un autre utilisateur que le SSH/FTP). Incrémente bien à chaque passage, vérifié en direct. **Idem à prévoir pour `data/newsletter.txt`** s'il a le même souci, et à refaire après un merge si le fichier est recréé.
 - [x] ~~Icône micro (SM58)~~ — validée visuellement (silhouette tête ronde + corps).
 
 ## Easter-egg IA (chaîne llm.txt)
