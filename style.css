@@ -981,6 +981,7 @@ footer {
     border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
     border-radius: var(--r); overflow: hidden;
 }
+.vstage-frame.vertical { aspect-ratio: 9 / 16; max-width: 400px; margin: 0 auto; }
 .vstage-frame img, .vstage-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
 .vstage-soon { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); color: var(--muted); font-size: 1rem; }
 .vstage-play {

@@ -70,7 +70,8 @@
                     const poster = v.thumb ? `<img src="${esc(v.thumb)}" alt="${esc(v.title)}">` : '';
                     media = poster + `<button class="vstage-play" type="button" aria-label="Lire ${esc(v.title)}">▶</button>`;
                 }
-                return `<div class="vstage-frame">${media}</div>` +
+                const frameClass = v.vertical ? 'vstage-frame vertical' : 'vstage-frame';
+                return `<div class="${frameClass}">${media}</div>` +
                        `<div class="vstage-meta"><h2>${esc(v.title)}</h2><p>${esc(v.credits)}</p></div>`;
             }
 
