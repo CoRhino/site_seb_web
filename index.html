@@ -75,9 +75,14 @@
         <div class="cd-unit"><span class="cd-num" id="cd-s">--</span><span class="cd-label" data-i18n="index.cd.sec">secondes</span></div>
     </div>
 
-    <p style="font-family:var(--font-mono);font-size:.78rem;color:var(--muted);margin-bottom:2.5rem;">
-        🎵 <span data-i18n="index.hero.single">Single AnanasDay — 1er juillet 2026</span>
-    </p>
+    <!-- LECTEUR SINGLE -->
+    <section class="single-player" id="single-player" aria-labelledby="sp-title">
+        <h2 id="sp-title" data-i18n="index.player.title">🎵 Écoutez le single</h2>
+        <p data-i18n="index.player.desc">Ananas > Canada</p>
+        <audio controls preload="none" src="audio/ananasday-single.mp3">
+            Votre navigateur ne supporte pas la lecture audio. Visitez <a href="https://corhino.bandcamp.com/">corhino.bandcamp.com</a>
+        </audio>
+    </section>
 
     <!-- DEUX PORTES -->
     <div class="portals">
@@ -103,21 +108,11 @@
             <div class="portal-name">Ananas Day</div>
             <!-- À RÉÉCRIRE ✏️ -->
             <p class="portal-desc" data-i18n="index.portal.ananas">
-                Le mouvement. Le premier jour férié inventé qui mérite d'être réel. Le 1er juillet, tout le monde décroche.
+                Le mouvement. Le premier jour férié universel. Le 1er juillet, tout le monde décroche.
             </p>
             <span class="portal-cta" aria-hidden="true">→ Découvrir</span>
         </a>
     </div>
-</section>
-
-<!-- LECTEUR SINGLE -->
-<!-- TODO: déposer le fichier MP3 final à audio/ananasday-single.mp3 avant le lancement. -->
-<section class="single-player fade-in" id="single-player" aria-labelledby="sp-title">
-    <h2 id="sp-title" data-i18n="index.player.title">🎵 Écoutez le single</h2>
-    <p data-i18n="index.player.desc">Ananas > Canada</p>
-    <audio controls preload="none" src="audio/ananasday-single.mp3">
-        Votre navigateur ne supporte pas la lecture audio. Visitez <a href="https://corhino.bandcamp.com/">corhino.bandcamp.com</a>
-    </audio>
 </section>
 
 <!-- INFOLETTRE -->
@@ -147,7 +142,7 @@
     <nav class="footer-social" aria-label="Réseaux sociaux">
         <a href="https://corhino.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
         <a href="https://www.youtube.com/@CoRhino" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/corhino/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/corrhino/" target="_blank" rel="noopener">Instagram</a>
     </nav>
     <!-- À RÉÉCRIRE ✏️ -->
     <p class="footer-copy" data-i18n="index.footer">© 2026 Sébastien CoRhino. Tous droits réservés. Sauf le 1er juillet — ce jour-là, personne ne travaille.</p>
