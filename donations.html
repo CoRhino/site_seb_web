@@ -12,10 +12,11 @@
         /* --- Styles propres à la page Soutien (variables de thème) --- */
         .don-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--md);
             margin-top: var(--lg);
         }
+        @media (max-width: 600px) { .don-grid { grid-template-columns: 1fr; } }
         .don-card {
             background: var(--bg2);
             border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
@@ -179,16 +180,29 @@
 
         <div class="don-grid">
 
+            <!-- PATREON -->
+            <div class="don-card fade-in">
+                <h3>🎗️ Patreon</h3>
+                <p>Abonnement mensuel. Accès aux coulisses, aux démos, aux projets en cours. Le meilleur moyen de suivre l'artiste de près.</p>
+                <a href="https://www.patreon.com/cw/CoRhino" class="btn" target="_blank" rel="noopener">
+                    Rejoindre sur Patreon →
+                </a>
+            </div>
+
+            <!-- BANDCAMP / ACHAT -->
+            <div class="don-card fade-in">
+                <h3>🎵 Acheter la musique</h3>
+                <p>Soutenir directement en achetant le single <em>Ananas > Canada</em> sur Bandcamp.</p>
+                <a href="https://corhino.bandcamp.com" class="btn btn-ghost" target="_blank" rel="noopener">
+                    corhino.bandcamp.com
+                </a>
+            </div>
+
             <!-- PAYPAL -->
             <div class="don-card fade-in">
                 <h3>💳 PayPal</h3>
                 <p>Le moyen le plus simple. Don ponctuel, dans la devise de ton choix.</p>
                 <span class="don-soon">À venir</span>
-                <!-- TODO HUMAIN : remplacer par le vrai bouton/lien PayPal
-                <a href="https://www.paypal.com/paypalme/XXXXXX" class="btn" target="_blank" rel="noopener">
-                    Faire un don PayPal
-                </a>
-                -->
             </div>
 
             <!-- CRYPTO — rendu depuis la config WALLETS (voir script en bas). -->
@@ -196,15 +210,6 @@
                 <h3>🔑 Cryptomonnaies</h3>
                 <p>Pour les amateurs de blockchain. Copie l'adresse ou ouvre directement ton portefeuille.</p>
                 <div id="crypto-wallets"></div>
-            </div>
-
-            <!-- BANDCAMP / ACHAT -->
-            <div class="don-card fade-in">
-                <h3>🎵 Acheter la musique</h3>
-                <p>La meilleure façon de soutenir : acheter le single sur Bandcamp dès sa sortie le 1er juillet.</p>
-                <a href="https://corhino.bandcamp.com" class="btn btn-ghost" target="_blank" rel="noopener">
-                    corhino.bandcamp.com
-                </a>
             </div>
 
         </div>
