@@ -40,8 +40,9 @@
                 banner.appendChild(btn);
             });
 
-            // Par défaut : au hasard
-            select(Math.floor(Math.random() * list.length), false);
+            // Par défaut : la capsule FAB (lancement), sinon au hasard
+            const defaultIndex = list.findIndex(v => v.id === 'capsule-fab');
+            select(defaultIndex >= 0 ? defaultIndex : Math.floor(Math.random() * list.length), false);
 
             function select(i, userClick) {
                 Array.from(banner.children).forEach((c, ci) => {
