@@ -7,21 +7,20 @@
         "hero": {
             "eyebrow": "The first universal international holiday",
             "title": "ANANAS DAY",
-            "subtitle": "<em>July 1st</em>, everyone is off work.<br>Everywhere on Earth. It's official — well, almost.",
-            "single": "AnanasDay Single — July 1st, 2026"
+            "subtitle": "<em>July 1st</em>, everyone takes the day off.<br>Everywhere on Earth. It's official — well, almost."
         },
         "cd": { "days": "days", "hours": "hours", "min": "minutes", "sec": "seconds" },
         "portal": {
             "corhino": "Artist, musician, rapper. Former leader of the Rhinoceros Party of Canada. Now on stage — his real stage.",
-            "ananas": "The movement. The invented holiday that deserves to be real. On July 1st, everyone disconnects."
+            "ananas": "The movement. The first universal holiday. On July 1st, everyone unplugs."
         },
         "player": {
-            "title": "🎵 Listen to the single — early preview",
-            "desc": "AnanasDay — MP3 version, ahead of the stems landing July 1st."
+            "title": "🎵 Listen to the single",
+            "desc": "Ananas > Canada"
         },
         "nl": {
             "title": "🍍 Stay in the loop",
-            "desc": "The single drops July 1st. Be the first to hear it.",
+            "desc": "Ananas > Canada — now available!",
             "placeholder": "your@email.com",
             "btn": "Keep me posted",
             "note": "Zero spam. One-click unsubscribe. Powered by Cyberimpact 🇨🇦"

@@ -7,21 +7,20 @@
         "hero": {
             "eyebrow": "Premier jour férié international universel",
             "title": "ANANAS DAY",
-            "subtitle": "Le <em>1er juillet</em>, tout le monde est en congé.<br>Partout sur Terre. C'est officiel — enfin presque.",
-            "single": "Single AnanasDay — 1er juillet 2026"
+            "subtitle": "Le <em>1er juillet</em>, tout le monde est en congé.<br>Partout sur Terre. C'est officiel — enfin presque."
         },
         "cd": { "days": "jours", "hours": "heures", "min": "minutes", "sec": "secondes" },
         "portal": {
             "corhino": "Artiste, musicien, rappeur. Ancien chef du Parti Rhinocéros. Maintenant sur scène — sa vraie scène.",
-            "ananas": "Le mouvement. Le premier jour férié inventé qui mérite d'être réel. Le 1er juillet, tout le monde décroche."
+            "ananas": "Le mouvement. Le premier jour férié universel. Le 1er juillet, tout le monde décroche."
         },
         "player": {
-            "title": "🎵 Écouter le single en avant-première",
-            "desc": "AnanasDay — version MP3, avant l'arrivée des stems le 1er juillet."
+            "title": "🎵 Écoutez le single",
+            "desc": "Ananas > Canada"
         },
         "nl": {
             "title": "🍍 Restez dans la boucle",
-            "desc": "Le single arrive le 1er juillet. Soyez les premiers à l'entendre.",
+            "desc": "Ananas > Canada maintenant disponible !",
             "placeholder": "votre@courriel.com",
             "btn": "Je veux savoir",
             "note": "Zéro spam. Désabonnement en un clic. Propulsé par Cyberimpact 🇨🇦"

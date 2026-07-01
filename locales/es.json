@@ -1,4 +1,36 @@
 {
+    "index": {
+        "meta": {
+            "title": "Ananas Day — 1 de julio",
+            "desc": "El primer día festivo internacional universal. Sébastien CoRhino. 1 de julio de 2026."
+        },
+        "hero": {
+            "eyebrow": "El primer día festivo internacional universal",
+            "title": "ANANAS DAY",
+            "subtitle": "El <em>1 de julio</em>, todo el mundo tiene el día libre.<br>En todo el planeta. Es oficial — bueno, casi."
+        },
+        "cd": { "days": "días", "hours": "horas", "min": "minutos", "sec": "segundos" },
+        "portal": {
+            "corhino": "Artista, músico, rapero. Exlíder del Partido Rinoceronte de Canadá. Ahora en escena — su verdadera escena.",
+            "ananas": "El movimiento. El primer día festivo universal. El 1 de julio, todo el mundo desconecta."
+        },
+        "player": {
+            "title": "🎵 Escucha el single",
+            "desc": "Ananas > Canada"
+        },
+        "nl": {
+            "title": "🍍 Quédate al tanto",
+            "desc": "¡Ananas > Canada ya disponible!",
+            "placeholder": "tu@correo.com",
+            "btn": "Avísame",
+            "note": "Sin spam. Darse de baja en un clic. Impulsado por Cyberimpact 🇨🇦"
+        },
+        "footer": "© 2026 Sébastien CoRhino. Todos los derechos reservados. Excepto el 1 de julio — ese día, nadie trabaja."
+    },
+    "nav": {
+        "corhino": "Sébastien CoRhino",
+        "ananas": "Ananas Day"
+    },
     "ananas": {
         "meta": {
             "title": "Día de la Piña | Celebración"
