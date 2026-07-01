@@ -12,3 +12,4 @@ archives/
 
 # NOTE : PLAN/ et AGENT.md SONT versionnés (utiles au travail multi-agent)
 #        mais EXCLUS du déploiement public via deploy.yml (rsync --exclude).
+data/newsletter.txt
