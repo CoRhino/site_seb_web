@@ -60,7 +60,7 @@
             }
 
             function stageHtml(v) {
-                const noVid = (v.type === 'youtube' && !v.ytid) || (v.type === 'vimeo' && !v.vimeoid);
+                const noVid = (v.type === 'youtube' && !v.ytid) || (v.type === 'vimeo' && !v.vimeoid) || (v.type === 'facebook' && !v.url);
                 let media;
                 if (v.type === 'image') {
                     media = `<img src="${esc(v.src)}" alt="${esc(v.title)}">`;
@@ -70,13 +70,16 @@
                     const poster = v.thumb ? `<img src="${esc(v.thumb)}" alt="${esc(v.title)}">` : '';
                     media = poster + `<button class="vstage-play" type="button" aria-label="Lire ${esc(v.title)}">▶</button>`;
                 }
-                return `<div class="vstage-frame">${media}</div>` +
+                const frameClass = v.vertical ? 'vstage-frame vertical' : 'vstage-frame';
+                return `<div class="${frameClass}">${media}</div>` +
                        `<div class="vstage-meta"><h2>${esc(v.title)}</h2><p>${esc(v.credits)}</p></div>`;
             }
 
             function loadEmbed(frame, v) {
                 const src = v.type === 'vimeo'
                     ? `https://player.vimeo.com/video/${encodeURIComponent(v.vimeoid)}?autoplay=1&color=F4E800`
+                    : v.type === 'facebook'
+                    ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(v.url)}&show_text=false&autoplay=true`
                     : `https://www.youtube.com/embed/${encodeURIComponent(v.ytid)}?autoplay=1&rel=0`;
                 frame.innerHTML = `<iframe src="${src}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
             }
