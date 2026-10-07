@@ -1,22 +1,22 @@
 {
     "index": {
         "meta": {
-            "title": "Ananas Day — 1er juillet",
-            "desc": "Le premier jour férié international universel. Sébastien CoRhino. 1er juillet 2026."
+            "title": "Ananas &gt; Canada — Sébastien CoRhino",
+            "desc": "Ananas &gt; Canada, le premier single de Sébastien CoRhino. Écoutez maintenant."
         },
         "hero": {
-            "eyebrow": "Premier jour férié international universel",
-            "title": "ANANAS DAY",
-            "subtitle": "Le <em>1er juillet</em>, tout le monde est en congé.<br>Partout sur Terre. C'est officiel — enfin presque."
+            "eyebrow": "Le premier single de Sébastien CoRhino",
+            "title": "ANANAS &gt; CANADA",
+            "cta": "▶ Écoutez maintenant"
         },
-        "cd": { "days": "jours", "hours": "heures", "min": "minutes", "sec": "secondes" },
+        "cd": { "title": "Prochain Ananas Day dans", "days": "jours", "hours": "heures", "min": "minutes", "today": "🍍 C'EST AUJOURD'HUI!" },
         "portal": {
             "corhino": "Artiste, musicien, rappeur. Ancien chef du Parti Rhinocéros. Maintenant sur scène — sa vraie scène.",
             "ananas": "Le mouvement. Le premier jour férié universel. Le 1er juillet, tout le monde décroche."
         },
         "player": {
-            "title": "🎵 Écoutez le single",
-            "desc": "Ananas > Canada"
+            "title": "Ananas &gt; Canada",
+            "desc": "Sébastien CoRhino"
         },
         "nl": {
             "title": "🍍 Restez dans la boucle",
