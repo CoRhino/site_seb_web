@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="index.meta.title">Ananas Day — 1er juillet</title>
-    <meta name="description" data-i18n="index.meta.desc" content="Le premier jour férié international universel. Sébastien CoRhino. 1er juillet 2026.">
-    <meta property="og:title"       content="Ananas Day — 1er juillet">
-    <meta property="og:description" content="Le premier jour férié international. Tout le monde est en congé.">
+    <title data-i18n="index.meta.title">Ananas &gt; Canada — Sébastien CoRhino</title>
+    <meta name="description" data-i18n="index.meta.desc" content="Ananas &gt; Canada, le premier single de Sébastien CoRhino. Écoutez maintenant.">
+    <meta property="og:title"       content="Ananas &gt; Canada — Sébastien CoRhino">
+    <meta property="og:description" content="Le premier single de Sébastien CoRhino. Écoutez maintenant.">
     <meta property="og:url"         content="https://www.ananasday.com">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -58,40 +58,38 @@
 
 <!-- HERO -->
 <section class="hero" aria-labelledby="hero-title">
-    <p class="hero-eyebrow" data-i18n="index.hero.eyebrow">Premier jour férié international universel</p>
+    <p class="hero-eyebrow" data-i18n="index.hero.eyebrow">Le premier single de Sébastien CoRhino</p>
 
-    <h1 class="hero-title" id="hero-title" data-text="ANANAS DAY" data-i18n="index.hero.title">ANANAS DAY</h1>
+    <h1 class="hero-title" id="hero-title" data-text="ANANAS > CANADA" data-i18n="index.hero.title">Ananas &gt; Canada</h1>
 
-    <p class="hero-subtitle" data-i18n="index.hero.subtitle">
-        Le <em>1er juillet</em>, tout le monde est en congé.<br>Partout sur Terre. C'est officiel — enfin presque.
-    </p>
-
-    <!-- COUNTDOWN -->
-    <div class="countdown" id="countdown" aria-label="Compte à rebours">
-        <div class="cd-unit"><span class="cd-num" id="cd-j">--</span><span class="cd-label" data-i18n="index.cd.days">jours</span></div>
-        <span class="cd-sep" aria-hidden="true">:</span>
-        <div class="cd-unit"><span class="cd-num" id="cd-h">--</span><span class="cd-label" data-i18n="index.cd.hours">heures</span></div>
-        <span class="cd-sep" aria-hidden="true">:</span>
-        <div class="cd-unit"><span class="cd-num" id="cd-m">--</span><span class="cd-label" data-i18n="index.cd.min">minutes</span></div>
-        <span class="cd-sep" aria-hidden="true">:</span>
-        <div class="cd-unit"><span class="cd-num" id="cd-s">--</span><span class="cd-label" data-i18n="index.cd.sec">secondes</span></div>
-    </div>
+    <a href="#single-player" class="btn hero-cta" id="listen-now" data-i18n="index.hero.cta">▶ Écoutez maintenant</a>
 
     <!-- LECTEUR SINGLE -->
     <section class="single-player" id="single-player" aria-labelledby="sp-title">
         <div class="sp-inner">
-            <audio class="sp-audio" controls preload="none" src="audio/ananasday-single.mp3">
+            <img class="sp-cover" src="image/pochette-single-small.jpg" alt="Pochette — Ananas &gt; Canada">
+            <audio class="sp-audio" id="sp-audio" controls preload="none" src="audio/ananasday-single.mp3">
                 Votre navigateur ne supporte pas la lecture audio. Visitez <a href="https://corhino.bandcamp.com/">corhino.bandcamp.com</a>
             </audio>
-            <img class="sp-cover" src="image/pochette-single-small.jpg" alt="Pochette — Ananas &gt; Canada">
             <div class="sp-info">
-                <h2 id="sp-title" data-i18n="index.player.title">🎵 Écoutez le single</h2>
-                <p data-i18n="index.player.desc">Ananas > Canada</p>
+                <h2 id="sp-title" data-i18n="index.player.title">Ananas &gt; Canada</h2>
+                <p data-i18n="index.player.desc">Sébastien CoRhino</p>
             </div>
         </div>
     </section>
 
-    <!-- DEUX PORTES -->
+    <!-- COMPTE À REBOURS : prochain Ananas Day (1er juillet, heure du Bic) -->
+    <section class="next-ananas" aria-labelledby="cd-title">
+        <p class="next-ananas-label" id="cd-title" data-i18n="index.cd.title">Prochain Ananas Day dans</p>
+        <div class="countdown" id="countdown" aria-live="off">
+            <div class="cd-unit"><span class="cd-num" id="cd-j">--</span><span class="cd-label" data-i18n="index.cd.days">jours</span></div>
+            <div class="cd-unit"><span class="cd-num" id="cd-h">--</span><span class="cd-label" data-i18n="index.cd.hours">heures</span></div>
+            <div class="cd-unit"><span class="cd-num" id="cd-m">--</span><span class="cd-label" data-i18n="index.cd.min">minutes</span></div>
+            <p class="cd-today" id="cd-today" hidden data-i18n="index.cd.today">🍍 C'EST AUJOURD'HUI!</p>
+        </div>
+    </section>
+
+<!-- DEUX PORTES -->
     <div class="portals">
         <a href="corhino.html" class="portal fade-in">
             <!-- 🦏 retiré (le rhino = passé Parti Rhino, gardé pour plus tard) → micro de scène jaune -->
@@ -195,27 +193,35 @@
 <script src="script.js"></script>
 <script src="meteo.js"></script>
 <script>
-/* Countdown — inline pour éviter un flash au chargement */
+/* Compte à rebours vers le prochain 1er juillet, minuit heure du Bic (Rimouski, America/Toronto = HAE).
+   Le 1er juillet est toujours en heure d'été → UTC-4. Jour J : bandeau de 5 à 8 jours (fixe par année, pour faire « vrai »), puis on vise l'année suivante. */
 (function countdown() {
-    const TARGET = new Date('2026-07-01T00:00:00-04:00');
-    const els    = { j: document.getElementById('cd-j'), h: document.getElementById('cd-h'), m: document.getElementById('cd-m'), s: document.getElementById('cd-s') };
-    const box    = document.getElementById('countdown');
+    const els = { j: document.getElementById('cd-j'), h: document.getElementById('cd-h'), m: document.getElementById('cd-m') };
+    const units = document.querySelectorAll('#countdown .cd-unit');
+    const today = document.getElementById('cd-today');
+    const DAY = 86400000;
+    const ananasDay = (y) => new Date(`${y}-07-01T00:00:00-04:00`);
+    const celebrationDays = (y) => 5 + (y % 4); // 5 à 8 jours, même valeur pour tous les visiteurs
+
+    function nextTarget(now) {
+        let y = new Date(now).getUTCFullYear();
+        // fin de la célébration = ananasDay(y) + celebrationDays ; au-delà on passe à l'année suivante
+        while (ananasDay(y).getTime() + celebrationDays(y) * DAY <= now) y++;
+        return ananasDay(y);
+    }
 
     function tick() {
-        const diff = TARGET - Date.now();
-        if (diff <= 0) {
-            box.innerHTML = '<p style="font-family:var(--font-mono);color:var(--accent);font-size:1.4rem">🍍 C\'EST AUJOURD\'HUI!</p>';
-            return;
+        const now = Date.now();
+        const diff = nextTarget(now) - now;
+        const isToday = diff <= 0;
+        today.hidden = !isToday;
+        units.forEach(u => u.hidden = isToday);
+        if (!isToday) {
+            els.j.textContent = Math.floor(diff / DAY);
+            els.h.textContent = Math.floor(diff % DAY / 3600000);
+            els.m.textContent = Math.floor(diff % 3600000 / 60000);
         }
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor(diff % 86400000 / 3600000);
-        const m = Math.floor(diff % 3600000  / 60000);
-        const s = Math.floor(diff % 60000    / 1000);
-        els.j.textContent = String(d).padStart(2, '0');
-        els.h.textContent = String(h).padStart(2, '0');
-        els.m.textContent = String(m).padStart(2, '0');
-        els.s.textContent = String(s).padStart(2, '0');
-        setTimeout(tick, 1000);
+        setTimeout(tick, 1000 * (60 - new Date().getSeconds()));
     }
     tick();
 })();

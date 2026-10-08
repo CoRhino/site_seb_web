@@ -490,6 +490,16 @@ footer {
 }
 @keyframes blink { 0%,100% { opacity: .4; } 50% { opacity: 0; } }
 
+/* Accueil : bouton « Écoutez maintenant » + compteur du prochain Ananas Day */
+.hero-cta { font-size: 1.15rem; padding: .9rem 2rem; margin-bottom: var(--md); }
+.next-ananas { margin-top: var(--lg); }
+.next-ananas-label {
+    font-family: var(--font-mono); font-size: .8rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: .2em; margin-bottom: var(--sm);
+}
+.cd-today { font-family: var(--font-mono); color: var(--accent); font-size: 1.4rem; }
+.cd-unit[hidden], .cd-today[hidden] { display: none; }
+
 /* Deux portes d'entrée */
 .portals {
     display: grid; grid-template-columns: 1fr 1fr;

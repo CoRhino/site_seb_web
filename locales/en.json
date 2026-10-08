@@ -1,22 +1,22 @@
 {
     "index": {
         "meta": {
-            "title": "Ananas Day — July 1st",
-            "desc": "The first universal international holiday. Sébastien CoRhino. July 1st, 2026."
+            "title": "Ananas &gt; Canada — Sébastien CoRhino",
+            "desc": "Ananas &gt; Canada, the first single by Sébastien CoRhino. Listen now."
         },
         "hero": {
-            "eyebrow": "The first universal international holiday",
-            "title": "ANANAS DAY",
-            "subtitle": "<em>July 1st</em>, everyone takes the day off.<br>Everywhere on Earth. It's official — well, almost."
+            "eyebrow": "The first single by Sébastien CoRhino",
+            "title": "ANANAS &gt; CANADA",
+            "cta": "▶ Listen now"
         },
-        "cd": { "days": "days", "hours": "hours", "min": "minutes", "sec": "seconds" },
+        "cd": { "title": "Next Ananas Day in", "days": "days", "hours": "hours", "min": "minutes", "today": "🍍 IT'S TODAY!" },
         "portal": {
             "corhino": "Artist, musician, rapper. Former leader of the Rhinoceros Party of Canada. Now on stage — his real stage.",
             "ananas": "The movement. The first universal holiday. On July 1st, everyone unplugs."
         },
         "player": {
-            "title": "🎵 Listen to the single",
-            "desc": "Ananas > Canada"
+            "title": "Ananas &gt; Canada",
+            "desc": "Sébastien CoRhino"
         },
         "nl": {
             "title": "🍍 Stay in the loop",
