@@ -194,18 +194,19 @@
 <script src="meteo.js"></script>
 <script>
 /* Compte à rebours vers le prochain 1er juillet, minuit heure du Bic (Rimouski, America/Toronto = HAE).
-   Le 1er juillet est toujours en heure d'été → UTC-4. Jour J : bandeau 24 h, puis on vise l'année suivante. */
+   Le 1er juillet est toujours en heure d'été → UTC-4. Jour J : bandeau de 5 à 8 jours (fixe par année, pour faire « vrai »), puis on vise l'année suivante. */
 (function countdown() {
     const els = { j: document.getElementById('cd-j'), h: document.getElementById('cd-h'), m: document.getElementById('cd-m') };
     const units = document.querySelectorAll('#countdown .cd-unit');
     const today = document.getElementById('cd-today');
     const DAY = 86400000;
     const ananasDay = (y) => new Date(`${y}-07-01T00:00:00-04:00`);
+    const celebrationDays = (y) => 5 + (y % 4); // 5 à 8 jours, même valeur pour tous les visiteurs
 
     function nextTarget(now) {
         let y = new Date(now).getUTCFullYear();
-        // ananasDay(y) + 24 h = fin du jour J ; au-delà on passe à l'année suivante
-        while (ananasDay(y).getTime() + DAY <= now) y++;
+        // fin de la célébration = ananasDay(y) + celebrationDays ; au-delà on passe à l'année suivante
+        while (ananasDay(y).getTime() + celebrationDays(y) * DAY <= now) y++;
         return ananasDay(y);
     }
 
