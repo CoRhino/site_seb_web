@@ -1,8 +1,9 @@
-# Bloque l'accès HTTP direct aux fichiers de données internes (.txt : compteur, courriels).
+# Bloque l'accès HTTP direct aux fichiers de données internes
+# (.txt : compteur, courriels ; .db/.sqlite : stats internes).
 # Les .json restent publics (chargés par le JS du site : videos.js, etc.).
-# Le PHP (api/counter.php, api/newsletter.php) continue de les lire/écrire normalement
-# car il accède au système de fichiers directement, pas via HTTP.
-<FilesMatch "\.txt$">
+# Le PHP (api/counter.php, api/newsletter.php, api/track.php) continue de les lire/écrire
+# normalement car il accède au système de fichiers directement, pas via HTTP.
+<FilesMatch "\.(txt|db|sqlite|sqlite3)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>

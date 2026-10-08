@@ -7,6 +7,30 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --------------------------------------------------------
+    // STATS INTERNES (première partie, aucune donnée envoyée à un tiers)
+    // Stockage : data/analytics.db (SQLite, via api/track.php). Pas de cookie,
+    // identifiant anonyme en localStorage — même posture que le reste du site.
+    // --------------------------------------------------------
+    let crSid = localStorage.getItem('cr-sid');
+    if (!crSid) {
+        crSid = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+        localStorage.setItem('cr-sid', crSid);
+    }
+
+    const pageName = () => (location.pathname.split('/').pop() || 'index.html').replace(/\.html$/, '') || 'index';
+
+    window.crTrack = (event, data = {}) => {
+        const payload = JSON.stringify({ event, page: pageName(), session: crSid, ...data });
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon('/api/track.php', new Blob([payload], { type: 'application/json' }));
+        } else {
+            fetch('/api/track.php', { method: 'POST', body: payload, keepalive: true }).catch(() => {});
+        }
+    };
+
+    window.crTrack('pageview');
+
+    // --------------------------------------------------------
     // THÈME
     // --------------------------------------------------------
     const body = document.body;
@@ -28,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body.classList.add(`theme-${theme}`);
             localStorage.setItem('cr-theme', theme);
             markActive(theme);
+            window.crTrack('theme', { value: theme });
         });
     });
 
@@ -41,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             loadLang(btn.dataset.lang);
+            window.crTrack('lang', { value: btn.dataset.lang });
             closeNav();
         });
     });
@@ -171,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ? `https://player.vimeo.com/video/${vimeoId}?autoplay=1&color=F4E800`
                 : `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`;
             el.innerHTML = `<iframe src="${src}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;"></iframe>`;
+            window.crTrack('click', { value: 'video_open', meta: { yt: ytId || null, vimeo: vimeoId || null } });
         });
     });
 
@@ -221,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.textContent = '🍍 À bientôt!';
                 input.disabled = true;
                 input.style.borderColor = 'var(--accent2)';
+                window.crTrack('click', { value: 'newsletter_signup' });
             } catch (_) {
                 btn.textContent = label;
                 btn.disabled = false;

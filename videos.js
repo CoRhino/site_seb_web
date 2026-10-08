@@ -83,6 +83,7 @@
                     ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(v.url)}&show_text=false&autoplay=true`
                     : `https://www.youtube.com/embed/${encodeURIComponent(v.ytid)}?autoplay=1&rel=0`;
                 frame.innerHTML = `<iframe src="${src}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+                window.crTrack?.('click', { value: 'video_open', meta: { id: v.id || null, type: v.type } });
             }
         })
         .catch(() => {

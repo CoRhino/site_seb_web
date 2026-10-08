@@ -25,6 +25,7 @@ class CoRhinoMixer {
         this.startedAt  = 0;      // ctx.currentTime au moment du play
         this.pausedAt   = 0;      // secondes écoulées au moment du pause
         this.duration   = 0;      // durée max des buffers
+        this._milestones = new Set(); // paliers d'écoute déjà envoyés pour ce passage
         this.lang       = localStorage.getItem('cr-lang') || 'fr';
         this.released   = false;  // true après la date de sortie
     }
@@ -258,6 +259,7 @@ class CoRhinoMixer {
     _stop() {
         this._pause();
         this.pausedAt = 0;
+        this._milestones.clear();
         const t = document.getElementById('mixerTime');
         if (t) t.textContent = '0:00';
     }
@@ -276,7 +278,25 @@ class CoRhinoMixer {
             if (!this.playing) return;
             const s = this.ctx.currentTime - this.startedAt;
             el.textContent = `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+            this._checkListenMilestones(s);
         }, 250);
+    }
+
+    /* ---- STATS D'ÉCOUTE (paliers, une fois par passage) ---- */
+    _checkListenMilestones(s) {
+        if (!this.duration) return;
+        const pct = (s / this.duration) * 100;
+        const hit = (key, reached) => {
+            if (reached && !this._milestones.has(key)) {
+                this._milestones.add(key);
+                window.crTrack?.('track_progress', { value: key });
+            }
+        };
+        hit('10s', s >= 10);
+        hit('25pct', pct >= 25);
+        hit('50pct', pct >= 50);
+        hit('75pct', pct >= 75);
+        hit('100pct', pct >= 100);
     }
 
     /* ---- VU-MÈTRES ---- */

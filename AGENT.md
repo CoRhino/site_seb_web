@@ -44,6 +44,7 @@ et **Ananas Day** (faux jour férié, 1er juillet — date de sortie du single).
 | `locales/*.json` | Traductions i18n (fr/en/es + autres) |
 | `data/events.json` | Timeline (données RÉELLES — voir avertissement) |
 | `api/counter.php` | Compteur de visiteurs global (écrit `data/counter.txt`) |
+| `api/track.php` | Stats internes : pageviews, thèmes, clics, écoute mixer (écrit `data/analytics.db`, SQLite, première partie seulement — voir `DOCS/PLAN/2026-07-01 - PLAN - Stats internes.md`) |
 | `archives/` | Vestiges hors-ligne (ancien design, vieux projet La Puck). **Ignoré par git.** |
 
 ## Conventions
@@ -69,8 +70,10 @@ et **Ananas Day** (faux jour férié, 1er juillet — date de sortie du single).
 
 - **GitHub Actions** (`.github/workflows/deploy.yml`) : `push` sur `main` → `rsync --delete` vers NFS `/home/public`.
 - **Ne sont PAS déployés** (exclus du rsync) : `.git`, `.github/`, `.claude/`, `docs/`, `DOCS/`, `PLAN/`,
-  `archives/`, `AGENT.md`, `README.md`, `meteo-test.html`, `audio/`, `data/counter.txt`.
-- `audio/` et `data/counter.txt` vivent uniquement sur le serveur — `--delete` ne doit jamais les écraser.
+  `archives/`, `AGENT.md`, `README.md`, `meteo-test.html`, `audio/`, `data/counter.txt`,
+  `data/newsletter.txt`, `data/analytics.db`.
+- `audio/`, `data/counter.txt`, `data/newsletter.txt`, `data/analytics.db` vivent uniquement sur le
+  serveur — `--delete` ne doit jamais les écraser.
 - Secrets requis (à configurer par l'humain) : `NFS_SSH_KEY`, `NFS_KNOWN_HOSTS`, `NFS_USER`, `NFS_HOST`.
   Procédure pas-à-pas dans `PLAN/`.
 

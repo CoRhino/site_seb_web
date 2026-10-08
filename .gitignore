@@ -1,5 +1,6 @@
 # Fichiers générés par le serveur — ne pas versionner
 data/counter.txt
+data/analytics.db
 
 # Audio — uploadé directement sur NFS (peut être volumineux)
 audio/

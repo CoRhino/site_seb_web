@@ -36,4 +36,5 @@ jobs:
             --exclude 'audio/' \
             --exclude 'data/counter.txt' \
             --exclude 'data/newsletter.txt' \
+            --exclude 'data/analytics.db' \
             ./ ${{ secrets.NFS_USER }}@${{ secrets.NFS_HOST }}:/home/public/
